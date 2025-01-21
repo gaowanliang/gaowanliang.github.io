@@ -4,8 +4,10 @@
     <title>Series on 高玩梁的博客</title>
     <link>https://gwliang.com/series/</link>
     <description>Recent content in Series on 高玩梁的博客</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <copyright>© 2025 </copyright>
     <atom:link href="https://gwliang.com/series/index.xml" rel="self" type="application/rss+xml" />
+    
   </channel>
 </rss>

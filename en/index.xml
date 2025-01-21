@@ -4,8 +4,10 @@
     <title>Gaowan Liang&#39;s Blog</title>
     <link>https://gwliang.com/en/</link>
     <description>Recent content on Gaowan Liang&#39;s Blog</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2025 </copyright>
     <atom:link href="https://gwliang.com/en/index.xml" rel="self" type="application/rss+xml" />
+    
   </channel>
 </rss>
