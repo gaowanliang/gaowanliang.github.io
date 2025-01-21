@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
+    <title type="text">高玩梁的博客</title>
+    <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
+    <updated>2025-01-21T02:57:08&#43;00:00</updated>
+    <id>https://gaowanliang.com/</id>
+    <link rel="alternate" type="text/html" href="https://gaowanliang.com/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://gaowanliang.com/atom.xml" />
+    <author>
+            <name>reuixiy</name>
+            <uri>https://gaowanliang.com/</uri>
+            
+                <email>reuixiy@gmail.com</email>
+            </author>
+    <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
+    <generator uri="https://gohugo.io/" version="0.141.0">Hugo</generator>
+        <entry>
+            <title type="text">hello world</title>
+            <link rel="alternate" type="text/html" href="https://gaowanliang.com/posts/hello_world/" />
+            <id>https://gaowanliang.com/posts/hello_world/</id>
+            <updated>2025-01-21T02:57:06&#43;00:00</updated>
+            <published>2024-09-10T00:00:00&#43;00:00</published>
+            <author>
+                    <name>reuixiy</name>
+                    <uri>https://io-oi.me/</uri>
+                    <email>reuixiy@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;p&gt;hello world&lt;/p&gt;</summary>
+            
+                <content type="html">&lt;p&gt;hello world&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                
+            
+        </entry>
+    
+</feed>
