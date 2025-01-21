@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>博客 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E5%8D%9A%E5%AE%A2/</link>
+    <description>Recent content in 博客 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Tue, 19 Nov 2019 09:18:16 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>[已过时] 从零开始实现hexo博客的在线编辑</title>
+      <link>https://gwliang.com/posts/implement-hexo-blog-online-editing-from-scratch/</link>
+      <pubDate>Tue, 19 Nov 2019 09:18:16 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/implement-hexo-blog-online-editing-from-scratch/</guid>
+      <description>本教程需要服务器（VPS），Serverless版本正在探索，请大家耐心等待</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/implement-hexo-blog-online-editing-from-scratch/cover.webp" />
+    </item>
+    
+    <item>
+      <title>高大上博客制作教程</title>
+      <link>https://gwliang.com/posts/blog-jiao-cheng/</link>
+      <pubDate>Sat, 05 Oct 2019 20:24:22 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/blog-jiao-cheng/</guid>
+      <description>如何用Hexo搭建一个高大上的博客</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/blog-jiao-cheng/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

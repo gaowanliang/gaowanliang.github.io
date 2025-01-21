@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hexo on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/hexo/</link>
+    <description>Recent content in Hexo on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Sat, 05 Oct 2019 20:24:22 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>高大上博客制作教程</title>
+      <link>https://gwliang.com/posts/blog-jiao-cheng/</link>
+      <pubDate>Sat, 05 Oct 2019 20:24:22 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/blog-jiao-cheng/</guid>
+      <description>如何用Hexo搭建一个高大上的博客</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/blog-jiao-cheng/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

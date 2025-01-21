@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>内网穿透 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+    <description>Recent content in 内网穿透 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Sun, 25 Apr 2021 16:17:23 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ZeroTier-One在Linux搭建moon完整过程</title>
+      <link>https://gwliang.com/posts/zerotier-moon/</link>
+      <pubDate>Sun, 25 Apr 2021 16:17:23 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/zerotier-moon/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;安装配置 ZeroTier 客户端 
+    &lt;div id=&#34;%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-zerotier-%E5%AE%A2%E6%88%B7%E7%AB%AF&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-zerotier-%E5%AE%A2%E6%88%B7%E7%AB%AF&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;执行命令： &lt;code&gt;curl -s https://install.zerotier.com/ | sudo bash&lt;/code&gt;&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/zerotier-moon/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

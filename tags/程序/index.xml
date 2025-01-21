@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>程序 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E7%A8%8B%E5%BA%8F/</link>
+    <description>Recent content in 程序 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Tue, 16 Feb 2021 19:28:25 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E7%A8%8B%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Caddy V2常用命令行语句和Caddyfile配置</title>
+      <link>https://gwliang.com/posts/caddyv2-config/</link>
+      <pubDate>Tue, 16 Feb 2021 19:28:25 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/caddyv2-config/</guid>
+      <description>整理了一些常用的语句和配置，供大家参考</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/caddyv2-config/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

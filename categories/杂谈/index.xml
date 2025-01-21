@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>杂谈 on 高玩梁的博客</title>
+    <link>https://gwliang.com/categories/%E6%9D%82%E8%B0%88/</link>
+    <description>Recent content in 杂谈 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>我不是供应商</title>
+      <link>https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/</guid>
+      <description>这篇文章讨论了软件供应链的概念，以及为什么将自由和开源软件（FOSS）纳入这种定义的尝试是极其错误的。翻译自 &lt;a href=&#34;https://www.softwaremaxims.com/blog/not-a-supplier&#34; target=&#34;_blank&#34;&gt;Software Maxims&lt;/a&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/featured%20%281%29.svg" />
+    </item>
+    
+    <item>
+      <title>PC&#43;手机端丨FC模拟器网页版/魂斗罗/超级玛丽/双截龙等几十款怀旧游戏</title>
+      <link>https://gwliang.com/posts/fcgame/</link>
+      <pubDate>Tue, 25 May 2021 20:16:43 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/fcgame/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://game.gwliang.com&#34; target=&#34;_blank&#34;&gt;FC 模拟器网页版 魂斗罗/超级玛丽/双截龙等几十款怀旧游戏畅玩地址&lt;/a&gt;&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/fcgame/cover.webp" />
+    </item>
+    
+    <item>
+      <title>遇到恶意敲诈，该怎么办？</title>
+      <link>https://gwliang.com/posts/encounter-malicious-blackmail/</link>
+      <pubDate>Wed, 28 Apr 2021 18:39:44 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/encounter-malicious-blackmail/</guid>
+      <description>一些法律小技巧</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/encounter-malicious-blackmail/cover.webp" />
+    </item>
+    
+    <item>
+      <title>苏联政治笑话</title>
+      <link>https://gwliang.com/posts/soviet-jokes/</link>
+      <pubDate>Mon, 24 Feb 2020 16:57:16 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/soviet-jokes/</guid>
+      <description>&lt;p&gt;苏联政治笑话系列是我迄今为止看到的含金量最高，最具幽默感的笑话。经过收集，已知中文网上存在着的苏联在政治笑话大概有 500 则左右。这些笑话大概有两个来源，一是苏联及其他社会主义国家（笑话中较常出现的是民主德国、古巴）人民表达自己愤怒的一些地下文学形式；二是资本主义国家在冷战期间进行意识形态作战采取的一种方式，其中 CIA（美国中央情报局）和美国驻苏联记者应该功不可没。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/soviet-jokes/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

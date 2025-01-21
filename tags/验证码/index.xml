@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>验证码 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/</link>
+    <description>Recent content in 验证码 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Thu, 13 Feb 2020 18:36:51 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>在中国国内使用Google reCAPTCHA 2/3 验证码的方法</title>
+      <link>https://gwliang.com/posts/use-recaptcha-in-china/</link>
+      <pubDate>Thu, 13 Feb 2020 18:36:51 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/use-recaptcha-in-china/</guid>
+      <description>&lt;p&gt;我看版本 2 的有人说了，我简单的说一下版本 3 的使用和集成&lt;/p&gt;
+&lt;p&gt;国内使用 reCAPTCHA 只需要将 &lt;a href=&#34;https://www.google.com&#34; target=&#34;_blank&#34;&gt;www.google.com&lt;/a&gt; 替换成 &lt;a href=&#34;https://www.recaptcha.net&#34; target=&#34;_blank&#34;&gt;www.recaptcha.net&lt;/a&gt;，即可在国内使用 recaptcha 的服务。
+如 &lt;a href=&#34;https://www.google.com/recaptcha/api.js&#34; target=&#34;_blank&#34;&gt;https://www.google.com/recaptcha/api.js&lt;/a&gt; 替换成 &lt;a href=&#34;https://www.recaptcha.net/recaptcha/api.js&#34; target=&#34;_blank&#34;&gt;https://www.recaptcha.net/recaptcha/api.js&lt;/a&gt;，https://www.google.com/recaptcha/api/siteverify 替换成 &lt;a href=&#34;https://www.recaptcha.net/recaptcha/api/siteverify&#34; target=&#34;_blank&#34;&gt;https://www.recaptcha.net/recaptcha/api/siteverify&lt;/a&gt;。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/use-recaptcha-in-china/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

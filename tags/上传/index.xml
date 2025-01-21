@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>上传 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E4%B8%8A%E4%BC%A0/</link>
+    <description>Recent content in 上传 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Thu, 29 Apr 2021 16:40:07 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E4%B8%8A%E4%BC%A0/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LightUploader，一个轻量化的网盘上传工具，支持OneDrive国际/个人/家庭版、世纪互联、Google Drive</title>
+      <link>https://gwliang.com/posts/lightuploader-use/</link>
+      <pubDate>Thu, 29 Apr 2021 16:40:07 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/lightuploader-use/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;更新
+【2021.04.29】
+目前支持世纪互联、Google Drive，预计后期会添加对Mega，Telegram等平台的支持
+
+【2021.04.02】
+目前同时支持国际版、个人版(家庭版)。
+
+【2021.04.01】
+修复授权失败、上传文件大小为0等问题。
+现已支持arm、x86、x64平台的系统。
+
+【2021.03.27】
+新增多线程上传、MacOS客户端。
+修复了一个致命bug，建议之前装过的更新下程序。
+
+功能
+
+支持上传文件和文件夹到指定目录，并保持上传前的目录结构。
+支持命令参数使用，方便外部程序调用。
+支持自定义上传分块大小。
+支持多线程上传(多文件同时上传)。
+支持根据文件大小动态调整重试次数，对抗不好的网络环境。
+可以使用Telegram Bot实时监控上传进度
+Github地址：https://github.com/gaowanliang/LightUploader
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;萌咖大佬写了一个 &lt;a href=&#34;https://github.com/MoeClub/OneList/tree/master/OneDriveUploader&#34; target=&#34;_blank&#34;&gt;非常好的版本&lt;/a&gt; ，可惜并没有开源，而且已经好久都没有更新了。这个项目作为从 &lt;a href=&#34;https://github.com/gaowanliang/DownloadBot&#34; target=&#34;_blank&#34;&gt;DownloadBot&lt;/a&gt; 中独立出来的一个简易上传工具，旨在用更轻量化的方式让在各种平台都能快速的向各个网络硬盘上传数据。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/lightuploader-use/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

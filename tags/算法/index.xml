@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Thu, 25 May 2023 11:47:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>二进制算法中的进位(CARRY)标志和溢出(OVERFLOW)标志</title>
+      <link>https://gwliang.com/posts/er-jin-zhi-suan-fa-zhong-de-jin-wei-he-yi-chu/</link>
+      <pubDate>Thu, 25 May 2023 11:47:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/er-jin-zhi-suan-fa-zhong-de-jin-wei-he-yi-chu/</guid>
+      <description>本文讨论了在二进制算法中的进位(CARRY)标志和溢出(OVERFLOW)标志的区别</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/er-jin-zhi-suan-fa-zhong-de-jin-wei-he-yi-chu/cover.webp" />
+    </item>
+    
+    <item>
+      <title>B站2019秋招编程题</title>
+      <link>https://gwliang.com/posts/2019bilibili/</link>
+      <pubDate>Wed, 23 Oct 2019 20:21:53 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/2019bilibili/</guid>
+      <description>B站在牛客网上发了一套自己秋招的编程题，恰好今年被老师忽悠着去再参加一次蓝桥杯，所以给大家解析下。</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/2019bilibili/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

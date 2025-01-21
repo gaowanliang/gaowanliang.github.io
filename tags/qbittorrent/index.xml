@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qbittorrent on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/qbittorrent/</link>
+    <description>Recent content in Qbittorrent on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Mon, 15 Feb 2021 19:23:41 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/qbittorrent/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Debian/Ubuntu VPS 安装最新版 qbittorrent</title>
+      <link>https://gwliang.com/posts/qbittorrent-install/</link>
+      <pubDate>Mon, 15 Feb 2021 19:23:41 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/qbittorrent-install/</guid>
+      <description>使用 qbittorrent-nox-static 二进制文件安装</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/qbittorrent-install/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

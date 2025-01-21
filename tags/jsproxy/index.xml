@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jsproxy on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/jsproxy/</link>
+    <description>Recent content in Jsproxy on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Mon, 04 Nov 2019 20:54:38 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/jsproxy/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cloudflare Worker &#43; jsproxy实现浏览器代理</title>
+      <link>https://gwliang.com/posts/cloudflare_worker_jsproxy/</link>
+      <pubDate>Mon, 04 Nov 2019 20:54:38 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/cloudflare_worker_jsproxy/</guid>
+      <description>CloudFlare 提供了一项很好用的服务 Worker，可以用来实现前端代理功能，jsproxy 是一个基于 Worker 的前端代理工具，可以实现浏览器代理访问其他网站。</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/cloudflare_worker_jsproxy/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

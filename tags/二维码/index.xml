@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>二维码 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/</link>
+    <description>Recent content in 二维码 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Wed, 03 Mar 2021 15:52:21 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Python 命令行输出二维码</title>
+      <link>https://gwliang.com/posts/terminal-qrcode/</link>
+      <pubDate>Wed, 03 Mar 2021 15:52:21 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/terminal-qrcode/</guid>
+      <description>&lt;p&gt;为了方便信息处理，有的时候需要在 ssh 终端等纯命令行的情况下输出一个二维码的图片，虽然 Linux 可以使用&lt;code&gt;qrencode&lt;/code&gt;模块，但是这个东西始终不适合软件集成，所以我通过多方查找和修改，做出了下面的代码，非常简单，可以直接集成到 python 中使用。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/terminal-qrcode/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

@@ -6,17 +6,523 @@
     <description>Recent content in Posts on 高玩梁的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>© 2025 </copyright>
-    <lastBuildDate>Tue, 10 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>hello world</title>
-      <link>https://gwliang.com/posts/hello_world/</link>
-      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
+      <title>我不是供应商</title>
+      <link>https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://gwliang.com/posts/hello_world/</guid>
-      <description></description>
+      <guid>https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/</guid>
+      <description>这篇文章讨论了软件供应链的概念，以及为什么将自由和开源软件（FOSS）纳入这种定义的尝试是极其错误的。翻译自 &lt;a href=&#34;https://www.softwaremaxims.com/blog/not-a-supplier&#34; target=&#34;_blank&#34;&gt;Software Maxims&lt;/a&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/featured%20%281%29.svg" />
+    </item>
+    
+    <item>
+      <title>二进制算法中的进位(CARRY)标志和溢出(OVERFLOW)标志</title>
+      <link>https://gwliang.com/posts/er-jin-zhi-suan-fa-zhong-de-jin-wei-he-yi-chu/</link>
+      <pubDate>Thu, 25 May 2023 11:47:00 +0000</pubDate>
       
+      <guid>https://gwliang.com/posts/er-jin-zhi-suan-fa-zhong-de-jin-wei-he-yi-chu/</guid>
+      <description>本文讨论了在二进制算法中的进位(CARRY)标志和溢出(OVERFLOW)标志的区别</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/er-jin-zhi-suan-fa-zhong-de-jin-wei-he-yi-chu/cover.webp" />
+    </item>
+    
+    <item>
+      <title>后端开发人员面试问题</title>
+      <link>https://gwliang.com/posts/back-end-developer-interview-questions/</link>
+      <pubDate>Wed, 30 Jun 2021 10:30:13 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/back-end-developer-interview-questions/</guid>
+      <description>看到GitHub上有人整理了一份后端开发人员面试问题，我觉得挺好的，就翻译过来了</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/back-end-developer-interview-questions/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Wolfram 高等数学输入方法大全</title>
+      <link>https://gwliang.com/posts/wolfram-advanced-mathematics/</link>
+      <pubDate>Fri, 28 May 2021 10:48:20 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/wolfram-advanced-mathematics/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;求极限 
+    &lt;div id=&#34;%E6%B1%82%E6%9E%81%E9%99%90&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%B1%82%E6%9E%81%E9%99%90&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;普通极限 
+    &lt;div id=&#34;%E6%99%AE%E9%80%9A%E6%9E%81%E9%99%90&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%99%AE%E9%80%9A%E6%9E%81%E9%99%90&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;lim sin2x/(e^x-1), x-&amp;gt;0&lt;/code&gt;&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/wolfram-advanced-mathematics/cover.webp" />
+    </item>
+    
+    <item>
+      <title>PC&#43;手机端丨FC模拟器网页版/魂斗罗/超级玛丽/双截龙等几十款怀旧游戏</title>
+      <link>https://gwliang.com/posts/fcgame/</link>
+      <pubDate>Tue, 25 May 2021 20:16:43 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/fcgame/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://game.gwliang.com&#34; target=&#34;_blank&#34;&gt;FC 模拟器网页版 魂斗罗/超级玛丽/双截龙等几十款怀旧游戏畅玩地址&lt;/a&gt;&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/fcgame/cover.webp" />
+    </item>
+    
+    <item>
+      <title>在纯命令行环境下批量下载OneDrive/SharePoint分享链接中的文件</title>
+      <link>https://gwliang.com/posts/onedrive-download/</link>
+      <pubDate>Sat, 08 May 2021 09:13:31 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/onedrive-download/</guid>
+      <description>&lt;p&gt;前一段时间我发了一篇文章，是关于&lt;a href=&#34;https://gwliang.com/2020/05/26/linux-control-download-onedrive-files/&#34; target=&#34;_blank&#34;&gt;Linux 命令行下载 OneDrive 分享链接中的文件&lt;/a&gt;的，这篇文章其实解决了一些痛点，在没有图形化界面的 Linux 上终于可以无痛下载 OneDrive 分享的文件而不是只能在有图形化界面的系统上用浏览器下载。但是虽然解决了一些痛点，但是还没彻底解决，还有一些痛点如下&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/onedrive-download/cover.webp" />
+    </item>
+    
+    <item>
+      <title>LightUploader，一个轻量化的网盘上传工具，支持OneDrive国际/个人/家庭版、世纪互联、Google Drive</title>
+      <link>https://gwliang.com/posts/lightuploader-use/</link>
+      <pubDate>Thu, 29 Apr 2021 16:40:07 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/lightuploader-use/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;更新
+【2021.04.29】
+目前支持世纪互联、Google Drive，预计后期会添加对Mega，Telegram等平台的支持
+
+【2021.04.02】
+目前同时支持国际版、个人版(家庭版)。
+
+【2021.04.01】
+修复授权失败、上传文件大小为0等问题。
+现已支持arm、x86、x64平台的系统。
+
+【2021.03.27】
+新增多线程上传、MacOS客户端。
+修复了一个致命bug，建议之前装过的更新下程序。
+
+功能
+
+支持上传文件和文件夹到指定目录，并保持上传前的目录结构。
+支持命令参数使用，方便外部程序调用。
+支持自定义上传分块大小。
+支持多线程上传(多文件同时上传)。
+支持根据文件大小动态调整重试次数，对抗不好的网络环境。
+可以使用Telegram Bot实时监控上传进度
+Github地址：https://github.com/gaowanliang/LightUploader
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;萌咖大佬写了一个 &lt;a href=&#34;https://github.com/MoeClub/OneList/tree/master/OneDriveUploader&#34; target=&#34;_blank&#34;&gt;非常好的版本&lt;/a&gt; ，可惜并没有开源，而且已经好久都没有更新了。这个项目作为从 &lt;a href=&#34;https://github.com/gaowanliang/DownloadBot&#34; target=&#34;_blank&#34;&gt;DownloadBot&lt;/a&gt; 中独立出来的一个简易上传工具，旨在用更轻量化的方式让在各种平台都能快速的向各个网络硬盘上传数据。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/lightuploader-use/cover.webp" />
+    </item>
+    
+    <item>
+      <title>遇到恶意敲诈，该怎么办？</title>
+      <link>https://gwliang.com/posts/encounter-malicious-blackmail/</link>
+      <pubDate>Wed, 28 Apr 2021 18:39:44 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/encounter-malicious-blackmail/</guid>
+      <description>一些法律小技巧</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/encounter-malicious-blackmail/cover.webp" />
+    </item>
+    
+    <item>
+      <title>ZeroTier-One在Linux搭建moon完整过程</title>
+      <link>https://gwliang.com/posts/zerotier-moon/</link>
+      <pubDate>Sun, 25 Apr 2021 16:17:23 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/zerotier-moon/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;安装配置 ZeroTier 客户端 
+    &lt;div id=&#34;%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-zerotier-%E5%AE%A2%E6%88%B7%E7%AB%AF&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-zerotier-%E5%AE%A2%E6%88%B7%E7%AB%AF&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;执行命令： &lt;code&gt;curl -s https://install.zerotier.com/ | sudo bash&lt;/code&gt;&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/zerotier-moon/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Python 命令行输出二维码</title>
+      <link>https://gwliang.com/posts/terminal-qrcode/</link>
+      <pubDate>Wed, 03 Mar 2021 15:52:21 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/terminal-qrcode/</guid>
+      <description>&lt;p&gt;为了方便信息处理，有的时候需要在 ssh 终端等纯命令行的情况下输出一个二维码的图片，虽然 Linux 可以使用&lt;code&gt;qrencode&lt;/code&gt;模块，但是这个东西始终不适合软件集成，所以我通过多方查找和修改，做出了下面的代码，非常简单，可以直接集成到 python 中使用。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/terminal-qrcode/cover.webp" />
+    </item>
+    
+    <item>
+      <title>使用wget和caddy等简单快速的转移服务器之间的文件</title>
+      <link>https://gwliang.com/posts/file-trans-wget/</link>
+      <pubDate>Tue, 23 Feb 2021 00:01:03 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/file-trans-wget/</guid>
+      <description>&lt;p&gt;主要命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;XXX.XX {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    root * /home/xxx
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;    file_server browse
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;}&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /usr/local/caddy/Caddyfile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget -r -np -nH -R index.html -L -N --no-use-server-timestamps https://XXX.XX
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以搭配 cloudflare 加速转移&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/file-trans-wget/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Caddy V2常用命令行语句和Caddyfile配置</title>
+      <link>https://gwliang.com/posts/caddyv2-config/</link>
+      <pubDate>Tue, 16 Feb 2021 19:28:25 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/caddyv2-config/</guid>
+      <description>整理了一些常用的语句和配置，供大家参考</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/caddyv2-config/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Debian/Ubuntu VPS 安装最新版 qbittorrent</title>
+      <link>https://gwliang.com/posts/qbittorrent-install/</link>
+      <pubDate>Mon, 15 Feb 2021 19:23:41 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/qbittorrent-install/</guid>
+      <description>使用 qbittorrent-nox-static 二进制文件安装</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/qbittorrent-install/cover.webp" />
+    </item>
+    
+    <item>
+      <title>在Debian/Ubuntu上使用rclone挂载Google Drive网盘</title>
+      <link>https://gwliang.com/posts/rclone-mount-gd/</link>
+      <pubDate>Wed, 02 Dec 2020 10:56:07 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/rclone-mount-gd/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;安装 
+    &lt;div id=&#34;%E5%AE%89%E8%A3%85&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E5%AE%89%E8%A3%85&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;安装 rclone 
+    &lt;div id=&#34;%E5%AE%89%E8%A3%85-rclone&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E5%AE%89%E8%A3%85-rclone&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://gwliang.com/rclone_debian.sh &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash rclone_debian.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;获取 API 
+    &lt;div id=&#34;%E8%8E%B7%E5%8F%96-api&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E8%8E%B7%E5%8F%96-api&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;首先获取谷歌 API 凭据，先启用 Google Drive API，启用地址：&lt;a href=&#34;https://console.developers.google.com/apis/api/drive.googleapis.com/overview&#34; target=&#34;_blank&#34;&gt;【点击进入】&lt;/a&gt;。
+&lt;a href=&#34;https://imgchr.com/i/DI17wj&#34; target=&#34;_blank&#34;&gt;
+  &lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://s3.ax1x.com/2020/12/02/DI17wj.png&#34; alt=&#34;DI17wj.png&#34; /&gt;
+    
+  &lt;/figure&gt;
+&lt;/a&gt;
+再创建一个&lt;code&gt;OAuth client ID&lt;/code&gt;，创建地址：&lt;a href=&#34;https://console.developers.google.com/apis/credentials/oauthclient&#34; target=&#34;_blank&#34;&gt;【点击进入】&lt;/a&gt;。应用类型选择&lt;code&gt;桌面程序&lt;/code&gt;，名称自己填，这里博主我就保持默认。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/rclone-mount-gd/cover.webp" />
+    </item>
+    
+    <item>
+      <title>如何优雅的批量重命名文件</title>
+      <link>https://gwliang.com/posts/batch-rename-file/</link>
+      <pubDate>Sun, 22 Nov 2020 12:53:47 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/batch-rename-file/</guid>
+      <description>批量重命名挺麻烦的，所以我顺手整理了一下有哪些好方法可以批量重命名的</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/batch-rename-file/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Caddy 2 快速简单安装配置教程</title>
+      <link>https://gwliang.com/posts/caddy2-install/</link>
+      <pubDate>Tue, 10 Nov 2020 17:53:10 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/caddy2-install/</guid>
+      <description>Caddy 2 是一个简单易用的 Web 服务器，支持 HTTP/2、自动 HTTPS、虚拟主机、反向代理、静态文件服务、目录列表等功能。</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/caddy2-install/cover.webp" />
+    </item>
+    
+    <item>
+      <title>在Debian/Ubuntu上使用rclone挂载Google Drive网盘</title>
+      <link>https://gwliang.com/posts/mount-gd-for-rclone/</link>
+      <pubDate>Fri, 24 Jul 2020 15:10:28 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/mount-gd-for-rclone/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;说明 
+    &lt;div id=&#34;%E8%AF%B4%E6%98%8E&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E8%AF%B4%E6%98%8E&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;本教程只适用 Debian/Ubuntu 系统，如果你是 CentOS 或者其它 Linux 系统，请使用以下命令安装 rclone：&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/mount-gd-for-rclone/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Linux命令行下载OneDrive分享链接中的文件</title>
+      <link>https://gwliang.com/posts/linux-control-download-onedrive-files/</link>
+      <pubDate>Tue, 26 May 2020 22:24:24 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/linux-control-download-onedrive-files/</guid>
+      <description>&lt;p&gt;我所知的某个游戏分享站喜欢用 OneDrive 来分享游戏，用 OneDrive 很好，抵制百度网盘我强烈支持，但是 OneDrive 国内有时候抽风比较厉害，而在国外 OneDrive 下载几乎能跑满带宽，我 G 口的服务器可以跑到 110M/s，所以用国外服务器下载，然后再下载自己服务器里的东西会比较好。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/linux-control-download-onedrive-files/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Debian系统安装Swap虚拟内存设置</title>
+      <link>https://gwliang.com/posts/set-swap/</link>
+      <pubDate>Sat, 16 May 2020 20:31:37 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/set-swap/</guid>
+      <description>&lt;p&gt;我玩的服务器大多数内存比较小，有的时候执行一些任务会搞得 out of memory ，这个时候就需要设置虚拟内存，最好的方法就是用萌鼠大佬的一键脚本。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/set-swap/cover.webp" />
+    </item>
+    
+    <item>
+      <title>[已过时] 免费开源的bitwarden_rs自建密码管理系统-安装,使用和备份教程</title>
+      <link>https://gwliang.com/posts/bitwarden-install/</link>
+      <pubDate>Mon, 04 May 2020 10:06:40 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/bitwarden-install/</guid>
+      <description>[已过时] 通过简单的几个步骤，轻松的搭建一个密码管理平台</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/bitwarden-install/cover.webp" />
+    </item>
+    
+    <item>
+      <title>B站批量删除抽奖动态脚本</title>
+      <link>https://gwliang.com/posts/bilibili-del-luck-draw-dynamic/</link>
+      <pubDate>Thu, 12 Mar 2020 00:25:44 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/bilibili-del-luck-draw-dynamic/</guid>
+      <description>B站批量删除抽奖动态脚本</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/bilibili-del-luck-draw-dynamic/cover.webp" />
+    </item>
+    
+    <item>
+      <title>[已过时] 说说一键自动批量删除脚本</title>
+      <link>https://gwliang.com/posts/shuoshuo-script/</link>
+      <pubDate>Tue, 10 Mar 2020 11:55:40 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/shuoshuo-script/</guid>
+      <description>&lt;p&gt;详细使用教程请见：https://www.bilibili.com/video/av95148891/&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/shuoshuo-script/cover.webp" />
+    </item>
+    
+    <item>
+      <title>苏联政治笑话</title>
+      <link>https://gwliang.com/posts/soviet-jokes/</link>
+      <pubDate>Mon, 24 Feb 2020 16:57:16 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/soviet-jokes/</guid>
+      <description>&lt;p&gt;苏联政治笑话系列是我迄今为止看到的含金量最高，最具幽默感的笑话。经过收集，已知中文网上存在着的苏联在政治笑话大概有 500 则左右。这些笑话大概有两个来源，一是苏联及其他社会主义国家（笑话中较常出现的是民主德国、古巴）人民表达自己愤怒的一些地下文学形式；二是资本主义国家在冷战期间进行意识形态作战采取的一种方式，其中 CIA（美国中央情报局）和美国驻苏联记者应该功不可没。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/soviet-jokes/cover.webp" />
+    </item>
+    
+    <item>
+      <title>使用简单方法解决SNI阻断问题</title>
+      <link>https://gwliang.com/posts/remove-sni-block/</link>
+      <pubDate>Fri, 21 Feb 2020 15:58:33 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/remove-sni-block/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;SNI 阻断技术简单介绍 
+    &lt;div id=&#34;sni-%E9%98%BB%E6%96%AD%E6%8A%80%E6%9C%AF%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#sni-%E9%98%BB%E6%96%AD%E6%8A%80%E6%9C%AF%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;TLS 是一个伟大的技术，它确保了网络传输的内容不被中间人篡改。现在越来越多的网站正在使用 HTTPS（即 HTTP over TLS）来保护网页内容。与此同时，TLS 设计中的一个缺陷，却使得阻断 TLS 连接变得可控。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/remove-sni-block/cover.webp" />
+    </item>
+    
+    <item>
+      <title>在中国国内使用Google reCAPTCHA 2/3 验证码的方法</title>
+      <link>https://gwliang.com/posts/use-recaptcha-in-china/</link>
+      <pubDate>Thu, 13 Feb 2020 18:36:51 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/use-recaptcha-in-china/</guid>
+      <description>&lt;p&gt;我看版本 2 的有人说了，我简单的说一下版本 3 的使用和集成&lt;/p&gt;
+&lt;p&gt;国内使用 reCAPTCHA 只需要将 &lt;a href=&#34;https://www.google.com&#34; target=&#34;_blank&#34;&gt;www.google.com&lt;/a&gt; 替换成 &lt;a href=&#34;https://www.recaptcha.net&#34; target=&#34;_blank&#34;&gt;www.recaptcha.net&lt;/a&gt;，即可在国内使用 recaptcha 的服务。
+如 &lt;a href=&#34;https://www.google.com/recaptcha/api.js&#34; target=&#34;_blank&#34;&gt;https://www.google.com/recaptcha/api.js&lt;/a&gt; 替换成 &lt;a href=&#34;https://www.recaptcha.net/recaptcha/api.js&#34; target=&#34;_blank&#34;&gt;https://www.recaptcha.net/recaptcha/api.js&lt;/a&gt;，https://www.google.com/recaptcha/api/siteverify 替换成 &lt;a href=&#34;https://www.recaptcha.net/recaptcha/api/siteverify&#34; target=&#34;_blank&#34;&gt;https://www.recaptcha.net/recaptcha/api/siteverify&lt;/a&gt;。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/use-recaptcha-in-china/cover.webp" />
+    </item>
+    
+    <item>
+      <title>[已过时] 查看你在B站注册的时间</title>
+      <link>https://gwliang.com/posts/view-regtime-of-bilibili/</link>
+      <pubDate>Wed, 12 Feb 2020 11:01:24 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/view-regtime-of-bilibili/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;查看你在 B 站注册的时间 
+    &lt;div id=&#34;%E6%9F%A5%E7%9C%8B%E4%BD%A0%E5%9C%A8-b-%E7%AB%99%E6%B3%A8%E5%86%8C%E7%9A%84%E6%97%B6%E9%97%B4&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%9F%A5%E7%9C%8B%E4%BD%A0%E5%9C%A8-b-%E7%AB%99%E6%B3%A8%E5%86%8C%E7%9A%84%E6%97%B6%E9%97%B4&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;请按步骤操作&lt;/strong&gt;&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/view-regtime-of-bilibili/cover.webp" />
+    </item>
+    
+    <item>
+      <title>使用 acme.sh 申请 Let&#39;s Encrypt 泛域名SSL证书详细教程</title>
+      <link>https://gwliang.com/posts/acme-le-wc/</link>
+      <pubDate>Tue, 04 Feb 2020 20:08:11 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/acme-le-wc/</guid>
+      <description>acme.sh是一个实现了acme协议的脚本，可以从Let&amp;rsquo;s Encrypt生成免费的SSL证书</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/acme-le-wc/cover.webp" />
+    </item>
+    
+    <item>
+      <title>【已过时】 一个极简的HTTP Server： Caddy一键安装脚本，带网站配置教程</title>
+      <link>https://gwliang.com/posts/caddy-install/</link>
+      <pubDate>Mon, 27 Jan 2020 14:05:27 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/caddy-install/</guid>
+      <description>【已过时】 使用Caddy搭建一个极简的HTTP Server</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/caddy-install/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Wi-Fi 等无线网络安全审计方法</title>
+      <link>https://gwliang.com/posts/wifi-cracking/</link>
+      <pubDate>Fri, 24 Jan 2020 17:49:59 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/wifi-cracking/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;Wi-Fi 破解 
+    &lt;div id=&#34;wi-fi-%E7%A0%B4%E8%A7%A3&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#wi-fi-%E7%A0%B4%E8%A7%A3&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;利用 Airodump-ng 以及 &lt;a href=&#34;http://aircrack-ng.org/&#34; target=&#34;_blank&#34;&gt;Aircrack-ng&lt;/a&gt; / &lt;a href=&#34;http://hashcat.net/&#34; target=&#34;_blank&#34;&gt;Hashcat&lt;/a&gt; 破解 WPA/WPA2 WI-FI 路由器。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/wifi-cracking/cover.webp" />
+    </item>
+    
+    <item>
+      <title>[已过时] 从零开始实现hexo博客的在线编辑</title>
+      <link>https://gwliang.com/posts/implement-hexo-blog-online-editing-from-scratch/</link>
+      <pubDate>Tue, 19 Nov 2019 09:18:16 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/implement-hexo-blog-online-editing-from-scratch/</guid>
+      <description>本教程需要服务器（VPS），Serverless版本正在探索，请大家耐心等待</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/implement-hexo-blog-online-editing-from-scratch/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Cloudflare Worker &#43; jsproxy实现浏览器代理</title>
+      <link>https://gwliang.com/posts/cloudflare_worker_jsproxy/</link>
+      <pubDate>Mon, 04 Nov 2019 20:54:38 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/cloudflare_worker_jsproxy/</guid>
+      <description>CloudFlare 提供了一项很好用的服务 Worker，可以用来实现前端代理功能，jsproxy 是一个基于 Worker 的前端代理工具，可以实现浏览器代理访问其他网站。</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/cloudflare_worker_jsproxy/cover.webp" />
+    </item>
+    
+    <item>
+      <title>B站2019秋招编程题</title>
+      <link>https://gwliang.com/posts/2019bilibili/</link>
+      <pubDate>Wed, 23 Oct 2019 20:21:53 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/2019bilibili/</guid>
+      <description>B站在牛客网上发了一套自己秋招的编程题，恰好今年被老师忽悠着去再参加一次蓝桥杯，所以给大家解析下。</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/2019bilibili/cover.webp" />
+    </item>
+    
+    <item>
+      <title>高大上博客制作教程</title>
+      <link>https://gwliang.com/posts/blog-jiao-cheng/</link>
+      <pubDate>Sat, 05 Oct 2019 20:24:22 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/blog-jiao-cheng/</guid>
+      <description>如何用Hexo搭建一个高大上的博客</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/blog-jiao-cheng/cover.webp" />
+    </item>
+    
+    <item>
+      <title>利用jsDelivr和Cloudflare免备案加速Github Pages网站</title>
+      <link>https://gwliang.com/posts/speed-up-github-pages/</link>
+      <pubDate>Mon, 30 Sep 2019 09:20:30 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/speed-up-github-pages/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;利用 jsDelivr 和 Cloudflare 免备案加速 Github Pages 网站 
+    &lt;div id=&#34;%E5%88%A9%E7%94%A8-jsdelivr-%E5%92%8C-cloudflare-%E5%85%8D%E5%A4%87%E6%A1%88%E5%8A%A0%E9%80%9F-github-pages-%E7%BD%91%E7%AB%99&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E5%88%A9%E7%94%A8-jsdelivr-%E5%92%8C-cloudflare-%E5%85%8D%E5%A4%87%E6%A1%88%E5%8A%A0%E9%80%9F-github-pages-%E7%BD%91%E7%AB%99&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;最近觉得学的东西不少，但是我从来没有记录过，最近正好因为新建了个博客，热乎劲还没过去，所以写点什么。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/speed-up-github-pages/cover.webp" />
+    </item>
+    
+    <item>
+      <title>OMNET&#43;&#43;入门教程|第1章 —— TicToc模型</title>
+      <link>https://gwliang.com/posts/omnet-ru-men-jiao-cheng-2/</link>
+      <pubDate>Thu, 26 Sep 2019 22:05:28 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/omnet-ru-men-jiao-cheng-2/</guid>
+      <description>本文将介绍如何使用 OMNET++ 来创建一个简单的模型</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/omnet-ru-men-jiao-cheng-2/cover.webp" />
+    </item>
+    
+    <item>
+      <title>OMNET&#43;&#43;入门教程|第0章——安装</title>
+      <link>https://gwliang.com/posts/omnet-ru-men-jiao-cheng/</link>
+      <pubDate>Tue, 24 Sep 2019 22:05:28 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/omnet-ru-men-jiao-cheng/</guid>
+      <description>OMNET++是一个用于网络仿真的工具，本文将介绍如何安装 OMNET++</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/omnet-ru-men-jiao-cheng/cover.webp" />
     </item>
     
   </channel>

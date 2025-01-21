@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件供应链 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE/</link>
+    <description>Recent content in 软件供应链 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>我不是供应商</title>
+      <link>https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/</guid>
+      <description>这篇文章讨论了软件供应链的概念，以及为什么将自由和开源软件（FOSS）纳入这种定义的尝试是极其错误的。翻译自 &lt;a href=&#34;https://www.softwaremaxims.com/blog/not-a-supplier&#34; target=&#34;_blank&#34;&gt;Software Maxims&lt;/a&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/wo-bu-shi-gong-ying-shang/featured%20%281%29.svg" />
+    </item>
+    
+  </channel>
+</rss>

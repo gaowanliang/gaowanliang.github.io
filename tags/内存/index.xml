@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>内存 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E5%86%85%E5%AD%98/</link>
+    <description>Recent content in 内存 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Sat, 16 May 2020 20:31:37 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E5%86%85%E5%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Debian系统安装Swap虚拟内存设置</title>
+      <link>https://gwliang.com/posts/set-swap/</link>
+      <pubDate>Sat, 16 May 2020 20:31:37 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/set-swap/</guid>
+      <description>&lt;p&gt;我玩的服务器大多数内存比较小，有的时候执行一些任务会搞得 out of memory ，这个时候就需要设置虚拟内存，最好的方法就是用萌鼠大佬的一键脚本。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/set-swap/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

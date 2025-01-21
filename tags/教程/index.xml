@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>教程 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E6%95%99%E7%A8%8B/</link>
+    <description>Recent content in 教程 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Sun, 22 Nov 2020 12:53:47 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>如何优雅的批量重命名文件</title>
+      <link>https://gwliang.com/posts/batch-rename-file/</link>
+      <pubDate>Sun, 22 Nov 2020 12:53:47 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/batch-rename-file/</guid>
+      <description>批量重命名挺麻烦的，所以我顺手整理了一下有哪些好方法可以批量重命名的</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/batch-rename-file/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

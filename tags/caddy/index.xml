@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Caddy on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/caddy/</link>
+    <description>Recent content in Caddy on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Tue, 16 Feb 2021 19:28:25 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/caddy/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Caddy V2常用命令行语句和Caddyfile配置</title>
+      <link>https://gwliang.com/posts/caddyv2-config/</link>
+      <pubDate>Tue, 16 Feb 2021 19:28:25 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/caddyv2-config/</guid>
+      <description>整理了一些常用的语句和配置，供大家参考</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/caddyv2-config/cover.webp" />
+    </item>
+    
+    <item>
+      <title>Caddy 2 快速简单安装配置教程</title>
+      <link>https://gwliang.com/posts/caddy2-install/</link>
+      <pubDate>Tue, 10 Nov 2020 17:53:10 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/caddy2-install/</guid>
+      <description>Caddy 2 是一个简单易用的 Web 服务器，支持 HTTP/2、自动 HTTPS、虚拟主机、反向代理、静态文件服务、目录列表等功能。</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/caddy2-install/cover.webp" />
+    </item>
+    
+    <item>
+      <title>【已过时】 一个极简的HTTP Server： Caddy一键安装脚本，带网站配置教程</title>
+      <link>https://gwliang.com/posts/caddy-install/</link>
+      <pubDate>Mon, 27 Jan 2020 14:05:27 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/caddy-install/</guid>
+      <description>【已过时】 使用Caddy搭建一个极简的HTTP Server</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/caddy-install/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>
