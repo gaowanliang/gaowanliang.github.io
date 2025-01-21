@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://gaowanliang.com/about/</loc>
-    <lastmod>2025-01-21T02:57:06+00:00</lastmod>
-  </url><url>
-    <loc>https://gaowanliang.com/posts/hello_world/</loc>
-    <lastmod>2025-01-21T02:57:06+00:00</lastmod>
-  </url><url>
-    <loc>https://gaowanliang.com/posts/</loc>
-    <lastmod>2025-01-21T02:57:06+00:00</lastmod>
-  </url><url>
-    <loc>https://gaowanliang.com/</loc>
-    <lastmod>2025-01-21T02:57:06+00:00</lastmod>
-  </url><url>
-    <loc>https://gaowanliang.com/categories/</loc>
-  </url><url>
-    <loc>https://gaowanliang.com/tags/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://gwliang.com/zh/sitemap.xml</loc>
+    
+      <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://gwliang.com/en/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>
