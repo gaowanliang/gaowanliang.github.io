@@ -32,7 +32,7 @@ mainSections = ["posts"]
   showRecent = true
   showRecentItems = 12
   showMoreLink = true
-  showMoreLinkDest = "/posts"
+
   cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
@@ -60,6 +60,7 @@ mainSections = ["posts"]
   showAuthorsBadges = false 
   showWordCount = true
   showSummary = true
+  showComments = true
   sharingLinks = [ "linkedin", "twitter", "whatsapp", "pinterest", "reddit", "facebook", "email"]
 
 [list]

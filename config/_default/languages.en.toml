@@ -2,7 +2,7 @@ languageCode = "en"
 languageName = "English"
 weight = 1
 title = "Gaowan Liang's Blog"
-contentDir = 'content/en'
+contentDir = 'content'
 
 [params]
 displayName = "EN"
