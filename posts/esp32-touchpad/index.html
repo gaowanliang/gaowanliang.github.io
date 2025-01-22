@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="zh-cn" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>低成本实现一个蓝牙触摸板 &middot; 高玩梁的博客</title>
+  <meta name="title" content="低成本实现一个蓝牙触摸板 &middot; 高玩梁的博客" />
+  
+  <meta name="description" content="一个记录灵感的地方" />
+  <meta name="keywords" content="ESP32, 蓝牙, 触摸板, PS/2, " />
+  
+  
+  <link rel="canonical" href="https://gwliang.com/posts/esp32-touchpad/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.c9b6c5bad9d9b9a8f5b3bd6daf0b1c10c381f761b86dc05093ace16f3fdf1194cc780925f423b9d64a5e34aaf208419bef714c3e8da1939da826dbb870a6f072.css"
+    integrity="sha512-ybbFutnZuaj1s71trwscEMOB92G4bcBQk6zhbz/fEZTMeAkl9CO51kpeNKryCEGb73FMPo2hk52oJtu4cKbwcg==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.a2d78d78672e549fbfc972ece871725b5478ba0b65708dda20cb97ab80a865eae6d247e1b05a4aec6ebbf78647ec3233bad8b2609ed98eee53cd58aa17128bc7.js"
+    integrity="sha512-oteNeGcuVJ&#43;/yXLs6HFyW1R4ugtlcI3aIMuXq4CoZerm0kfhsFpK7G6794ZH7DIzutiyYJ7Zju5TzViqFxKLxw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://gwliang.com/posts/esp32-touchpad/">
+  <meta property="og:site_name" content="高玩梁的博客">
+  <meta property="og:title" content="低成本实现一个蓝牙触摸板">
+  <meta property="og:description" content="前言 # 我个人很喜欢小型化的设备，包括小键盘小鼠标小掌机小萝莉之类的。我前段时间找到了目前最小的剪刀脚键盘，很小，只有 7 寸，但是甚至有背光：">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-22T00:00:00+00:00">
+    <meta property="article:tag" content="ESP32">
+    <meta property="article:tag" content="蓝牙">
+    <meta property="article:tag" content="触摸板">
+    <meta property="article:tag" content="PS/2">
+    <meta property="og:image" content="https://gwliang.com/posts/esp32-touchpad/cover.webp">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://gwliang.com/posts/esp32-touchpad/cover.webp">
+  <meta name="twitter:title" content="低成本实现一个蓝牙触摸板">
+  <meta name="twitter:description" content="前言 # 我个人很喜欢小型化的设备，包括小键盘小鼠标小掌机小萝莉之类的。我前段时间找到了目前最小的剪刀脚键盘，很小，只有 7 寸，但是甚至有背光：">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "低成本实现一个蓝牙触摸板",
+    "headline": "低成本实现一个蓝牙触摸板",
+    
+    "abstract": "\u003cp\u003e\u003cvideo src=\u0022video.webm\u0022 controls=\u0022controls\u0022 height=\u002220%\u0022\u003e\u003c\/video\u003e\u003c\/p\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e前言 \n    \u003cdiv id=\u0022%E5%89%8D%E8%A8%80\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E5%89%8D%E8%A8%80\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003e我个人很喜欢小型化的设备，包括小键盘小鼠标小掌机\u003cdel\u003e小萝莉\u003c\/del\u003e之类的。我前段时间找到了目前最小的剪刀脚键盘，很小，只有 7 寸，但是甚至有背光：\u003c\/p\u003e",
+    "inLanguage": "zh-cn",
+    "url" : "https:\/\/gwliang.com\/posts\/esp32-touchpad\/",
+    "author" : {
+      "@type": "Person",
+      "name": "高玩梁"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-11-22T00:00:00\u002b00:00",
+    "datePublished": "2024-11-22T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-11-22T00:00:00\u002b00:00",
+    
+    "keywords": ["ESP32","蓝牙","触摸板","PS/2"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "5639"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="高玩梁" />
+  
+  
+  
+  <link href="https://gwliang.com" rel="me" />
+  
+  
+  <link href="https://github.com/gaowanliang" rel="me" />
+  
+  
+  <link href="https://twitter.com/gaowanliang" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>跳过正文</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">高玩梁的博客</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        文章
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        标签
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://gwliang.com"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/gaowanliang"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://twitter.com/gaowanliang"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+<div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    <span class="ltr:mr-1 rtl:ml-1">
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+    <path fill="currentColor" d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg>
+  </span>
+
+
+    </span>
+    <div class="text-sm font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="低成本实现一个蓝牙触摸板">简体中文</div>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/en/posts/esp32-touchpad/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Implementing a Low-Cost Bluetooth Touchpad">
+            EN
+          </p>
+        </a>
+        
+        <a href="/posts/esp32-touchpad/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="低成本实现一个蓝牙触摸板">
+            中文
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+<div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    <span class="ltr:mr-1 rtl:ml-1">
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+    <path fill="currentColor" d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg>
+  </span>
+
+
+    </span>
+    <div class="text-sm font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="低成本实现一个蓝牙触摸板">简体中文</div>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/en/posts/esp32-touchpad/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Implementing a Low-Cost Bluetooth Touchpad">
+            EN
+          </p>
+        </a>
+        
+        <a href="/posts/esp32-touchpad/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="低成本实现一个蓝牙触摸板">
+            中文
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            文章
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            标签
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://gwliang.com"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/gaowanliang"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://twitter.com/gaowanliang"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/esp32-touchpad/cover_hu8256193206936276858.webp);"></div>
+
+
+
+<div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/img/background.svg);">
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-30 dark:opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >高玩梁的博客</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/posts/esp32-touchpad/"
+      >低成本实现一个蓝牙触摸板</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      低成本实现一个蓝牙触摸板
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-22T00:00:00&#43;00:00">2024年11月22日</time><span class="px-2 text-primary-500">&middot;</span><span>5639 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">12 分钟</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E6%8A%80%E6%9C%AF/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    技术
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/esp32/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ESP32
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/%E8%93%9D%E7%89%99/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    蓝牙
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/%E8%A7%A6%E6%91%B8%E6%9D%BF/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    触摸板
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ps/2/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PS/2
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+        
+        
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="高玩梁" src="/img/avatar_hu6864959369967912551.webp" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      高玩梁
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">一个对所有事物保持好奇心的人</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://gwliang.com"
+          target="_blank"
+          aria-label="Link"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/gaowanliang"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://twitter.com/gaowanliang"
+          target="_blank"
+          aria-label="X-Twitter"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+      
+
+      
+
+      
+      <div class="mb-5"></div>
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#竟然是-ps2">竟然是 PS/2</a></li>
+    <li><a href="#ps2-的二三事">PS/2 的二三事</a></li>
+    <li><a href="#synaptics启动">Synaptics，启动！</a></li>
+    <li><a href="#蓝牙化">蓝牙化</a></li>
+    <li><a href="#实现复杂手势以及优化">实现复杂手势以及优化</a>
+      <ul>
+        <li><a href="#关于数据包">关于数据包</a></li>
+        <li><a href="#想要实现的功能">想要实现的功能</a></li>
+      </ul>
+    </li>
+    <li><a href="#实际实现">实际实现</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#竟然是-ps2">竟然是 PS/2</a></li>
+    <li><a href="#ps2-的二三事">PS/2 的二三事</a></li>
+    <li><a href="#synaptics启动">Synaptics，启动！</a></li>
+    <li><a href="#蓝牙化">蓝牙化</a></li>
+    <li><a href="#实现复杂手势以及优化">实现复杂手势以及优化</a>
+      <ul>
+        <li><a href="#关于数据包">关于数据包</a></li>
+        <li><a href="#想要实现的功能">想要实现的功能</a></li>
+      </ul>
+    </li>
+    <li><a href="#实际实现">实际实现</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p><video src="video.webm" controls="controls" height="20%"></video></p>
+
+
+<h2 class="relative group">前言 
+    <div id="%E5%89%8D%E8%A8%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%89%8D%E8%A8%80" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>我个人很喜欢小型化的设备，包括小键盘小鼠标小掌机<del>小萝莉</del>之类的。我前段时间找到了目前最小的剪刀脚键盘，很小，只有 7 寸，但是甚至有背光：</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image2_hu5104410518578155427.webp 330w,
+        /posts/esp32-touchpad/image2_hu14357412662832242606.webp 660w,
+        /posts/esp32-touchpad/image2_hu16895588819149233353.webp 1024w,
+        /posts/esp32-touchpad/image2_hu7001967993111278494.webp 2x"
+        src="/posts/esp32-touchpad/image2_hu14357412662832242606.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>我挺喜欢这个键盘的，但是这个键盘有个缺点，就是还是太大了，虽然厚度不到 5mm，但是如图所示，前后还是留有不少的无效空间，而且如果再有个触摸板就好了。所以我就开始筹划怎么搞。由于这个键盘还能用，先不糟蹋了，买个触摸板，先搞触摸板吧。于是我打开 tb，找到了目前来说最便宜的触摸板，TM2334，算上邮费只要 16 块钱。这是用在 12、13 年联想 S41 笔记本上的触摸板，本身支持多点触控，手感也很好：</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image3_hu587462464230073389.webp 330w,
+        /posts/esp32-touchpad/image3_hu4987343322565766575.webp 660w,
+        /posts/esp32-touchpad/image3_hu520827514955778878.webp 1024w,
+        /posts/esp32-touchpad/image3_hu10548099378554335849.webp 2x"
+        src="/posts/esp32-touchpad/image3_hu4987343322565766575.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image4_hu2167246383051516475.webp 330w,
+        /posts/esp32-touchpad/image4_hu11106438706664034520.webp 660w,
+        /posts/esp32-touchpad/image4_hu7265949485693748037.webp 1024w,
+        /posts/esp32-touchpad/image4_hu1668788147775959640.webp 2x"
+        src="/posts/esp32-touchpad/image4_hu11106438706664034520.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>下一步就是要搞懂触摸板是怎么工作的。</p>
+
+
+<h2 class="relative group">竟然是 PS/2 
+    <div id="%E7%AB%9F%E7%84%B6%E6%98%AF-ps2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AB%9F%E7%84%B6%E6%98%AF-ps2" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>拿到触摸板，由于是商用化产品，不是什么模块之类的，所以文档你是别想了，先查查这个型号有没有人搞过吧。结果一查，还真有：</p>
+<p><a href="https://forum.level1techs.com/t/touchpad-ps-2-pinout-help/139088" target="_blank">https://forum.level1techs.com/t/touchpad-ps-2-pinout-help/139088</a></p>
+<p>我最先查到的是这一篇帖子，上面详细的介绍了他想让这个触摸板作为一个 PS/2 设备工作，他连接了几个测试点位，但是还是无法通过纯 PS/2 方法驱动：</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image5_hu7598802297174974406.webp 330w,
+        /posts/esp32-touchpad/image5_hu13498475373732005585.webp 660w,
+        /posts/esp32-touchpad/image5_hu8785924925300797799.webp 1024w,
+        /posts/esp32-touchpad/image5_hu11840893067100005011.webp 2x"
+        src="/posts/esp32-touchpad/image5_hu13498475373732005585.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>还有一个帖子的老哥直接给出了排线定义，也是焊接到了 PS/2 座子上，但是无法驱动：</p>
+<p><a href="https://www.eevblog.com/forum/projects/usb-touchpad-synaptics-tm2334/" target="_blank">https://www.eevblog.com/forum/projects/usb-touchpad-synaptics-tm2334/</a></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image6_hu2254013311569904280.webp 330w,
+        /posts/esp32-touchpad/image6_hu7881348112851201043.webp 660w,
+        /posts/esp32-touchpad/image6_hu10104290541551539840.webp 1024w,
+        /posts/esp32-touchpad/image6_hu7149114075269003567.webp 2x"
+        src="/posts/esp32-touchpad/image6_hu7881348112851201043.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>这个老哥很执拗，坚定的认为只有能直接用 PS/2 驱动才行，而我们不太一样，我们还是想通过蓝牙来进行通信的，所以可以不受这些东西的限制。我翻出了之前毕业设计的时候白嫖的舍友的 D1 R32，这个开发板长得和 Arduino UNO 差不多，但是主控是 ESP32，双核处理器，240MHz 的频率，支持连接 WiFi 和蓝牙，性能非常强劲，拿来开发正好：</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image7_hu3527356434304838249.webp 330w,
+        /posts/esp32-touchpad/image7_hu14566101814946670317.webp 660w,
+        /posts/esp32-touchpad/image7_hu15449477095818785731.webp 1024w,
+        /posts/esp32-touchpad/image7_hu6532936897628354274.webp 2x"
+        src="/posts/esp32-touchpad/image7_hu14566101814946670317.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>要连接触摸板，我们不用像国外老哥这么粗犷，直接买个 6 针的 FPC 连接座就行了，我第一次的时候没经验，看到有 0.5 和 1.0 的，还以为的后面孔的间距，还想着买这么宽干啥，0.5 的就行了，没想到是排线的宽度，触摸板正好还用的是 1.0 的排线，好在这个连接座正面是 0.5，反面就是 1.0，再买个 1.0 的座焊上就行了，很简单，总算是没浪费。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image8_hu16107041286028471326.webp 330w,
+        /posts/esp32-touchpad/image8_hu2089902015023883079.webp 660w,
+        /posts/esp32-touchpad/image8_hu6626847983106158669.webp 1024w,
+        /posts/esp32-touchpad/image8_hu12101897893748425989.webp 2x"
+        src="/posts/esp32-touchpad/image8_hu2089902015023883079.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image9_hu9589643268194222083.webp 330w,
+        /posts/esp32-touchpad/image9_hu8222957993431164070.webp 660w,
+        /posts/esp32-touchpad/image9_hu12455977948086778725.webp 1024w,
+        /posts/esp32-touchpad/image9_hu6942145941051863594.webp 2x"
+        src="/posts/esp32-touchpad/image9_hu8222957993431164070.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>根据之前帖子里老哥给的定义，我们知道了排线的定义：</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image10_hu5922300194294434268.webp 330w,
+        /posts/esp32-touchpad/image10_hu10866713254771484862.webp 660w,
+        /posts/esp32-touchpad/image10_hu3434730253173189887.webp 1024w,
+        /posts/esp32-touchpad/image10_hu9793317625834632979.webp 2x"
+        src="/posts/esp32-touchpad/image10_hu10866713254771484862.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<ol>
+<li><strong>+3VS</strong>: 这是 3V 电源引脚，表示为“+3 Volt Supply”。它为相关电路（如触控板）提供电源。</li>
+<li><strong>TP_CLK (Touchpad Clock)</strong>: 这是触控板的时钟信号引脚。时钟信号在传输过程中用于同步数据的发送和接收。</li>
+<li><strong>TP_DATA (Touchpad Data)</strong>: 这是触控板的数据传输引脚，负责传输触控板与主控器之间的数据。</li>
+<li><strong>GND</strong>: 接地引脚，提供电气回路的参考点。所有电流都会回流到这个引脚。</li>
+<li><strong>SMB_CLK (SMBus Clock)</strong>: 这是系统管理总线（SMBus）的时钟引脚。SMBus 用于与低带宽的设备通信，如电池或传感器。</li>
+<li><strong>SMB_DATA (SMBus Data)</strong>: 这是系统管理总线的数据引脚，用于在 SMBus 设备之间传输数据。</li>
+</ol>
+<p>一定要注意方向，注意看上面标出的 1 和 6。5 和 6 是电脑主板用的，我们用不到，而且大家注意，不是每个触摸板的引脚定义都是这个，如果要随便买个触摸板来改装，需要自己去网上找找资料。</p>
+
+
+<h2 class="relative group">PS/2 的二三事 
+    <div id="ps2-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ps2-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>首先我们要先了解一些 PS/2 的基础知识，一个标准的 PS/2 座子是这样的</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image11_hu723443911128493970.webp 330w,
+        /posts/esp32-touchpad/image11_hu1748461475443382017.webp 660w,
+        /posts/esp32-touchpad/image11_hu8084419422598474449.webp 1024w,
+        /posts/esp32-touchpad/image11_hu11331578024585155002.webp 2x"
+        src="/posts/esp32-touchpad/image11_hu1748461475443382017.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>电源和地线不用说，**时钟线（CLK），**用于同步数据传输；根据需要由设备或主机控制。<strong>数据线（DATA）</strong>：在主机和设备之间传输数据位。当 PS/2 设备处于闲置状态的时候，时钟和数据引脚全部拉高。当主机想要给设备发送数据时，拉低 CLK 和 DATA，表示请求发送数据。设备到主机只需要控制 CLK 就可以发送数据了。所以我们可以把中断附加到时钟引脚，下降沿触发读取信号就可以实现对 PS/2 设备的信号读取了。</p>
+<p>PS/2 数据帧是这样的：</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image12_hu340408535226594311.webp 330w,
+        /posts/esp32-touchpad/image12_hu9523105470890522802.webp 660w,
+        /posts/esp32-touchpad/image12_hu9389214596975749218.webp 1024w,
+        /posts/esp32-touchpad/image12_hu8608024136716368354.webp 2x"
+        src="/posts/esp32-touchpad/image12_hu9523105470890522802.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>
+<p><strong>起始位</strong>：始终为 0（LOW）。</p>
+</li>
+<li>
+<p><strong>数据位</strong>：8 位，最低有效位（LSB）先发送。</p>
+</li>
+<li>
+<p><strong>奇偶校验位(Parity,P)</strong>：确保奇校验（1 的总数为奇数）。</p>
+</li>
+<li>
+<p><strong>停止位</strong>：始终为 1（HIGH）。</p>
+</li>
+</ul>
+<p>知道了数据的读取方式，下一步就是如何初始化一个 Synaptics 触摸板了。</p>
+
+
+<h2 class="relative group">Synaptics，启动！ 
+    <div id="synaptics%E5%90%AF%E5%8A%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#synaptics%E5%90%AF%E5%8A%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>其实，如果你只使用 PS/2 的标准协议也是能启动一个 Synaptics 触摸板的，因为本身 Synaptics 触摸板就是一个 PS/2 兼容设备：</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image13_hu2741082150609946272.webp 330w,
+        /posts/esp32-touchpad/image13_hu15757089584044451425.webp 660w,
+        /posts/esp32-touchpad/image13_hu13680870328610422538.webp 1024w,
+        /posts/esp32-touchpad/image13_hu15101209813885922554.webp 2x"
+        src="/posts/esp32-touchpad/image13_hu15757089584044451425.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>但是恶心的是，明明 PS/2 鼠标有左键右键和滚动的功能，如果在没有驱动的情况下，Synaptics 触摸板就只能上下左右移动和使用鼠标左键，这只能说勉强能用，再多都谈不上了。至于什么双指单击是右键，双指滑动是滚轮，那你是想都别想，根本触发不了。如果要使用多指手势，必须在初始化的时候使用特殊的初始化指令。但是网上的资料非常稀少，经过我不懈的查找，还真让我找到一个完美贴合我的要求的：</p>
+<p><a href="https://github.com/delingren/synaptics_touchpad" target="_blank">https://github.com/delingren/synaptics_touchpad</a></p>
+<p>这个人提交代码的时间差不多和我刚有这个想法的时间差不多，7 月份。这个人实现了一个有线的 Synaptics 触摸板单片机驱动，这下太好了：</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image14_hu10269672197327306882.webp 330w,
+        /posts/esp32-touchpad/image14_hu672063350342160422.webp 660w,
+        /posts/esp32-touchpad/image14_hu12052880462003751086.webp 1024w,
+        /posts/esp32-touchpad/image14_hu13588329947943470153.webp 2x"
+        src="/posts/esp32-touchpad/image14_hu672063350342160422.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>那么我们就借着他的程序来说明一下 Synaptics 给 PS/2 加了什么料。</p>
+<p>一个标准的 PS/2 的鼠标在 BIOS 启动过程是这样的：主机发出“获取设备 ID”命令 (0xF2) 并等待响应。如果标准 PS/2 鼠标已连接，它将传回一个 ACK（0xFA），并以设备 ID 进行响应 0x00。在这种情况下，主机将识别出鼠标确实是有滚轮并将继续将其视为标准 PS/2 鼠标。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image15_hu8085470480561550560.webp 330w,
+        /posts/esp32-touchpad/image15_hu11035891107432428077.webp 660w,
+        /posts/esp32-touchpad/image15_hu6239269110597219904.webp 1024w,
+        /posts/esp32-touchpad/image15_hu9823349624189719635.webp 2x"
+        src="/posts/esp32-touchpad/image15_hu11035891107432428077.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>之后，我们需要获取 Synaptics 触摸板的一系列信息以便于下一步的处理：</p>
+<ol>
+<li><strong>获取版本信息</strong>：
+<ol>
+<li>使用  status_request(0x00, result)  获取触摸板版本信息。
+<ol>
+<li>infoMajor：主版本号，取  result[2]  的低 4 位。</li>
+<li>infoMinor：次版本号，取  result[0]。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>获取能力信息</strong>：
+<ol>
+<li>使用  status_request(0x02, result)  获取触摸板的能力信息。
+<ol>
+<li>capExtended：是否支持扩展功能，result[0]  的最高位。</li>
+</ol>
+</li>
+<li>如果支持扩展功能，解析：
+<ol>
+<li>nExtendedQueries：扩展查询的数量。</li>
+<li>middleButton：是否支持中键，result[0]  的第 2 位。</li>
+<li>fourButtons：是否支持四个按键，result[2]  的第 3 位。</li>
+<li>multiFinger：是否支持多指，result[2]  的第 1 位。</li>
+<li>palmDetect：是否支持掌心检测，result[2]  的第 0 位。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>获取单位信息</strong>：
+<ol>
+<li>使用  status_request(0x08, result)  获取触摸板的单位信息。
+<ol>
+<li>units_per_mm_x：X 方向每毫米的单位数，result[0]。</li>
+<li>units_per_mm_y：Y 方向每毫米的单位数，result[2]。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>获取点击板信息</strong>：
+<ol>
+<li>使用  status_request(0x0C, result)  获取点击板的类型信息。</li>
+<li>coveredPadGest：是否支持覆盖板手势，result[0]  的最高位。</li>
+<li>clickpad_type：触摸板类型，结合  result[0]  和  result[1]  的位。</li>
+<li>clickPadInfo：触摸板类型的描述数组。</li>
+<li>advGest：是否支持高级手势，result[0]  的第 3 位。</li>
+<li>clearPad：是否支持清除板，result[0]  的第 2 位。</li>
+</ol>
+</li>
+</ol>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image16_hu12981287378100747832.webp 330w,
+        /posts/esp32-touchpad/image16_hu11115708977946900791.webp 660w,
+        /posts/esp32-touchpad/image16_hu14717986456057249586.webp 1024w,
+        /posts/esp32-touchpad/image16_hu7689787394442824543.webp 2x"
+        src="/posts/esp32-touchpad/image16_hu11115708977946900791.webp"
+        alt="TM2334 触摸板的情况"
+      />
+      
+    </figure>
+</p>
+<p>然后就可以配置触摸板的模式了，估计作者也研究了半天怎么给触摸板设置模式，最终他也是选择了参考其他项目初始化触摸板的指令序列：</p>
+<blockquote>
+<p>// 参考资料： 4.3. 模式字节</p>
+<p>// 不知为何，我无法让触摸板报告扩展 W 模式数据包。</p>
+<p>// 经过研究，我在 VoodooPS2 驱动程序（用于 Hackintosh 的触摸板驱动程序）中找到了解决方案。</p>
+<p>// 这个序列设置了绝对模式、高速率、W 模式和 EW 模式。</p>
+<p>// F5</p>
+<p>// E6, E6, E8, 03, E8, 00, E8, 01, E8, 01, F3, 14</p>
+<p>// E6, E6, E8, 00, E8, 00, E8, 00, E8, 03, F3, C8</p>
+<p>// F4</p>
+</blockquote>
+<p>在程序中的体现是这样的：</p>
+<ul>
+<li>两次  SETSCALE11（设置缩放比例为 1：1，0xE6）  命令。</li>
+<li>发送特殊命令  0xC5。</li>
+<li>设置采样率为  0x14。</li>
+<li>再次发送两次  SETSCALE11  命令。</li>
+<li>发送特殊命令  0x03。</li>
+<li>设置采样率为  0xC8。</li>
+</ul>
+<p>虽然看不太懂，但是确实实现了触摸板的正常使用。具体可以参考 Synaptics 触摸板的文档：https://github.com/delingren/synaptics_touchpad/blob/main/touchpad_RevB.pdf，但是我浅读了一下，并没有找到对应的方式。</p>
+<p>关于 W 模式，文档里是这么说的：</p>
+<ol>
+<li><strong>当 Wmode 位被设置为 1 时</strong>：
+<ul>
+<li>触摸板<strong>不报告手势信息</strong>。</li>
+<li>此时，位 2 自动用于报告  <strong>EWmode（Extended W mode，扩展 W 模式）</strong>。</li>
+<li>EWmode 提供了扩展的 W 模式功能，在 EW 模式下，传统的 X、Y、Z 数据不再具有之前的含义，而是根据 EW 模式的数据包代码重新定义。</li>
+</ul>
+</li>
+<li><strong>当 Wmode 位被设置为 0 时</strong>：
+<ul>
+<li>触摸板<strong>报告手势信息</strong>。</li>
+<li>此时，位 2 表示  <strong>DisGest（Disable Gesture，禁用手势）</strong>。</li>
+<li>如果 DisGest 位为 0，表示<strong>启用点击和滑动手势处理</strong>。</li>
+<li>如果 DisGest 位为 1，表示<strong>禁用点击和滑动手势检测</strong>。</li>
+<li>当 DisGest 位为 1 时，在相对模式下，鼠标数据包将报告真实的物理按键状态，而在绝对模式下，数据包的 Gesture 位始终为 0（即不报告手势）。</li>
+</ul>
+</li>
+</ol>
+<p>初始化完成后，我们只需要根据 PS/2 设备的信息读取方式对触摸板发送的信息进行处理就行了。触摸板作为一个 PS/2 设备，通过时钟线和数据线与主机进行通信。当触摸板需要发送数据时，会通过时钟线发送同步信号，我们只需要在时钟线的下降沿读取数据线的状态，就能获取到完整的数据包。每个数据包包含 48 位数据，这些数据记录了触摸板上手指的位置、压力、宽度等信息。传回的数据包主要有两种：</p>
+<ul>
+<li><strong>主要数据包（Primary Packet）</strong>：用于传输基本的触摸信息，如手指数量、坐标、压力等。
+<ul>
+<li><strong>第 1 字节（位 47-40）</strong>：
+<ul>
+<li>位 47：同步位，一般为 1</li>
+<li>位 46-44：手指数或其他标志位</li>
+<li>位 43-40：可能用于按键状态、触摸类型等</li>
+</ul>
+</li>
+<li><strong>第 2 字节（位 39-32）</strong>：
+<ul>
+<li>Z 值，高 8 位，表示压力</li>
+</ul>
+</li>
+<li><strong>第 3、4 字节（位 31-16）</strong>：
+<ul>
+<li>X 坐标，高 16 位</li>
+</ul>
+</li>
+<li><strong>第 5、6 字节（位 15-0）</strong>：
+<ul>
+<li>Y 坐标，高 16 位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image17_hu5292495746819203231.webp 330w,
+        /posts/esp32-touchpad/image17_hu13107830512583953316.webp 660w,
+        /posts/esp32-touchpad/image17_hu10588435618894539677.webp 1024w,
+        /posts/esp32-touchpad/image17_hu14484406973989499845.webp 2x"
+        src="/posts/esp32-touchpad/image17_hu13107830512583953316.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image18_hu17619573551502891468.webp 330w,
+        /posts/esp32-touchpad/image18_hu3539400274363305938.webp 660w,
+        /posts/esp32-touchpad/image18_hu16669964585309997663.webp 1024w,
+        /posts/esp32-touchpad/image18_hu11826708483448952714.webp 2x"
+        src="/posts/esp32-touchpad/image18_hu3539400274363305938.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<ul>
+<li><strong>扩展数据包（Extended Packet）</strong>：用于传输更多的细节信息，支持多手指操作、特殊手势等。
+<ul>
+<li><strong>第 1 字节（位 47-40）</strong>：
+<ul>
+<li>特定的标志位，用于区分扩展数据包类型</li>
+</ul>
+</li>
+<li><strong>第 2 字节（位 39-32）</strong>：
+<ul>
+<li>扩展信息，如功能代码、手指数等</li>
+</ul>
+</li>
+<li><strong>剩余字节</strong>：
+<ul>
+<li>根据扩展数据包的类型，包含不同的内容，如额外的坐标、手势信息等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image19_hu9845720829279767306.webp 330w,
+        /posts/esp32-touchpad/image19_hu3554203842315138416.webp 660w,
+        /posts/esp32-touchpad/image19_hu18389916581381689838.webp 1024w,
+        /posts/esp32-touchpad/image19_hu1513844710150612502.webp 2x"
+        src="/posts/esp32-touchpad/image19_hu3554203842315138416.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>对于是主要数据包还是扩展数据包，可以看上面说的，检测 w 是 0 还是 1，具体要看 2，4，5，和第 26 位。</p>
+
+
+<h2 class="relative group">蓝牙化 
+    <div id="%E8%93%9D%E7%89%99%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%93%9D%E7%89%99%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>其实蓝牙化特别简单，直接使用 <a href="https://github.com/T-vK/ESP32-BLE-Mouse" target="_blank">https://github.com/T-vK/ESP32-BLE-Mouse</a> 这个库就可以了。</p>
+<p>由于 ESP32 是双核处理器，处理触摸板信息的部分我放在了 0 核上，而通过蓝牙发送信息则是默认在 1 核上运行。我主要使用了 ESP32 自带的  FreeRTOS 中的多任务机制，以实现以下目的：</p>
+<ul>
+<li><strong>数据处理与任务分离</strong>：将触摸板的数据接收和数据处理分离到不同的任务中，提升系统的响应速度和稳定性。</li>
+<li><strong>异步处理</strong>：通过任务和队列，实现数据的异步传递，避免在中断中进行繁重的处理。</li>
+</ul>
+<p>由于触摸板通过中断的方式将数据发送给 ESP32。中断服务程序  byte_received  接收到数据后，需要将数据传递给任务进行处理。由于一次只能接收一个字节，需要将连续接收的 6 个字节拼接成一个完整的数据包。当接收到完整的数据包后，使用 xQueueSendFromISR 将数据包发送到 mouseEventQueue 队列中。</p>
+<p>之后在处理程序中，使用 xQueueReceive 从队列中接收数据包，超时时间为 10 毫秒。根据数据包内容，判断其类型，并调用相应的解析函数。如果蓝牙已经连接，则将鼠标事件通过 蓝牙发送出去。这样就实现了数据的蓝牙化。</p>
+
+
+<h2 class="relative group">实现复杂手势以及优化 
+    <div id="%E5%AE%9E%E7%8E%B0%E5%A4%8D%E6%9D%82%E6%89%8B%E5%8A%BF%E4%BB%A5%E5%8F%8A%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%9E%E7%8E%B0%E5%A4%8D%E6%9D%82%E6%89%8B%E5%8A%BF%E4%BB%A5%E5%8F%8A%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">关于数据包 
+    <div id="%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%8C%85" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%8C%85" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>根据要求连接触摸板后，每当触摸时触摸板会向主机发送 6 字节的数据包。这些数据包包含手指位置、压力（此触摸板的压力值报告的是触摸面积）、宽度等信息。TM2334 这款触摸板最大只能检测出 3 个手指，所以超过三指的手势无法</p>
+<p>由于通信不可避免地会出现噪声，数据包可能会丢失或被更改。并且捕捉每一个数据帧并不是非常关键，丢个一两帧问题也不大。同时一些数据包具有独特的特征（例如，某些位置的固定位），可以用作同步和恢复数据包。因此，如果接收到意外的数据包，我会继续丢弃数据包，直到重新同步。简单说就是校验数据包的第 0 和第 24 个字节，确保第 0 个字节的第 7 位为 1，第 6 位和第 3 位为 0；确保第 24 个字节的第 7 位和第 6 位为 1，第 3 位为 0。具体为什么，我是从 VooDooPS2 驱动中抄的，为什么并不是很清楚，我也不是很想仔细读文档找到为什么，大概知道有这么回事就行了。</p>
+
+
+<h3 class="relative group">想要实现的功能 
+    <div id="%E6%83%B3%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%83%B3%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p><strong>我主要想实现下面的功能，其实下面的功能实现之后，日常用就一点问题没有了：</strong></p>
+<ul>
+<li>鼠标移动</li>
+<li>按动左下角的区域作为鼠标左键，按动右下角的区域作为鼠标右键（封壳之后再实现，目前按起来比较困难）</li>
+<li>轻触作为点击
+<ul>
+<li>单指轻触作为鼠标左键</li>
+<li>两指轻触作为鼠标右键</li>
+<li>三指轻触作为鼠标中键</li>
+<li>屏蔽手掌误触</li>
+</ul>
+</li>
+<li>滚动
+<ul>
+<li>两指上下滑动来作为垂直方向的滚动</li>
+<li>两指左右滑动来作为水平方向的滚动</li>
+</ul>
+</li>
+<li>三指手势
+<ul>
+<li>三指左右移动来切换应用</li>
+<li>三指上下移动来显示桌面或回到应用</li>
+</ul>
+</li>
+<li>轻触一下，然后移动手指来实现拖拽</li>
+<li>放大和缩小</li>
+<li>休眠模式</li>
+</ul>
+<p><strong>其中三指手势并不是 HID 设备原生支持的，可能要参考微软的文档（切换应用估计到时候用键盘发送 Alt + Tap，然后再发上下左右实现；显示桌面和），这个再说，主要说说其他的功能。</strong></p>
+
+
+<h2 class="relative group">实际实现 
+    <div id="%E5%AE%9E%E9%99%85%E5%AE%9E%E7%8E%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%9E%E9%99%85%E5%AE%9E%E7%8E%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>如果我们在每一帧中忠实地报告手指位置，光标会因为人类手指固有的噪声和不稳定性而出现很多抖动。为了解决这个问题，可以通过下面的一些优化方案来实现：</p>
+<ul>
+<li><strong>平均化</strong>：我不在每一帧中报告手指的位置，而是跟踪最近 n 帧的平均值，以消除突发的移动，目前我设置的是 20 帧，这个值越低精度越高，光标也有可能越抖。</li>
+<li><strong>噪声阈值</strong>：如果两帧之间的增量低于某个阈值，则认为是误触。这个数值是经验性的，需要通过多次实验来找到，而且触摸板不同，使用的值也不太一样，目前我设置的值是 0.08mm。</li>
+<li><strong>通过阈值把手粘住</strong>：当手指保持静止时，我们使用更高的阈值，使其在开始时更“粘”，但在移动时更平滑。</li>
+</ul>
+<p>对于滚动，由于 HID 协议报告的时候使用的是整数，即使轻轻划一下也只能报告 1，而不能报告小数，所以需要通过一种方式实现快速和精准的滚动，其实很简单：当手指移动缓慢且幅度较小时，我只在每几帧中生成一个报告，移动量为 1。一旦速度超过某个阈值，我就假设用户的意图是快速滚动大范围。在这种情况下，我会在每一帧中报告，且移动量与实际移动成正比。</p>
+<p>对于轻触作为点击，实现逻辑是这样的：当检测到手指刚刚按下时（上一帧手指个数为 0，当前帧手指个数不为 0），记录按下的帧号以及按下了几个手指，因为有可能触摸板反应速度太快而导致实际按下了三个手指，但是刚开始的时候只识别到了一个，所以在后面的处理中需要记录按下手指的最高数量。最后，当手指移开的时候（上一帧手指个数不为 0，当前帧手指个数为 0），检查在这个过程中手指的移动距离、按动时间、接触的宽度是不是小于一个阈值，如果都满足才触发。这样就可以避免异物或者手掌误触到触摸板导致误触发。</p>
+<p>轻触之后移动作为拖动这个功能也不难，其实就是单指点击之后在一个阈值内滑动就是拖动。只不过要注意这个应该是先通过左键按下，然后移动光标，最后左键松开来实现的。</p>
+<p><strong>目前基本已经可以作为正常的日常使用了，也就是说，只要 16 块钱买个触摸板，20 块钱买片 ESP32，加上外围电路不超过 50 就能实现低成本的蓝牙触摸板。</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image20_hu7844566500360602407.webp 330w,
+        /posts/esp32-touchpad/image20_hu994857676747917219.webp 660w,
+        /posts/esp32-touchpad/image20_hu5578859832577991026.webp 1024w,
+        /posts/esp32-touchpad/image20_hu10872448525662735126.webp 2x"
+        src="/posts/esp32-touchpad/image20_hu994857676747917219.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://gwliang.com/posts/esp32-touchpad/&amp;title=%e4%bd%8e%e6%88%90%e6%9c%ac%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e8%93%9d%e7%89%99%e8%a7%a6%e6%91%b8%e6%9d%bf"
+      title="分享到 LinkedIn"
+      aria-label="分享到 LinkedIn"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://twitter.com/intent/tweet/?url=https://gwliang.com/posts/esp32-touchpad/&amp;text=%e4%bd%8e%e6%88%90%e6%9c%ac%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e8%93%9d%e7%89%99%e8%a7%a6%e6%91%b8%e6%9d%bf"
+      title="分享到 Twitter"
+      aria-label="分享到 Twitter"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://api.whatsapp.com/send?text=https://gwliang.com/posts/esp32-touchpad/&amp;resubmit=true&amp;title=%e4%bd%8e%e6%88%90%e6%9c%ac%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e8%93%9d%e7%89%99%e8%a7%a6%e6%91%b8%e6%9d%bf"
+      title=""
+      aria-label=""
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=https://gwliang.com/posts/esp32-touchpad/&amp;description=%e4%bd%8e%e6%88%90%e6%9c%ac%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e8%93%9d%e7%89%99%e8%a7%a6%e6%91%b8%e6%9d%bf"
+      title="钉到 Pinterest"
+      aria-label="钉到 Pinterest"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://reddit.com/submit/?url=https://gwliang.com/posts/esp32-touchpad/&amp;resubmit=true&amp;title=%e4%bd%8e%e6%88%90%e6%9c%ac%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e8%93%9d%e7%89%99%e8%a7%a6%e6%91%b8%e6%9d%bf"
+      title="提交到 Reddit"
+      aria-label="提交到 Reddit"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.facebook.com/sharer/sharer.php?u=https://gwliang.com/posts/esp32-touchpad/&amp;quote=%e4%bd%8e%e6%88%90%e6%9c%ac%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e8%93%9d%e7%89%99%e8%a7%a6%e6%91%b8%e6%9d%bf"
+      title="分享到 Facebook"
+      aria-label="分享到 Facebook"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="mailto:?body=https://gwliang.com/posts/esp32-touchpad/&amp;subject=%e4%bd%8e%e6%88%90%e6%9c%ac%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e8%93%9d%e7%89%99%e8%a7%a6%e6%91%b8%e6%9d%bf"
+      title="通过电子邮件发送"
+      aria-label="通过电子邮件发送"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+  </section>
+
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+          
+          
+        
+      <script>
+        var oid = "views_posts\/esp32-touchpad\/index.md"
+        var oid_likes = "likes_posts\/esp32-touchpad\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/wo-bu-shi-gong-ying-shang/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >我不是供应商</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-10-24T00:00:00&#43;00:00">2024年10月24日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+    
+    <div class="pt-3">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="pt-3">
+        
+<div id="lv-container" data-id="city" data-uid="MTAyMC80Njc4NC8yMzI4NQ==">
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<style>
+    #taboola-livere {
+        display: none;
+    }
+</style>
+
+      </div>
+    </div>
+    
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部" title="返回顶部">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="Tags">
+            
+            标签
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      高玩梁
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://gwliang.com/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

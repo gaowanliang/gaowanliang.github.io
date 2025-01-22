@@ -7,7 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>© 2025 高玩梁</copyright>
-    <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ESP32</title>
+      <link>https://gwliang.com/tags/esp32/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/esp32/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PS/2</title>
+      <link>https://gwliang.com/tags/ps/2/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/ps/2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>触摸板</title>
+      <link>https://gwliang.com/tags/%E8%A7%A6%E6%91%B8%E6%9D%BF/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/%E8%A7%A6%E6%91%B8%E6%9D%BF/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>蓝牙</title>
+      <link>https://gwliang.com/tags/%E8%93%9D%E7%89%99/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/%E8%93%9D%E7%89%99/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>供应商</title>
@@ -35,6 +75,96 @@
       <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>https://gwliang.com/tags/%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Cimbar</title>
+      <link>https://gwliang.com/tags/cimbar/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/cimbar/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Fountain 编码</title>
+      <link>https://gwliang.com/tags/fountain-%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/fountain-%E7%BC%96%E7%A0%81/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>错误校正</title>
+      <link>https://gwliang.com/tags/%E9%94%99%E8%AF%AF%E6%A0%A1%E6%AD%A3/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/%E9%94%99%E8%AF%AF%E6%A0%A1%E6%AD%A3/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>交织处理</title>
+      <link>https://gwliang.com/tags/%E4%BA%A4%E7%BB%87%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/%E4%BA%A4%E7%BB%87%E5%A4%84%E7%90%86/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>图像哈希</title>
+      <link>https://gwliang.com/tags/%E5%9B%BE%E5%83%8F%E5%93%88%E5%B8%8C/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/%E5%9B%BE%E5%83%8F%E5%93%88%E5%B8%8C/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>H264</title>
+      <link>https://gwliang.com/tags/h264/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/h264/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>视频编码</title>
+      <link>https://gwliang.com/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>帧间编码</title>
+      <link>https://gwliang.com/tags/%E5%B8%A7%E9%97%B4%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/%E5%B8%A7%E9%97%B4%E7%BC%96%E7%A0%81/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>帧内编码</title>
+      <link>https://gwliang.com/tags/%E5%B8%A7%E5%86%85%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/tags/%E5%B8%A7%E5%86%85%E7%BC%96%E7%A0%81/</guid>
       <description></description>
       
     </item>

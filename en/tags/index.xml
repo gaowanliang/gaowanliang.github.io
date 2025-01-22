@@ -7,34 +7,134 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Gaowan Liang</copyright>
-    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Ipsum</title>
-      <link>https://gwliang.com/en/tags/ipsum/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      <title>Bluetooth</title>
+      <link>https://gwliang.com/en/tags/bluetooth/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://gwliang.com/en/tags/ipsum/</guid>
+      <guid>https://gwliang.com/en/tags/bluetooth/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Lorem</title>
-      <link>https://gwliang.com/en/tags/lorem/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      <title>ESP32</title>
+      <link>https://gwliang.com/en/tags/esp32/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://gwliang.com/en/tags/lorem/</guid>
+      <guid>https://gwliang.com/en/tags/esp32/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Post</title>
-      <link>https://gwliang.com/en/tags/post/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      <title>PS/2</title>
+      <link>https://gwliang.com/en/tags/ps/2/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://gwliang.com/en/tags/post/</guid>
+      <guid>https://gwliang.com/en/tags/ps/2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Touchpad</title>
+      <link>https://gwliang.com/en/tags/touchpad/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/touchpad/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Cimbar</title>
+      <link>https://gwliang.com/en/tags/cimbar/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/cimbar/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Error Correction</title>
+      <link>https://gwliang.com/en/tags/error-correction/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/error-correction/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Fountain Coding</title>
+      <link>https://gwliang.com/en/tags/fountain-coding/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/fountain-coding/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Image Hashing</title>
+      <link>https://gwliang.com/en/tags/image-hashing/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/image-hashing/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Interleaving</title>
+      <link>https://gwliang.com/en/tags/interleaving/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/interleaving/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>H264</title>
+      <link>https://gwliang.com/en/tags/h264/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/h264/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Inter Prediction</title>
+      <link>https://gwliang.com/en/tags/inter-prediction/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/inter-prediction/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Intra Prediction</title>
+      <link>https://gwliang.com/en/tags/intra-prediction/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/intra-prediction/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Video Encoding</title>
+      <link>https://gwliang.com/en/tags/video-encoding/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/tags/video-encoding/</guid>
       <description></description>
       
     </item>

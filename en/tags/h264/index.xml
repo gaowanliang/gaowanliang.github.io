@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>H264 on Gaowan Liang&#39;s Blog</title>
+    <link>https://gwliang.com/en/tags/h264/</link>
+    <description>Recent content in H264 on Gaowan Liang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Gaowan Liang</copyright>
+    <lastBuildDate>Fri, 29 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/tags/h264/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Brief Overview of H.264 Frame Encoding Principles - Intra Prediction and Inter Prediction</title>
+      <link>https://gwliang.com/en/posts/intra-prediction-and-inter-prediction/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/posts/intra-prediction-and-inter-prediction/</guid>
+      <description>&lt;p&gt;Previously, we discussed some aspects of H.264 encoding in MP4. This time, let&amp;rsquo;s delve into how H.264 achieves such high compression rates, which brings us to the concepts of intra prediction and inter prediction. After some research, I found that there might not be any other source as detailed as this one, and it contains almost no complex or difficult information—reading this is a gain! (*/ω＼*)&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/intra-prediction-and-inter-prediction/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

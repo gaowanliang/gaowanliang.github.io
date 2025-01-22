@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Implementing a Low-Cost Bluetooth Touchpad &middot; Gaowan Liang&#39;s Blog</title>
+  <meta name="title" content="Implementing a Low-Cost Bluetooth Touchpad &middot; Gaowan Liang&#39;s Blog" />
+  
+  <meta name="description" content="My awesome blog" />
+  <meta name="keywords" content="ESP32, Bluetooth, Touchpad, PS/2, " />
+  
+  
+  <link rel="canonical" href="https://gwliang.com/en/posts/esp32-touchpad/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.c9b6c5bad9d9b9a8f5b3bd6daf0b1c10c381f761b86dc05093ace16f3fdf1194cc780925f423b9d64a5e34aaf208419bef714c3e8da1939da826dbb870a6f072.css"
+    integrity="sha512-ybbFutnZuaj1s71trwscEMOB92G4bcBQk6zhbz/fEZTMeAkl9CO51kpeNKryCEGb73FMPo2hk52oJtu4cKbwcg==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.a2d78d78672e549fbfc972ece871725b5478ba0b65708dda20cb97ab80a865eae6d247e1b05a4aec6ebbf78647ec3233bad8b2609ed98eee53cd58aa17128bc7.js"
+    integrity="sha512-oteNeGcuVJ&#43;/yXLs6HFyW1R4ugtlcI3aIMuXq4CoZerm0kfhsFpK7G6794ZH7DIzutiyYJ7Zju5TzViqFxKLxw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://gwliang.com/en/posts/esp32-touchpad/">
+  <meta property="og:site_name" content="Gaowan Liang&#39;s Blog">
+  <meta property="og:title" content="Implementing a Low-Cost Bluetooth Touchpad">
+  <meta property="og:description" content="Introduction # I personally enjoy compact devices, including small keyboards, mice, handheld consoles, and so on. Recently, I found the smallest scissor-switch keyboard available, which is only 7 inches in size and even has backlighting:">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-22T00:00:00+00:00">
+    <meta property="article:tag" content="ESP32">
+    <meta property="article:tag" content="Bluetooth">
+    <meta property="article:tag" content="Touchpad">
+    <meta property="article:tag" content="PS/2">
+    <meta property="og:image" content="https://gwliang.com/posts/esp32-touchpad/cover.webp">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://gwliang.com/posts/esp32-touchpad/cover.webp">
+  <meta name="twitter:title" content="Implementing a Low-Cost Bluetooth Touchpad">
+  <meta name="twitter:description" content="Introduction # I personally enjoy compact devices, including small keyboards, mice, handheld consoles, and so on. Recently, I found the smallest scissor-switch keyboard available, which is only 7 inches in size and even has backlighting:">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "",
+    "name": "Implementing a Low-Cost Bluetooth Touchpad",
+    "headline": "Implementing a Low-Cost Bluetooth Touchpad",
+    
+    "abstract": "\u003cp\u003e\u003cvideo src=\u0022..\/..\/..\/posts\/esp32-touchpad\/video.webm\u0022 controls=\u0022controls\u0022 height=\u002220%\u0022\u003e\u003c\/video\u003e\u003c\/p\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003eIntroduction \n    \u003cdiv id=\u0022introduction\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#introduction\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003eI personally enjoy compact devices, including small keyboards, mice, handheld consoles, and so on. Recently, I found the smallest scissor-switch keyboard available, which is only 7 inches in size and even has backlighting:\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/gwliang.com\/en\/posts\/esp32-touchpad\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Gaowan Liang"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-11-22T00:00:00\u002b00:00",
+    "datePublished": "2024-11-22T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-11-22T00:00:00\u002b00:00",
+    
+    "keywords": ["ESP32","Bluetooth","Touchpad","PS/2"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3197"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Gaowan Liang" />
+  
+  
+  
+  <link href="https://gwliang.com" rel="me" />
+  
+  
+  <link href="https://github.com/gaowanliang" rel="me" />
+  
+  
+  <link href="https://twitter.com/gaowanliang" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/en/" class="text-base font-medium text-gray-500 hover:text-gray-900">Gaowan Liang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/en/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Posts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/en/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://nunocoracao.github.io/blowfish/"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/nunocoracao/blowfish"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://twitter.com/burufugu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+<div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    <span class="ltr:mr-1 rtl:ml-1">
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+    <path fill="currentColor" d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg>
+  </span>
+
+
+    </span>
+    <div class="text-sm font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Implementing a Low-Cost Bluetooth Touchpad">EN</div>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/en/posts/esp32-touchpad/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Implementing a Low-Cost Bluetooth Touchpad">
+            EN
+          </p>
+        </a>
+        
+        <a href="/posts/esp32-touchpad/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="低成本实现一个蓝牙触摸板">
+            中文
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+<div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    <span class="ltr:mr-1 rtl:ml-1">
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+    <path fill="currentColor" d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></svg>
+  </span>
+
+
+    </span>
+    <div class="text-sm font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Implementing a Low-Cost Bluetooth Touchpad">EN</div>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/en/posts/esp32-touchpad/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Implementing a Low-Cost Bluetooth Touchpad">
+            EN
+          </p>
+        </a>
+        
+        <a href="/posts/esp32-touchpad/" class="flex items-center">
+          <p class="text-sm font-sm text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="低成本实现一个蓝牙触摸板">
+            中文
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/en/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Posts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/en/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://nunocoracao.github.io/blowfish/"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/nunocoracao/blowfish"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://twitter.com/burufugu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/esp32-touchpad/cover_hu8256193206936276858.webp);"></div>
+
+
+
+<div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/img/background.svg);">
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-30 dark:opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/en/"
+      >Gaowan Liang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/en/posts/"
+      >posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/en/posts/esp32-touchpad/"
+      >Implementing a Low-Cost Bluetooth Touchpad</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Implementing a Low-Cost Bluetooth Touchpad
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-22T00:00:00&#43;00:00">22 November 2024</time><span class="px-2 text-primary-500">&middot;</span><span>3197 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">16 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/en/categories/technology/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Technology
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/en/tags/esp32/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ESP32
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/en/tags/bluetooth/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Bluetooth
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/en/tags/touchpad/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Touchpad
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/en/tags/ps/2/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    PS/2
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+        
+        
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="Gaowan Liang" src="/img/avatar_hu6864959369967912551.webp" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      Gaowan Liang
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">A person who keeps curious about everything</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://gwliang.com"
+          target="_blank"
+          aria-label="Link"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/gaowanliang"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://twitter.com/gaowanliang"
+          target="_blank"
+          aria-label="X-Twitter"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+      
+
+      
+
+      
+      <div class="mb-5"></div>
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#surprisingly-its-ps2">Surprisingly, It&rsquo;s PS/2</a></li>
+    <li><a href="#understanding-ps2-basics">Understanding PS/2 Basics</a></li>
+    <li><a href="#synaptics-lets-get-started">Synaptics, Let&rsquo;s Get Started!</a></li>
+    <li><a href="#bluetooth-integration">Bluetooth Integration</a></li>
+    <li><a href="#implementing-complex-gestures-and-optimization">Implementing Complex Gestures and Optimization</a>
+      <ul>
+        <li><a href="#about-the-data-packets">About the Data Packets</a></li>
+        <li><a href="#desired-features">Desired Features</a></li>
+      </ul>
+    </li>
+    <li><a href="#actual-implementation">Actual Implementation</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#surprisingly-its-ps2">Surprisingly, It&rsquo;s PS/2</a></li>
+    <li><a href="#understanding-ps2-basics">Understanding PS/2 Basics</a></li>
+    <li><a href="#synaptics-lets-get-started">Synaptics, Let&rsquo;s Get Started!</a></li>
+    <li><a href="#bluetooth-integration">Bluetooth Integration</a></li>
+    <li><a href="#implementing-complex-gestures-and-optimization">Implementing Complex Gestures and Optimization</a>
+      <ul>
+        <li><a href="#about-the-data-packets">About the Data Packets</a></li>
+        <li><a href="#desired-features">Desired Features</a></li>
+      </ul>
+    </li>
+    <li><a href="#actual-implementation">Actual Implementation</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p><video src="../../../posts/esp32-touchpad/video.webm" controls="controls" height="20%"></video></p>
+
+
+<h2 class="relative group">Introduction 
+    <div id="introduction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#introduction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>I personally enjoy compact devices, including small keyboards, mice, handheld consoles, and so on. Recently, I found the smallest scissor-switch keyboard available, which is only 7 inches in size and even has backlighting:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image2_hu5104410518578155427.webp 330w,
+        /posts/esp32-touchpad/image2_hu14357412662832242606.webp 660w,
+        /posts/esp32-touchpad/image2_hu16895588819149233353.webp 1024w,
+        /posts/esp32-touchpad/image2_hu7001967993111278494.webp 2x"
+        src="/posts/esp32-touchpad/image2_hu14357412662832242606.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>I really like this keyboard, but it has one drawback: it&rsquo;s still too large. Although its thickness is less than 5mm, as shown in the picture, there is still quite a bit of unused space at the front and back. It would be great if it had a touchpad as well. So, I started planning how to add one. Since the keyboard is still functional, I decided not to ruin it and instead bought a touchpad to work on first. I found the cheapest touchpad available, the TM2334, which cost only 16 yuan including shipping. This touchpad was used in Lenovo S41 laptops from 2012-2013, supports multi-touch, and has a great feel:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image3_hu587462464230073389.webp 330w,
+        /posts/esp32-touchpad/image3_hu4987343322565766575.webp 660w,
+        /posts/esp32-touchpad/image3_hu520827514955778878.webp 1024w,
+        /posts/esp32-touchpad/image3_hu10548099378554335849.webp 2x"
+        src="/posts/esp32-touchpad/image3_hu4987343322565766575.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image4_hu2167246383051516475.webp 330w,
+        /posts/esp32-touchpad/image4_hu11106438706664034520.webp 660w,
+        /posts/esp32-touchpad/image4_hu7265949485693748037.webp 1024w,
+        /posts/esp32-touchpad/image4_hu1668788147775959640.webp 2x"
+        src="/posts/esp32-touchpad/image4_hu11106438706664034520.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>The next step was to understand how the touchpad works.</p>
+
+
+<h2 class="relative group">Surprisingly, It&rsquo;s PS/2 
+    <div id="surprisingly-its-ps2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#surprisingly-its-ps2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Upon receiving the touchpad, I realized that it is a commercial product and not a module, so I couldn&rsquo;t find any documentation. I started searching to see if anyone had worked with this model. To my surprise, I found some information:</p>
+<p><a href="https://forum.level1techs.com/t/touchpad-ps-2-pinout-help/139088" target="_blank">https://forum.level1techs.com/t/touchpad-ps-2-pinout-help/139088</a></p>
+<p>The first post I found detailed how the author wanted to use this touchpad as a PS/2 device. They connected several test points but still couldn&rsquo;t drive it using pure PS/2 methods:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image5_hu7598802297174974406.webp 330w,
+        /posts/esp32-touchpad/image5_hu13498475373732005585.webp 660w,
+        /posts/esp32-touchpad/image5_hu8785924925300797799.webp 1024w,
+        /posts/esp32-touchpad/image5_hu11840893067100005011.webp 2x"
+        src="/posts/esp32-touchpad/image5_hu13498475373732005585.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>Another user provided the pinout definition and soldered it to a PS/2 connector, but they were also unable to drive it:</p>
+<p><a href="https://www.eevblog.com/forum/projects/usb-touchpad-synaptics-tm2334/" target="_blank">https://www.eevblog.com/forum/projects/usb-touchpad-synaptics-tm2334/</a></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image6_hu2254013311569904280.webp 330w,
+        /posts/esp32-touchpad/image6_hu7881348112851201043.webp 660w,
+        /posts/esp32-touchpad/image6_hu10104290541551539840.webp 1024w,
+        /posts/esp32-touchpad/image6_hu7149114075269003567.webp 2x"
+        src="/posts/esp32-touchpad/image6_hu7881348112851201043.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>This user was quite stubborn, firmly believing that it could only be driven directly via PS/2. However, we had a different approach; we wanted to communicate via Bluetooth, so we weren&rsquo;t bound by those limitations. I dug out my roommate&rsquo;s D1 R32 development board, which I had borrowed during my graduation project. This board looks similar to an Arduino UNO but is powered by an ESP32, a dual-core processor with a frequency of 240MHz, supporting both WiFi and Bluetooth connections. Its performance is quite robust, making it perfect for development:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image7_hu3527356434304838249.webp 330w,
+        /posts/esp32-touchpad/image7_hu14566101814946670317.webp 660w,
+        /posts/esp32-touchpad/image7_hu15449477095818785731.webp 1024w,
+        /posts/esp32-touchpad/image7_hu6532936897628354274.webp 2x"
+        src="/posts/esp32-touchpad/image7_hu14566101814946670317.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>To connect the touchpad, we didn&rsquo;t need to be as rough as the users abroad; we could simply buy a 6-pin FPC connector. The first time I did this, I lacked experience and saw options for 0.5 and 1.0 mm pitch connectors. I mistakenly thought the latter referred to the spacing of the holes and wondered why I would need such a wide connector. It turned out that 0.5 mm referred to the width of the ribbon cable, while the touchpad used a 1.0 mm ribbon. Fortunately, the connector I bought had a 0.5 mm pitch on one side and 1.0 mm on the other, so I just needed to buy a 1.0 mm connector to solder on, which was quite simple and saved me from wasting money.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image8_hu16107041286028471326.webp 330w,
+        /posts/esp32-touchpad/image8_hu2089902015023883079.webp 660w,
+        /posts/esp32-touchpad/image8_hu6626847983106158669.webp 1024w,
+        /posts/esp32-touchpad/image8_hu12101897893748425989.webp 2x"
+        src="/posts/esp32-touchpad/image8_hu2089902015023883079.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image9_hu9589643268194222083.webp 330w,
+        /posts/esp32-touchpad/image9_hu8222957993431164070.webp 660w,
+        /posts/esp32-touchpad/image9_hu12455977948086778725.webp 1024w,
+        /posts/esp32-touchpad/image9_hu6942145941051863594.webp 2x"
+        src="/posts/esp32-touchpad/image9_hu8222957993431164070.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>Based on the definitions provided in the previous posts, we learned the pinout for the ribbon cable:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image10_hu5922300194294434268.webp 330w,
+        /posts/esp32-touchpad/image10_hu10866713254771484862.webp 660w,
+        /posts/esp32-touchpad/image10_hu3434730253173189887.webp 1024w,
+        /posts/esp32-touchpad/image10_hu9793317625834632979.webp 2x"
+        src="/posts/esp32-touchpad/image10_hu10866713254771484862.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<ol>
+<li><strong>+3VS</strong>: This is the 3V power supply pin, labeled as “+3 Volt Supply.” It provides power to the related circuits (such as the touchpad).</li>
+<li><strong>TP_CLK (Touchpad Clock)</strong>: This is the clock signal pin for the touchpad. The clock signal is used to synchronize data transmission and reception.</li>
+<li><strong>TP_DATA (Touchpad Data)</strong>: This is the data transmission pin for the touchpad, responsible for transmitting data between the touchpad and the main controller.</li>
+<li><strong>GND</strong>: Ground pin, providing a reference point for the electrical circuit. All current returns to this pin.</li>
+<li><strong>SMB_CLK (SMBus Clock)</strong>: This is the clock pin for the System Management Bus (SMBus). SMBus is used for communication with low-bandwidth devices, such as batteries or sensors.</li>
+<li><strong>SMB_DATA (SMBus Data)</strong>: This is the data pin for the SMBus, used for data transmission between SMBus devices.</li>
+</ol>
+<p>We must pay close attention to the orientation, especially the markings for pins 1 and 6. Pins 5 and 6 are used for the computer motherboard, which we won&rsquo;t need. Additionally, it&rsquo;s important to note that not every touchpad has the same pinout; if you plan to buy a random touchpad for modification, you&rsquo;ll need to look up the relevant information online.</p>
+
+
+<h2 class="relative group">Understanding PS/2 Basics 
+    <div id="understanding-ps2-basics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#understanding-ps2-basics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>First, let&rsquo;s cover some basic knowledge about PS/2. A standard PS/2 connector looks like this:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image11_hu723443911128493970.webp 330w,
+        /posts/esp32-touchpad/image11_hu1748461475443382017.webp 660w,
+        /posts/esp32-touchpad/image11_hu8084419422598474449.webp 1024w,
+        /posts/esp32-touchpad/image11_hu11331578024585155002.webp 2x"
+        src="/posts/esp32-touchpad/image11_hu1748461475443382017.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>The power and ground lines are straightforward. The <strong>clock line (CLK)</strong> is used to synchronize data transmission and is controlled by either the device or the host as needed. The <strong>data line (DATA)</strong> is responsible for transmitting data bits between the host and the device. When a PS/2 device is idle, both the clock and data pins are pulled high. When the host wants to send data to the device, it pulls down both CLK and DATA to indicate a request to send data. The device can then control the CLK line to send data back to the host. Therefore, we can attach an interrupt to the clock pin, triggering a read signal on the falling edge to read signals from the PS/2 device.</p>
+<p>The PS/2 data frame is structured as follows:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image12_hu340408535226594311.webp 330w,
+        /posts/esp32-touchpad/image12_hu9523105470890522802.webp 660w,
+        /posts/esp32-touchpad/image12_hu9389214596975749218.webp 1024w,
+        /posts/esp32-touchpad/image12_hu8608024136716368354.webp 2x"
+        src="/posts/esp32-touchpad/image12_hu9523105470890522802.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<ul>
+<li><strong>Start Bit</strong>: Always 0 (LOW).</li>
+<li><strong>Data Bits</strong>: 8 bits, with the least significant bit (LSB) sent first.</li>
+<li><strong>Parity Bit (P)</strong>: Ensures odd parity (the total number of 1s is odd).</li>
+<li><strong>Stop Bit</strong>: Always 1 (HIGH).</li>
+</ul>
+<p>Now that we understand how to read data, the next step is to initialize a Synaptics touchpad.</p>
+
+
+<h2 class="relative group">Synaptics, Let&rsquo;s Get Started! 
+    <div id="synaptics-lets-get-started" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#synaptics-lets-get-started" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In fact, you can initialize a Synaptics touchpad using the standard PS/2 protocol because Synaptics touchpads are inherently PS/2 compatible devices:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image13_hu2741082150609946272.webp 330w,
+        /posts/esp32-touchpad/image13_hu15757089584044451425.webp 660w,
+        /posts/esp32-touchpad/image13_hu13680870328610422538.webp 1024w,
+        /posts/esp32-touchpad/image13_hu15101209813885922554.webp 2x"
+        src="/posts/esp32-touchpad/image13_hu15757089584044451425.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>However, the downside is that while PS/2 mice have left and right buttons and scrolling functionality, without drivers, the Synaptics touchpad can only move up and down or left and right and use the left mouse button. This is barely functional, and anything beyond that is out of the question. As for two-finger taps being recognized as right-clicks or two-finger scrolling being recognized as scrolling, forget about it; those features simply won&rsquo;t trigger. To use multi-finger gestures, you must send special initialization commands during setup. Unfortunately, there is very little information available online, but after persistent searching, I found a perfect resource that met my needs:</p>
+<p><a href="https://github.com/delingren/synaptics_touchpad" target="_blank">https://github.com/delingren/synaptics_touchpad</a></p>
+<p>The person who submitted this code did so around the same time I had this idea, in July. They implemented a driver for a wired Synaptics touchpad microcontroller, which is fantastic:</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image14_hu10269672197327306882.webp 330w,
+        /posts/esp32-touchpad/image14_hu672063350342160422.webp 660w,
+        /posts/esp32-touchpad/image14_hu12052880462003751086.webp 1024w,
+        /posts/esp32-touchpad/image14_hu13588329947943470153.webp 2x"
+        src="/posts/esp32-touchpad/image14_hu672063350342160422.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>Now, let&rsquo;s use their program to explain what enhancements Synaptics has added to the PS/2 protocol.</p>
+<p>During the BIOS startup process, a standard PS/2 mouse operates as follows: the host sends a &ldquo;Get Device ID&rdquo; command (0xF2) and waits for a response. If a standard PS/2 mouse is connected, it will return an ACK (0xFA) and respond with the device ID 0x00. In this case, the host recognizes that the mouse indeed has a scroll wheel and continues to treat it as a standard PS/2 mouse.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image15_hu8085470480561550560.webp 330w,
+        /posts/esp32-touchpad/image15_hu11035891107432428077.webp 660w,
+        /posts/esp32-touchpad/image15_hu6239269110597219904.webp 1024w,
+        /posts/esp32-touchpad/image15_hu9823349624189719635.webp 2x"
+        src="/posts/esp32-touchpad/image15_hu11035891107432428077.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>Next, we need to obtain a series of information from the Synaptics touchpad to facilitate the next steps:</p>
+<ol>
+<li>
+<p><strong>Getting Version Information</strong>:</p>
+<ol>
+<li>Use <code>status_request(0x00, result)</code> to obtain the touchpad version information.
+<ol>
+<li><code>infoMajor</code>: The major version number, taken from the lower 4 bits of <code>result[2]</code>.</li>
+<li><code>infoMinor</code>: The minor version number, taken from <code>result[0]</code>.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Getting Capability Information</strong>:</p>
+<ol>
+<li>Use <code>status_request(0x02, result)</code> to get the capability information of the touchpad.
+<ol>
+<li><code>capExtended</code>: Indicates whether extended features are supported, from the highest bit of <code>result[0]</code>.</li>
+</ol>
+</li>
+<li>If extended features are supported, parse the following:
+<ol>
+<li><code>nExtendedQueries</code>: The number of extended queries.</li>
+<li><code>middleButton</code>: Indicates whether a middle button is supported, from the 2nd bit of <code>result[0]</code>.</li>
+<li><code>fourButtons</code>: Indicates whether four buttons are supported, from the 3rd bit of <code>result[2]</code>.</li>
+<li><code>multiFinger</code>: Indicates whether multi-finger support is available, from the 1st bit of <code>result[2]</code>.</li>
+<li><code>palmDetect</code>: Indicates whether palm detection is supported, from the 0th bit of <code>result[2]</code>.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Getting Unit Information</strong>:</p>
+<ol>
+<li>Use <code>status_request(0x08, result)</code> to obtain the unit information of the touchpad.
+<ol>
+<li><code>units_per_mm_x</code>: The number of units per millimeter in the X direction, from <code>result[0]</code>.</li>
+<li><code>units_per_mm_y</code>: The number of units per millimeter in the Y direction, from <code>result[2]</code>.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Getting Clickpad Information</strong>:</p>
+<ol>
+<li>Use <code>status_request(0x0C, result)</code> to get the type information of the clickpad.</li>
+<li><code>coveredPadGest</code>: Indicates whether covered pad gestures are supported, from the highest bit of <code>result[0]</code>.</li>
+<li><code>clickpad_type</code>: The type of the touchpad, derived from the bits of <code>result[0]</code> and <code>result[1]</code>.</li>
+<li><code>clickPadInfo</code>: An array describing the type of the touchpad.</li>
+<li><code>advGest</code>: Indicates whether advanced gestures are supported, from the 3rd bit of <code>result[0]</code>.</li>
+<li><code>clearPad</code>: Indicates whether clear pad functionality is supported, from the 2nd bit of <code>result[0]</code>.</li>
+</ol>
+</li>
+</ol>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image16_hu12981287378100747832.webp 330w,
+        /posts/esp32-touchpad/image16_hu11115708977946900791.webp 660w,
+        /posts/esp32-touchpad/image16_hu14717986456057249586.webp 1024w,
+        /posts/esp32-touchpad/image16_hu7689787394442824543.webp 2x"
+        src="/posts/esp32-touchpad/image16_hu11115708977946900791.webp"
+        alt="TM2334 Touchpad Overview"
+      />
+      
+    </figure>
+</p>
+<p>After gathering this information, we can configure the touchpad&rsquo;s mode. It seems the author also spent considerable time figuring out how to set the touchpad&rsquo;s mode and ultimately chose to reference the initialization command sequences from other projects:</p>
+<blockquote>
+<p>// Reference: 4.3. Mode Byte</p>
+<p>// For some reason, I couldn&rsquo;t get the touchpad to report extended W mode packets.</p>
+<p>// After some research, I found the solution in the VoodooPS2 driver (a touchpad driver for Hackintosh).</p>
+<p>// This sequence sets absolute mode, high speed, W mode, and EW mode.</p>
+<p>// F5</p>
+<p>// E6, E6, E8, 03, E8, 00, E8, 01, E8, 01, F3, 14</p>
+<p>// E6, E6, E8, 00, E8, 00, E8, 00, E8, 03, F3, C8</p>
+<p>// F4</p>
+</blockquote>
+<p>In the program, this is reflected as follows:</p>
+<ul>
+<li>Two <code>SETSCALE11</code> (set scale to 1:1, 0xE6) commands.</li>
+<li>Sending a special command <code>0xC5</code>.</li>
+<li>Setting the sampling rate to <code>0x14</code>.</li>
+<li>Sending two more <code>SETSCALE11</code> commands.</li>
+<li>Sending a special command <code>0x03</code>.</li>
+<li>Setting the sampling rate to <code>0xC8</code>.</li>
+</ul>
+<p>Although it may not be entirely clear, this indeed enables the normal operation of the touchpad. For more details, you can refer to the Synaptics touchpad documentation: <a href="https://github.com/delingren/synaptics_touchpad/blob/main/touchpad_RevB.pdf" target="_blank">Synaptics Touchpad Documentation</a>. However, I skimmed through it and didn&rsquo;t find a corresponding method.</p>
+<p>Regarding W mode, the documentation states:</p>
+<ol>
+<li><strong>When the Wmode bit is set to 1</strong>:
+<ul>
+<li>The touchpad <strong>does not report gesture information</strong>.</li>
+<li>In this case, bit 2 is automatically used to report <strong>EWmode (Extended W mode)</strong>.</li>
+<li>EWmode provides extended W mode functionality; in EW mode, the traditional X, Y, Z data no longer have their previous meanings and are redefined based on the EW mode packet codes.</li>
+</ul>
+</li>
+<li><strong>When the Wmode bit is set to 0</strong>:
+<ul>
+<li>The touchpad <strong>reports gesture information</strong>.</li>
+<li>In this case, bit 2 indicates <strong>DisGest (Disable Gesture)</strong>.</li>
+<li>If the DisGest bit is 0, it means <strong>click and swipe gesture processing is enabled</strong>.</li>
+<li>If the DisGest bit is 1, it means <strong>click and swipe gesture detection is disabled</strong>.</li>
+<li>When the DisGest bit is 1, in relative mode, the mouse packet will report the actual physical button states, while in absolute mode, the Gesture bit in the packet will always be 0 (i.e., no gesture reporting).</li>
+</ul>
+</li>
+</ol>
+<p>Once initialization is complete, we only need to process the information sent by the touchpad according to the PS/2 device&rsquo;s data reading method. The touchpad, as a PS/2 device, communicates with the host via the clock and data lines. When the touchpad needs to send data, it sends a synchronization signal through the clock line, and we only need to read the state of the data line on the falling edge of the clock line to obtain the complete data packet. Each data packet contains 48 bits of data, which record information such as the position, pressure, and width of fingers on the touchpad. The returned data packets mainly come in two types:</p>
+<ul>
+<li><strong>Primary Packet</strong>: Used to transmit basic touch information, such as the number of fingers, coordinates, pressure, etc.
+<ul>
+<li><strong>Byte 1 (Bits 47-40)</strong>:
+<ul>
+<li>Bit 47: Synchronization bit, usually 1.</li>
+<li>Bits 46-44: Number of fingers or other flag bits.</li>
+<li>Bits 43-40: May be used for button states, touch types, etc.</li>
+</ul>
+</li>
+<li><strong>Byte 2 (Bits 39-32)</strong>:
+<ul>
+<li>Z value, high 8 bits, representing pressure.</li>
+</ul>
+</li>
+<li><strong>Bytes 3 and 4 (Bits 31-16)</strong>:
+<ul>
+<li>X coordinate, high 16 bits.</li>
+</ul>
+</li>
+<li><strong>Bytes 5 and 6 (Bits 15-0)</strong>:
+<ul>
+<li>Y coordinate, high 16 bits.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image17_hu5292495746819203231.webp 330w,
+        /posts/esp32-touchpad/image17_hu13107830512583953316.webp 660w,
+        /posts/esp32-touchpad/image17_hu10588435618894539677.webp 1024w,
+        /posts/esp32-touchpad/image17_hu14484406973989499845.webp 2x"
+        src="/posts/esp32-touchpad/image17_hu13107830512583953316.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image18_hu17619573551502891468.webp 330w,
+        /posts/esp32-touchpad/image18_hu3539400274363305938.webp 660w,
+        /posts/esp32-touchpad/image18_hu16669964585309997663.webp 1024w,
+        /posts/esp32-touchpad/image18_hu11826708483448952714.webp 2x"
+        src="/posts/esp32-touchpad/image18_hu3539400274363305938.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<ul>
+<li><strong>Extended Packet</strong>: Used to transmit more detailed information, supporting multi-finger operations, special gestures, etc.
+<ul>
+<li><strong>Byte 1 (Bits 47-40)</strong>:
+<ul>
+<li>Specific flag bits used to distinguish the type of extended packet.</li>
+</ul>
+</li>
+<li><strong>Byte 2 (Bits 39-32)</strong>:
+<ul>
+<li>Extended information, such as function codes, number of fingers, etc.</li>
+</ul>
+</li>
+<li><strong>Remaining Bytes</strong>:
+<ul>
+<li>Depending on the type of extended packet, it contains different content, such as additional coordinates, gesture information, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image19_hu9845720829279767306.webp 330w,
+        /posts/esp32-touchpad/image19_hu3554203842315138416.webp 660w,
+        /posts/esp32-touchpad/image19_hu18389916581381689838.webp 1024w,
+        /posts/esp32-touchpad/image19_hu1513844710150612502.webp 2x"
+        src="/posts/esp32-touchpad/image19_hu3554203842315138416.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+<p>To determine whether it is a primary packet or an extended packet, you can check the W mode, specifically looking at bits 2, 4, 5, and bit 26.</p>
+
+
+<h2 class="relative group">Bluetooth Integration 
+    <div id="bluetooth-integration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bluetooth-integration" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Integrating Bluetooth is quite simple; you can directly use the library available at <a href="https://github.com/T-vK/ESP32-BLE-Mouse" target="_blank">https://github.com/T-vK/ESP32-BLE-Mouse</a>.</p>
+<p>Since the ESP32 is a dual-core processor, I placed the part that processes touchpad information on core 0, while sending information via Bluetooth runs on core 1 by default. I mainly utilized the multitasking mechanism provided by FreeRTOS on the ESP32 to achieve the following goals:</p>
+<ul>
+<li><strong>Data Processing and Task Separation</strong>: Separating the touchpad data reception and processing into different tasks to enhance the system&rsquo;s responsiveness and stability.</li>
+<li><strong>Asynchronous Processing</strong>: Implementing asynchronous data transfer through tasks and queues to avoid heavy processing in interrupts.</li>
+</ul>
+<p>Since the touchpad sends data to the ESP32 via interrupts, the interrupt service routine <code>byte_received</code> receives the data and needs to pass it to a task for processing. Since only one byte can be received at a time, the six consecutive bytes must be concatenated to form a complete data packet. Once a complete data packet is received, it is sent to the <code>mouseEventQueue</code> using <code>xQueueSendFromISR</code>.</p>
+<p>After that, in the processing function, we use <code>xQueueReceive</code> to receive the packet from the queue, with a timeout of 10 milliseconds. Based on the contents of the packet, we determine its type and call the corresponding parsing function. If Bluetooth is already connected, the mouse event is sent via Bluetooth. This way, we achieve Bluetooth integration for the data.</p>
+
+
+<h2 class="relative group">Implementing Complex Gestures and Optimization 
+    <div id="implementing-complex-gestures-and-optimization" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#implementing-complex-gestures-and-optimization" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">About the Data Packets 
+    <div id="about-the-data-packets" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#about-the-data-packets" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>After connecting the touchpad as required, every time a touch occurs, the touchpad sends a 6-byte data packet to the host. These packets contain information such as finger position, pressure (the pressure value reported by this touchpad corresponds to the touch area), and width. The TM2334 touchpad can detect a maximum of three fingers, so gestures involving more than three fingers cannot be recognized.</p>
+<p>Due to the inevitable noise in communication, packets may be lost or altered. Capturing every data frame is not critical; losing one or two frames is not a significant issue. Additionally, some packets have unique characteristics (for example, fixed bits at certain positions) that can be used for synchronization and recovery. Therefore, if an unexpected packet is received, I will continue to discard packets until resynchronization occurs. In simple terms, I check the 0th and 24th bytes of the packet to ensure that the 7th bit of the 0th byte is 1, and the 6th and 3rd bits are 0; and that the 7th and 6th bits of the 24th byte are 1, and the 3rd bit is 0. The specific reason for this is borrowed from the VooDooPS2 driver; I am not entirely clear on the details, and I don&rsquo;t want to delve deeply into the documentation to find out why. I just need to know that this is the case.</p>
+
+
+<h3 class="relative group">Desired Features 
+    <div id="desired-features" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#desired-features" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>I mainly want to implement the following features, and once these are achieved, daily use should be problem-free:</strong></p>
+<ul>
+<li>Mouse movement</li>
+<li>Pressing the lower-left area as the left mouse button and the lower-right area as the right mouse button (to be implemented after casing; currently, it is quite difficult to press)</li>
+<li>Light taps as clicks
+<ul>
+<li>Single-finger tap as the left mouse button</li>
+<li>Two-finger tap as the right mouse button</li>
+<li>Three-finger tap as the middle mouse button</li>
+<li>Palm rejection to avoid accidental touches</li>
+</ul>
+</li>
+<li>Scrolling
+<ul>
+<li>Two-finger vertical swipes for vertical scrolling</li>
+<li>Two-finger horizontal swipes for horizontal scrolling</li>
+</ul>
+</li>
+<li>Three-finger gestures
+<ul>
+<li>Three-finger horizontal swipes to switch applications</li>
+<li>Three-finger vertical swipes to show the desktop or return to the application</li>
+</ul>
+</li>
+<li>Lightly tap and then move the finger to implement dragging</li>
+<li>Zooming in and out</li>
+<li>Sleep mode</li>
+</ul>
+<p><strong>Among these, three-finger gestures are not natively supported by HID devices, so I may need to refer to Microsoft&rsquo;s documentation (for switching applications, I will likely send Alt + Tap using the keyboard, and then send up, down, left, right commands; showing the desktop, etc.). This will be discussed later, but for now, let&rsquo;s focus on the other features.</strong></p>
+
+
+<h2 class="relative group">Actual Implementation 
+    <div id="actual-implementation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#actual-implementation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If we faithfully report finger positions in every frame, the cursor will experience a lot of jitter due to the inherent noise and instability of human fingers. To address this issue, we can implement some optimization strategies as follows:</p>
+<ul>
+<li>
+<p><strong>Averaging</strong>: Instead of reporting the finger position in every frame, I track the average of the last n frames to eliminate sudden movements. Currently, I have set this to 20 frames. A lower value increases precision, but the cursor may also jitter more.</p>
+</li>
+<li>
+<p><strong>Noise Threshold</strong>: If the increment between two frames is below a certain threshold, it is considered a false touch. This value is empirical and needs to be determined through multiple experiments, as it varies with different touchpads. Currently, I have set this value to 0.08mm.</p>
+</li>
+<li>
+<p><strong>Sticky Finger Threshold</strong>: When a finger remains stationary, I use a higher threshold to make it feel &ldquo;sticky&rdquo; at first, but smoother when moving.</p>
+</li>
+</ul>
+<p>For scrolling, since the HID protocol reports using integers, even a gentle swipe can only report a value of 1 and cannot report decimals. To achieve fast and precise scrolling, the implementation is quite simple: when the finger moves slowly and the movement is small, I generate a report only every few frames, with a movement value of 1. Once the speed exceeds a certain threshold, I assume the user&rsquo;s intent is to scroll quickly over a large area. In this case, I report in every frame, with the movement value proportional to the actual movement.</p>
+<p>For light taps as clicks, the logic is as follows: when a finger is detected as just pressed down (the number of fingers in the previous frame is 0, and in the current frame it is not 0), I record the frame number when pressed and how many fingers were pressed. This is important because the touchpad may respond too quickly, leading to the actual pressing of three fingers while initially only recognizing one. Therefore, I need to keep track of the maximum number of fingers pressed during subsequent processing. Finally, when the finger is lifted (the number of fingers in the previous frame is not 0, and in the current frame it is 0), I check the distance moved, the duration of the press, and the contact width to see if they are all below a threshold. If they are, a click is triggered. This helps avoid false triggers from foreign objects or palm touches on the touchpad.</p>
+<p>The functionality of dragging by moving after a light tap is also straightforward: it simply involves sliding within a threshold after a single-finger click. It is important to note that this should be implemented by pressing the left button first, then moving the cursor, and finally releasing the left button.</p>
+<p><strong>Currently, it is basically functional for normal daily use. This means that with just 16 yuan for the touchpad and 20 yuan for the ESP32, plus peripheral circuits not exceeding 50 yuan, you can achieve a low-cost Bluetooth touchpad.</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/esp32-touchpad/image20_hu7844566500360602407.webp 330w,
+        /posts/esp32-touchpad/image20_hu994857676747917219.webp 660w,
+        /posts/esp32-touchpad/image20_hu5578859832577991026.webp 1024w,
+        /posts/esp32-touchpad/image20_hu10872448525662735126.webp 2x"
+        src="/posts/esp32-touchpad/image20_hu994857676747917219.webp"
+        alt=""
+      />
+      
+    </figure>
+</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://gwliang.com/en/posts/esp32-touchpad/&amp;title=Implementing%20a%20Low-Cost%20Bluetooth%20Touchpad"
+      title="Share on LinkedIn"
+      aria-label="Share on LinkedIn"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://twitter.com/intent/tweet/?url=https://gwliang.com/en/posts/esp32-touchpad/&amp;text=Implementing%20a%20Low-Cost%20Bluetooth%20Touchpad"
+      title="Tweet on Twitter"
+      aria-label="Tweet on Twitter"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://api.whatsapp.com/send?text=https://gwliang.com/en/posts/esp32-touchpad/&amp;resubmit=true&amp;title=Implementing%20a%20Low-Cost%20Bluetooth%20Touchpad"
+      title="Share via WhatsApp"
+      aria-label="Share via WhatsApp"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=https://gwliang.com/en/posts/esp32-touchpad/&amp;description=Implementing%20a%20Low-Cost%20Bluetooth%20Touchpad"
+      title="Pin on Pinterest"
+      aria-label="Pin on Pinterest"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://reddit.com/submit/?url=https://gwliang.com/en/posts/esp32-touchpad/&amp;resubmit=true&amp;title=Implementing%20a%20Low-Cost%20Bluetooth%20Touchpad"
+      title="Submit to Reddit"
+      aria-label="Submit to Reddit"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.facebook.com/sharer/sharer.php?u=https://gwliang.com/en/posts/esp32-touchpad/&amp;quote=Implementing%20a%20Low-Cost%20Bluetooth%20Touchpad"
+      title="Share on Facebook"
+      aria-label="Share on Facebook"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="mailto:?body=https://gwliang.com/en/posts/esp32-touchpad/&amp;subject=Implementing%20a%20Low-Cost%20Bluetooth%20Touchpad"
+      title="Send via email"
+      aria-label="Send via email"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+  </section>
+
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+          
+          
+        
+      <script>
+        var oid = "views_posts\/esp32-touchpad\/index.md"
+        var oid_likes = "likes_posts\/esp32-touchpad\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/en/posts/cimbar-introduction/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >File Transmission Using a Camera — Cimbar</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-09-09T00:00:00&#43;00:00">9 September 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+    
+    <div class="pt-3">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="pt-3">
+        
+<div id="lv-container" data-id="city" data-uid="MTAyMC80Njc4NC8yMzI4NQ==">
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<style>
+    #taboola-livere {
+        display: none;
+    }
+</style>
+
+      </div>
+    </div>
+    
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/en/tags/"
+            title="Tags">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Gaowan Liang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://gwliang.com/en/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

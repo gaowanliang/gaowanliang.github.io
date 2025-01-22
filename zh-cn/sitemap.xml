@@ -3,24 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://gwliang.com/categories/</loc>
-    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://gwliang.com/en/categories/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://gwliang.com/categories/"
-    />
-  </url>
-  <url>
     <loc>https://gwliang.com/posts/</loc>
-    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -35,8 +19,56 @@
     />
   </url>
   <url>
+    <loc>https://gwliang.com/categories/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/categories/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/categories/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/esp32/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/esp32/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/esp32/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/ps/2/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/ps/2/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/ps/2/"
+    />
+  </url>
+  <url>
     <loc>https://gwliang.com/tags/</loc>
-    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -51,8 +83,30 @@
     />
   </url>
   <url>
+    <loc>https://gwliang.com/tags/%E8%A7%A6%E6%91%B8%E6%9D%BF/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/posts/esp32-touchpad/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/posts/esp32-touchpad/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/posts/esp32-touchpad/"
+    />
+  </url>
+  <url>
     <loc>https://gwliang.com/</loc>
-    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -65,6 +119,18 @@
       hreflang="zh-cn"
       href="https://gwliang.com/"
     />
+  </url>
+  <url>
+    <loc>https://gwliang.com/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/%E8%93%9D%E7%89%99/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://gwliang.com/tags/%E4%BE%9B%E5%BA%94%E5%95%86/</loc>
@@ -97,6 +163,112 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://gwliang.com/tags/cimbar/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/cimbar/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/cimbar/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/fountain-%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/%E9%94%99%E8%AF%AF%E6%A0%A1%E6%AD%A3/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/%E4%BA%A4%E7%BB%87%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/%E5%9B%BE%E5%83%8F%E5%93%88%E5%B8%8C/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/posts/cimbar-introduction/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/posts/cimbar-introduction/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/posts/cimbar-introduction/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/posts/intra-prediction-and-inter-prediction/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/posts/intra-prediction-and-inter-prediction/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/posts/intra-prediction-and-inter-prediction/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/h264/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/h264/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/h264/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/%E5%B8%A7%E9%97%B4%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/%E5%B8%A7%E5%86%85%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://gwliang.com/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/</loc>
     <lastmod>2023-05-25T11:47:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -104,12 +276,6 @@
   </url>
   <url>
     <loc>https://gwliang.com/posts/er-jin-zhi-suan-fa-zhong-de-jin-wei-he-yi-chu/</loc>
-    <lastmod>2023-05-25T11:47:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://gwliang.com/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2023-05-25T11:47:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

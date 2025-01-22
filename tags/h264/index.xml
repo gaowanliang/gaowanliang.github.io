@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>H264 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/h264/</link>
+    <description>Recent content in H264 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Fri, 29 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/h264/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>H.264帧编码原理简述 - 帧内编码和帧间编码</title>
+      <link>https://gwliang.com/posts/intra-prediction-and-inter-prediction/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/intra-prediction-and-inter-prediction/</guid>
+      <description>&lt;p&gt;上回说了一些关于 MP4 的 H264 编码的内容，这次再来说说 H264 是如何实现这么高的压缩率的，这就不得不提到帧内编码和帧间编码，查了一下，全网可能没有我讲的这么详细的的了，而且几乎不包含任何复杂难懂的信息，读到就是赚到(*/ω＼*)&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/intra-prediction-and-inter-prediction/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

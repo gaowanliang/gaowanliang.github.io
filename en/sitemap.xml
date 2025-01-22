@@ -3,70 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://gwliang.com/en/categories/blog/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://gwliang.com/en/categories/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://gwliang.com/categories/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://gwliang.com/en/categories/"
-    />
-  </url>
-  <url>
-    <loc>https://gwliang.com/en/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://gwliang.com/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://gwliang.com/en/"
-    />
-  </url>
-  <url>
-    <loc>https://gwliang.com/en/tags/ipsum/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://gwliang.com/en/tags/lorem/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://gwliang.com/en/tags/post/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://gwliang.com/en/categories/post/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://gwliang.com/en/posts/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -81,26 +19,94 @@
     />
   </url>
   <url>
-    <loc>https://gwliang.com/en/posts/post-lite-one/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+    <loc>https://gwliang.com/en/tags/bluetooth/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gwliang.com/en/posts/post-lite-three/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+    <loc>https://gwliang.com/en/categories/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/categories/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/categories/"
+    />
   </url>
   <url>
-    <loc>https://gwliang.com/en/posts/post-lite-two/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+    <loc>https://gwliang.com/en/tags/esp32/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/esp32/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/esp32/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/posts/esp32-touchpad/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/posts/esp32-touchpad/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/posts/esp32-touchpad/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/ps/2/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/ps/2/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/ps/2/"
+    />
   </url>
   <url>
     <loc>https://gwliang.com/en/tags/</loc>
-    <lastmod>2022-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -115,8 +121,120 @@
     />
   </url>
   <url>
-    <loc>https://gwliang.com/en/posts/post-lite-four/</loc>
-    <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+    <loc>https://gwliang.com/en/categories/technology/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/touchpad/</loc>
+    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/cimbar/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/cimbar/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/cimbar/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/error-correction/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/posts/cimbar-introduction/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/posts/cimbar-introduction/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/posts/cimbar-introduction/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/fountain-coding/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/image-hashing/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/interleaving/</loc>
+    <lastmod>2024-09-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/posts/intra-prediction-and-inter-prediction/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/posts/intra-prediction-and-inter-prediction/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/posts/intra-prediction-and-inter-prediction/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/h264/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/h264/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/h264/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/inter-prediction/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/intra-prediction/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/video-encoding/</loc>
+    <lastmod>2024-03-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

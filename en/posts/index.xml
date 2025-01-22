@@ -1,52 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Gaowan Liang&#39;s Blog</title>
+    <title>Gaowan Liang&#39;s Blog</title>
     <link>https://gwliang.com/en/posts/</link>
-    <description>Recent content in Posts on Gaowan Liang&#39;s Blog</description>
+    <description>Recent content on Gaowan Liang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Gaowan Liang</copyright>
-    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/posts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Super cool article that I wrote</title>
-      <link>https://gwliang.com/en/posts/post-lite-one/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      <title>Implementing a Low-Cost Bluetooth Touchpad</title>
+      <link>https://gwliang.com/en/posts/esp32-touchpad/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://gwliang.com/en/posts/post-lite-one/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/en/posts/post-lite-one/cover.png" />
+      <guid>https://gwliang.com/en/posts/esp32-touchpad/</guid>
+      <description>&lt;p&gt;&lt;video src=&#34;../../../posts/esp32-touchpad/video.webm&#34; controls=&#34;controls&#34; height=&#34;20%&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Introduction 
+    &lt;div id=&#34;introduction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#introduction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;I personally enjoy compact devices, including small keyboards, mice, handheld consoles, and so on. Recently, I found the smallest scissor-switch keyboard available, which is only 7 inches in size and even has backlighting:&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/esp32-touchpad/cover.webp" />
     </item>
     
     <item>
-      <title>Super cool article that I wrote</title>
-      <link>https://gwliang.com/en/posts/post-lite-three/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      <title>File Transmission Using a Camera — Cimbar</title>
+      <link>https://gwliang.com/en/posts/cimbar-introduction/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://gwliang.com/en/posts/post-lite-three/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/en/posts/post-lite-three/cover.png" />
+      <guid>https://gwliang.com/en/posts/cimbar-introduction/</guid>
+      <description>&lt;p&gt;I previously shared a project that uses paper to store files — PaperBak. Recently, I discovered another project that allows file transmission using a camera — Cimbar. Let&amp;rsquo;s start with a demonstration.&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/cimbar-introduction/cover.webp" />
     </item>
     
     <item>
-      <title>Super cool article that I wrote</title>
-      <link>https://gwliang.com/en/posts/post-lite-two/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
+      <title>A Brief Overview of H.264 Frame Encoding Principles - Intra Prediction and Inter Prediction</title>
+      <link>https://gwliang.com/en/posts/intra-prediction-and-inter-prediction/</link>
+      <pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://gwliang.com/en/posts/post-lite-two/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/en/posts/post-lite-two/cover.png" />
-    </item>
-    
-    <item>
-      <title>Super cool article that I wrote</title>
-      <link>https://gwliang.com/en/posts/post-lite-four/</link>
-      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://gwliang.com/en/posts/post-lite-four/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/en/posts/post-lite-four/cover.png" />
+      <guid>https://gwliang.com/en/posts/intra-prediction-and-inter-prediction/</guid>
+      <description>&lt;p&gt;Previously, we discussed some aspects of H.264 encoding in MP4. This time, let&amp;rsquo;s delve into how H.264 achieves such high compression rates, which brings us to the concepts of intra prediction and inter prediction. After some research, I found that there might not be any other source as detailed as this one, and it contains almost no complex or difficult information—reading this is a gain! (*/ω＼*)&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/intra-prediction-and-inter-prediction/cover.webp" />
     </item>
     
   </channel>

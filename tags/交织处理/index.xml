@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>交织处理 on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/%E4%BA%A4%E7%BB%87%E5%A4%84%E7%90%86/</link>
+    <description>Recent content in 交织处理 on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Mon, 09 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/%E4%BA%A4%E7%BB%87%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>用摄像头传输文件 —— Cimbar</title>
+      <link>https://gwliang.com/posts/cimbar-introduction/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/cimbar-introduction/</guid>
+      <description>&lt;p&gt;我之前发过一个用纸存储文件的项目 —— PaperBak，最近又让我发现一个用摄像头就可以传输文件的项目 —— Cimbar，先上效果。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/cimbar-introduction/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

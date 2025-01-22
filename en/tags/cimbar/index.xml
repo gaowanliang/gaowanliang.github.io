@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cimbar on Gaowan Liang&#39;s Blog</title>
+    <link>https://gwliang.com/en/tags/cimbar/</link>
+    <description>Recent content in Cimbar on Gaowan Liang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Gaowan Liang</copyright>
+    <lastBuildDate>Mon, 09 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/tags/cimbar/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>File Transmission Using a Camera — Cimbar</title>
+      <link>https://gwliang.com/en/posts/cimbar-introduction/</link>
+      <pubDate>Mon, 09 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/posts/cimbar-introduction/</guid>
+      <description>&lt;p&gt;I previously shared a project that uses paper to store files — PaperBak. Recently, I discovered another project that allows file transmission using a camera — Cimbar. Let&amp;rsquo;s start with a demonstration.&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/cimbar-introduction/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

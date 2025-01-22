@@ -91,7 +91,7 @@
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "Posts",
+    "articleSection": "",
     "name": "二进制算法中的进位(CARRY)标志和溢出(OVERFLOW)标志",
     "headline": "二进制算法中的进位(CARRY)标志和溢出(OVERFLOW)标志",
     
@@ -111,7 +111,7 @@
     "keywords": ["二进制","算法"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2502"
+    "wordCount": "2521"
   }]
   </script>
 
@@ -199,7 +199,7 @@
             
   <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <p class="text-base font-medium" title="Posts">
+    <p class="text-base font-medium" title="">
         文章
     </p>
 </a>
@@ -420,7 +420,7 @@
   <li class="mt-1">
     <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="Posts">
+        <p class="text-bg font-bg" title="">
             文章
         </p>
     </a>
@@ -611,7 +611,7 @@
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/posts/"
-      >Posts</a
+      >posts</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -674,7 +674,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2023-05-25T11:47:00&#43;00:00">2023年5月25日</time><span class="px-2 text-primary-500">&middot;</span><span>2502 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
+  <time datetime="2023-05-25T11:47:00&#43;00:00">2023年5月25日</time><span class="px-2 text-primary-500">&middot;</span><span>2521 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
   
 
   
@@ -941,9 +941,37 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <blockquote>
-<p>原文来自 Ian! D. Allen - <a href="mailto:idallen@idallen.ca">idallen@idallen.ca</a> - <a href="http://www.idallen.com/" target="_blank">www.idallen.com</a></p>
-</blockquote>
+          
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><strong>注意：</strong> 本文为翻译文章，原文链接为 <a href="http://www.idallen.com/" target="_blank">Ian! D. Allen</a>. 作者为 Ian! D. Allen。</span>
+</div>
+
 <p>在整数算术中，不要把“进位”标志和“溢出”标志混淆。每个标志都可以单独出现，也可以同时出现。CPU 的 ALU 不关心或不知道你是在做有符号还是无符号的数学运算；ALU 总是在做任何整数运算时适当地设置两个标志。ALU 不知道有符号/无符号；ALU 只是做二进制运算并适当地设置标志。你，作为程序员，必须知道在运算完成后检查哪个标志。</p>
 <p>如果你的程序把一个字中的位当作无符号数，你必须注意看你的算术是否把进位标志置为 1，表示结果是错误的。在做无符号数学运算时，你不关心溢出标志。（溢出标志只与有符号数有关，与无符号数无关。）</p>
 <p>如果你的程序把一个字中的位当作二进制补码有符号值，你必须注意看你的算术是否把溢出标志置为 1，表示结果是错误的。在做有符号的二进制补码数学运算时，你不关心进位标志。（进位标志只与无符号数有关，与有符号数无关。）</p>
@@ -1345,15 +1373,15 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/posts/wo-bu-shi-gong-ying-shang/">
+            <a class="flex text-right group ml-3" href="/posts/intra-prediction-and-inter-prediction/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >我不是供应商</span
+                  >H.264帧编码原理简述 - 帧内编码和帧间编码</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-10-24T00:00:00&#43;00:00">2024年10月24日</time>
+                    <time datetime="2024-03-29T00:00:00&#43;00:00">2024年3月29日</time>
                   
                 </span>
               </span>
@@ -1373,6 +1401,37 @@
   
 
 
+    
+    
+    <div class="pt-3">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="pt-3">
+        
+<div id="lv-container" data-id="city" data-uid="MTAyMC80Njc4NC8yMzI4NQ==">
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<style>
+    #taboola-livere {
+        display: none;
+    }
+</style>
+
+      </div>
+    </div>
+    
     
   </footer>
 </article>
