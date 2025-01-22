@@ -272,3 +272,5 @@ The functionality of dragging by moving after a light tap is also straightforwar
 **Currently, it is basically functional for normal daily use. This means that with just 16 yuan for the touchpad and 20 yuan for the ESP32, plus peripheral circuits not exceeding 50 yuan, you can achieve a low-cost Bluetooth touchpad.**
 
 ![](image20.webp)
+
+{{< github repo="gaowanliang/ESP32-BLE-Touchpad" >}}

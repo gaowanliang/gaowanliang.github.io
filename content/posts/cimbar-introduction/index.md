@@ -17,11 +17,13 @@ categories:
 
 ![](image2.webp)
 
-最近在看《绝园的暴风雨》，挺好看的。话说公主切好久都没见有番的主角用了，感觉十年前还是流行的。
+最近在看《绝园的暴风雨》，挺好看的。话说[公主切](https://zh.wikipedia.org/wiki/%E5%A7%AC%E9%AB%AE%E5%BC%8F)好久都没见有番的主角用了，感觉十年前还是比较流行的。
 
 ![](image3.webp)
 
-项目地址：**https://github.com/sz3/libcimbar**
+项目地址：**https://github.com/**
+
+{{< github repo="sz3/libcimbar" >}}
 
 操作方法
 

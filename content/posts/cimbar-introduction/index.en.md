@@ -17,11 +17,13 @@ I previously shared a project that uses paper to store files — PaperBak. Recen
 
 ![](image2.webp)
 
-I've been watching "Zetsuen no Tempest" lately, and it's quite good. By the way, it's been a while since I've seen a main character like the princess; it feels like they were popular ten years ago.
+I've been watching "Zetsuen no Tempest" lately, and it's quite good. By the way, I haven't seen the "[Hime cut](https://en.wikipedia.org/wiki/Hime_cut)" hairstyle used by the main character in a long time; it feels like it was popular ten years ago.
 
 ![](image3.webp)
 
 Project link: **https://github.com/sz3/libcimbar**
+
+{{< github repo="sz3/libcimbar" >}}
 
 ## How to Use
 

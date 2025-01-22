@@ -5,6 +5,8 @@ tags: ["Wolfram", "数学"]
 categories: ["教程"]
 ---
 
+{{< katex >}}
+
 # 求极限
 
 ## 普通极限

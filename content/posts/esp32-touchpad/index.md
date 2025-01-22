@@ -164,7 +164,7 @@ https://github.com/delingren/synaptics_touchpad
 - 发送特殊命令  0x03。
 - 设置采样率为  0xC8。
 
-虽然看不太懂，但是确实实现了触摸板的正常使用。具体可以参考 Synaptics 触摸板的文档：https://github.com/delingren/synaptics_touchpad/blob/main/touchpad_RevB.pdf，但是我浅读了一下，并没有找到对应的方式。
+虽然看不太懂，但是确实实现了触摸板的正常使用。具体可以参考 Synaptics 触摸板的文档：[touchpad_RevB.pdf](https://github.com/delingren/synaptics_touchpad/blob/main/touchpad_RevB.pdf)，但是我浅读了一下，并没有找到对应的方式。
 
 关于 W 模式，文档里是这么说的：
 
@@ -270,3 +270,5 @@ https://github.com/delingren/synaptics_touchpad
 **目前基本已经可以作为正常的日常使用了，也就是说，只要 16 块钱买个触摸板，20 块钱买片 ESP32，加上外围电路不超过 50 就能实现低成本的蓝牙触摸板。**
 
 ![](image20.webp)
+
+{{< github repo="gaowanliang/ESP32-BLE-Touchpad" >}}

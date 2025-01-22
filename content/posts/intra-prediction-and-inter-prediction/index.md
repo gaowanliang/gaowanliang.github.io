@@ -180,3 +180,5 @@ SAE 就是用于评估这种预测效果的一种度量。它是预测误差的�
 {{< alert >}}
 **参考资料**：本文内容主要参考了 H.264/AVC 标准文档和其他相关资料，如《H.264 and MPEG-4 Video Compression Video Coding for Next Generation Multimedia》等。本文中使用的程序是 VQ Analyser。
 {{< /alert >}}
+
+{{< github repo="gaowanliang/web-video-thumbnailer" >}}

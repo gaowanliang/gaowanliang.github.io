@@ -139,7 +139,10 @@ The interpolation process is as follows:
 
 ![](image16.webp)
 
-1. For the chrominance component, since the sampling rate is 4:2:0, it is necessary to generate interpolation samples at eighth-pixel intervals. These samples are obtained through linear interpolation, where each sub-sample position \( a \) is a linear combination of the four adjacent integer sample positions \( A, B, C, \) and \( D \).
+{{< katex >}}
+
+
+1. For the chrominance component, since the sampling rate is 4:2:0, it is necessary to generate interpolation samples at eighth-pixel intervals. These samples are obtained through linear interpolation, where each sub-sample position \\( a \\) is a linear combination of the four adjacent integer sample positions \\( A, B, C, \\) and \\( D \\).
 
 ### Motion Vector Calculation
 
@@ -147,23 +150,23 @@ In video encoding, the primary role of the motion vector (MV) is to perform moti
 
 Specifically, when encoding a macroblock (MB) or partition in a frame, we can find a similar macroblock or partition in a previous or subsequent frame as a reference, and then calculate the motion vector between these two macroblocks or partitions. This motion vector indicates the positional movement of the current macroblock or partition relative to the reference macroblock or partition.
 
-In video encoding, encoding a motion vector for each partition can consume a significant number of bits, especially when smaller partition sizes are chosen. Since the motion vectors of adjacent partitions are often highly correlated, each motion vector is predicted based on the vectors of nearby encoded partitions. First, a predicted vector \( MV_p \) is formed based on previously calculated motion vectors, and then the difference between the current vector and the predicted vector (Motion Vector Difference, MVD) is encoded and transmitted.
+In video encoding, encoding a motion vector for each partition can consume a significant number of bits, especially when smaller partition sizes are chosen. Since the motion vectors of adjacent partitions are often highly correlated, each motion vector is predicted based on the vectors of nearby encoded partitions. First, a predicted vector \\( MV_p \\) is formed based on previously calculated motion vectors, and then the difference between the current vector and the predicted vector (Motion Vector Difference, MVD) is encoded and transmitted.
 
-The formation of the predicted vector \( MV_p \) depends on the size of the motion compensation partition and the availability of nearby vectors. Let’s assume \( E \) is the current macroblock, macroblock partition, or sub-macroblock partition; \( A \) is the partition or sub-partition to the left of \( E \); \( B \) is the partition or sub-partition above \( E \); and \( C \) is the partition or sub-macroblock partition to the upper right of \( E \). If there are multiple partitions to the left of \( E \), the topmost one is chosen as \( A \). If there are multiple partitions above \( E \), the leftmost one is chosen as \( B \).
+The formation of the predicted vector \\( MV_p \\) depends on the size of the motion compensation partition and the availability of nearby vectors. Let’s assume \\( E \\) is the current macroblock, macroblock partition, or sub-macroblock partition; \\( A \\) is the partition or sub-partition to the left of \\( E \\); \\( B \\) is the partition or sub-partition above \\( E \\); and \\( C \\) is the partition or sub-macroblock partition to the upper right of \\( E \\). If there are multiple partitions to the left of \\( E \\), the topmost one is chosen as \\( A \\). If there are multiple partitions above \\( E \\), the leftmost one is chosen as \\( B \\).
 
 ![](image17.webp)
 
 The rules for predicting and encoding motion vectors are as follows:
 
-1. For all transmission partitions except for 16×8 and 8×16 partition sizes, the predicted vector \( MV_p \) is the median of the motion vectors of partitions \( A, B, \) and \( C \).
+1. For all transmission partitions except for 16×8 and 8×16 partition sizes, the predicted vector \\( MV_p \\) is the median of the motion vectors of partitions \\( A, B, \\) and \\( C \\).
 
-2. For a 16×8 partition, the predicted vector \( MV_p \) for the upper 16×8 partition is based on \( B \), while the predicted vector \( MV_p \) for the lower 16×8 partition is based on \( A \).
+2. For a 16×8 partition, the predicted vector \\( MV_p \\) for the upper 16×8 partition is based on \\( B \\), while the predicted vector \\( MV_p \\) for the lower 16×8 partition is based on \\( A \\).
 
-3. For an 8×16 partition, the predicted vector \( MV_p \) for the left 8×16 partition is based on \( A \), while the predicted vector \( MV_p \) for the right 8×16 partition is based on \( C \).
+3. For an 8×16 partition, the predicted vector \\( MV_p \\) for the left 8×16 partition is based on \\( A \\), while the predicted vector \\( MV_p \\) for the right 8×16 partition is based on \\( C \\).
 
-4. For skipped macroblocks, a 16×16 predicted vector \( MV_p \) is generated, similar to the case described in point 1 (i.e., as if the block were encoded in 16×16 Inter mode).
+4. For skipped macroblocks, a 16×16 predicted vector \\( MV_p \\) is generated, similar to the case described in point 1 (i.e., as if the block were encoded in 16×16 Inter mode).
 
-If one or more previously transmitted blocks shown in Figure 6.19 are unavailable (for example, if they are outside the current slice), the selection of the predicted vector \( MV_p \) is modified accordingly. In the decoder, the predicted vector \( MV_p \) is formed in the same way and added to the decoded vector difference \( MVD \). In the case of skipped macroblocks, where there is no decoded vector difference, the predicted vector \( MV_p \) is used as the motion vector to generate the motion-compensated macroblock.
+If one or more previously transmitted blocks shown in Figure 6.19 are unavailable (for example, if they are outside the current slice), the selection of the predicted vector \\( MV_p \\) is modified accordingly. In the decoder, the predicted vector \\( MV_p \\) is formed in the same way and added to the decoded vector difference \\( MVD \\). In the case of skipped macroblocks, where there is no decoded vector difference, the predicted vector \\( MV_p \\) is used as the motion vector to generate the motion-compensated macroblock.
 
 ![](image18.webp)
 
@@ -180,3 +183,6 @@ These errors need to be corrected through the prediction error (residual). The p
 {{< alert >}}
 **References**: The content of this article primarily references the H.264/AVC standard documentation and other related materials, such as "H.264 and MPEG-4 Video Compression Video Coding for Next Generation Multimedia." The program used in this article is VQ Analyser.
 {{< /alert >}}
+
+
+{{< github repo="gaowanliang/web-video-thumbnailer" >}}
