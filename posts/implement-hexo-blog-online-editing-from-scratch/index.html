@@ -561,7 +561,7 @@
   
 
 
-<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/implement-hexo-blog-online-editing-from-scratch/cover_hu10804011426106180050.webp);"></div>
+<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/implement-hexo-blog-online-editing-from-scratch/cover_hu_e532d53383fc7f2b.webp);"></div>
 
 
 
@@ -749,7 +749,7 @@
         
       
       <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="高玩梁" src="/img/avatar_hu6864959369967912551.webp" />
+      alt="高玩梁" src="/img/avatar_hu_f46a7ba50ae3eb5d.webp" />
     
   
   <div class="place-self-center">
@@ -1163,8 +1163,7 @@ Caddy自动申请SSL证书位置：/.caddy/acme/acme-v01.api.letsencrypt.org/sit
 <p>众所周知，Visual Studio Code 是基于 Electron 的，而 Electron 又是一个“双头怪”——基于 Web 技术的桌面应用平台。但在最近，Coder 的开发者最近做了有趣的尝试，让我们可以把整个 VSCode 放到浏览器中去运行。而 VSCode 写 markdown 的体验也是很舒服的，为了不用自己写一个网页来搞一些复杂的配置，直接用浏览器版的 Vscode 就很舒服，而且还能应急改其他代码，那我们就简单配置一下。</p>
 <p>首先在下列网址下载最新版 code-server</p>
 <blockquote>
-<p><a href="https://github.com/cdr/code-server/releases" target="_blank">https://github.com/cdr/code-server/releases</a></p>
-</blockquote>
+<p><a href="https://github.com/cdr/code-server/releases" target="_blank">https://github.com/cdr/code-server/releases</a></p></blockquote>
 <p>下载好后上传到你的服务器，或者直接用 wget 下载。之后 cd 到下载目录，执行下面的代码</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -C /opt -xzvf code-server-xxx.tar.gz  // 根据具体的名字来解压
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> /opt
@@ -1313,11 +1312,9 @@ systemctl start code
 </h1>
 <p>图片的话不太好上传，直接用在线图床即可，推荐两个</p>
 <blockquote>
-<p>路过图床 <a href="https://imgchr.com/" target="_blank">https://imgchr.com/</a></p>
-</blockquote>
+<p>路过图床 <a href="https://imgchr.com/" target="_blank">https://imgchr.com/</a></p></blockquote>
 <blockquote>
-<p>sm.ms <a href="https://sm.ms/" target="_blank">https://sm.ms/</a></p>
-</blockquote>
+<p>sm.ms <a href="https://sm.ms/" target="_blank">https://sm.ms/</a></p></blockquote>
 <p>用 qq 自带的截图，截好之后直接 Ctrl+V 可以直接上传到网页上，然后下面都会给出 Markdown 的引用方式，直接引用即可</p>
 
           
@@ -1557,29 +1554,18 @@ systemctl start code
     <div class="pt-3">
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="pt-3">
-        
-<div id="lv-container" data-id="city" data-uid="MTAyMC80Njc4NC8yMzI4NQ==">
-    <script type="text/javascript">
-        (function (d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
+        <span class="waline-pageview-count" />
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline"></div>
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-            if (typeof LivereTower === 'function') { return; }
-
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<style>
-    #taboola-livere {
-        display: none;
-    }
-</style>
-
+    init({
+        el: '#waline',
+        serverURL: 'https://comment.gwliang.com',
+        pageview: true,
+    });
+</script>
       </div>
     </div>
     

@@ -563,7 +563,7 @@
   
 
 
-<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/caddy-install/cover_hu15392429006865858329.webp);"></div>
+<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/caddy-install/cover_hu_7e13f5c2a933a7c7.webp);"></div>
 
 
 
@@ -767,7 +767,7 @@
         
       
       <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="高玩梁" src="/img/avatar_hu6864959369967912551.webp" />
+      alt="高玩梁" src="/img/avatar_hu_f46a7ba50ae3eb5d.webp" />
     
   
   <div class="place-self-center">
@@ -944,8 +944,7 @@
         <div class="article-content max-w-prose mb-20">
           <blockquote>
 <p>[!WARNING]
-此教程已过时，不再适用，仅供参考</p>
-</blockquote>
+此教程已过时，不再适用，仅供参考</p></blockquote>
 <p>**说明：**这几天一直在看逗比根据地，发现<code>Caddy</code>很是强大，是一个极简的<code>HTTP</code>服务器，支持<code>HTTP/2</code>静态网页服务器，安装也很快，在很多方面都可以不用安装时间很长的<code>lnmp</code>，<code>lamp</code>环境了，配置文件也很简单，同时还有一些有趣的扩展，可以非常方便的搭建一个<code>HTTP</code>服务器。</p>
 
 
@@ -1375,29 +1374,18 @@ iptables -D INPUT -m state --state NEW -m udp -p udp --dport 端口 -j ACCEPT
     <div class="pt-3">
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="pt-3">
-        
-<div id="lv-container" data-id="city" data-uid="MTAyMC80Njc4NC8yMzI4NQ==">
-    <script type="text/javascript">
-        (function (d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
+        <span class="waline-pageview-count" />
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline"></div>
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-            if (typeof LivereTower === 'function') { return; }
-
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<style>
-    #taboola-livere {
-        display: none;
-    }
-</style>
-
+    init({
+        el: '#waline',
+        serverURL: 'https://comment.gwliang.com',
+        pageview: true,
+    });
+</script>
       </div>
     </div>
     

@@ -767,7 +767,7 @@
         
       
       <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="高玩梁" src="/img/avatar_hu6864959369967912551.webp" />
+      alt="高玩梁" src="/img/avatar_hu_f46a7ba50ae3eb5d.webp" />
     
   
   <div class="place-self-center">
@@ -1038,11 +1038,11 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /posts/wo-bu-shi-gong-ying-shang/image_hu4195573257783636520.webp 330w,
-        /posts/wo-bu-shi-gong-ying-shang/image_hu817313223115257189.webp 660w,
-        /posts/wo-bu-shi-gong-ying-shang/image_hu10180605287320134046.webp 1024w,
-        /posts/wo-bu-shi-gong-ying-shang/image_hu18037326202709322371.webp 2x"
-        src="/posts/wo-bu-shi-gong-ying-shang/image_hu817313223115257189.webp"
+        /posts/wo-bu-shi-gong-ying-shang/image_hu_a57c144e1ece1842.webp 330w,
+        /posts/wo-bu-shi-gong-ying-shang/image_hu_1681d6e61c8e4022.webp 660w,
+        /posts/wo-bu-shi-gong-ying-shang/image_hu_ae64483c34b9a880.webp 1024w,
+        /posts/wo-bu-shi-gong-ying-shang/image_hu_2a70d41895ad2a9a.webp 2x"
+        src="/posts/wo-bu-shi-gong-ying-shang/image_hu_1681d6e61c8e4022.webp"
         alt="XKCD 第2347话展示了一堆方块，标注为“所有现代数字基础设施”，其中一个小方块支撑着整个堆，标注为“一个从2003年起由内布拉斯加州某位不知名人士无偿维护的项目”。"
       />
       
@@ -1051,8 +1051,7 @@
 <p>XKCD 第 2347 话展示了一堆方块，标注为“所有现代数字基础设施”，其中一个小方块支撑着整个堆，标注为“一个从 2003 年起由内布拉斯加州某位不知名人士无偿维护的项目”。</p>
 <p>我们清楚这一点。因此，在这些控制库重用的许可证中，你会发现一个逐字复制的段落：</p>
 <blockquote>
-<p>“本软件依‘原样’提供，不提供任何形式的明示或暗示担保，包括但不限于适销性、特定用途的适用性和非侵权的担保。无论是在合同、侵权或其他行为中，作者或版权持有人在任何情况下都不对因本软件或本软件的使用或其他交易引起的任何索赔、损害或其他责任承担责任。”</p>
-</blockquote>
+<p>“本软件依‘原样’提供，不提供任何形式的明示或暗示担保，包括但不限于适销性、特定用途的适用性和非侵权的担保。无论是在合同、侵权或其他行为中，作者或版权持有人在任何情况下都不对因本软件或本软件的使用或其他交易引起的任何索赔、损害或其他责任承担责任。”</p></blockquote>
 <p>这个段落可能看起来有点法律术语化，而且确实显得很刺耳，但我可以很简单地总结它的含义。如果你使用它，我不欠你任何东西。完全没有。我们之间没有任何关系。我将它放到网上的条件是，如果你使用它，所有风险都由你承担。</p>
 <p>这意味着这里没有供应链，因为没有供应商。我没有向你提供你从我这里购买的东西。我们之间没有关系。我发布代码是因为我愿意。你让你的产品依赖它是你的责任。不是我的，也不是其他维护者的。我们提供的是库，而不是供应品。你不能将规则强加于我。</p>
 <p>老实说，我也不会接受这些规则。我几乎没有时间维护我负责的 FOSS 库，而定期的维护工作常常会让人感到筋疲力尽。</p>
@@ -1297,29 +1296,18 @@
     <div class="pt-3">
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="pt-3">
-        
-<div id="lv-container" data-id="city" data-uid="MTAyMC80Njc4NC8yMzI4NQ==">
-    <script type="text/javascript">
-        (function (d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
+        <span class="waline-pageview-count" />
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline"></div>
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-            if (typeof LivereTower === 'function') { return; }
-
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<style>
-    #taboola-livere {
-        display: none;
-    }
-</style>
-
+    init({
+        el: '#waline',
+        serverURL: 'https://comment.gwliang.com',
+        pageview: true,
+    });
+</script>
       </div>
     </div>
     

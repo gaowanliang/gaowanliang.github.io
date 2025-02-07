@@ -563,7 +563,7 @@
   
 
 
-<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/linux-control-download-onedrive-files/cover_hu6409572611626179071.webp);"></div>
+<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/linux-control-download-onedrive-files/cover_hu_9db9d6aeadfe0928.webp);"></div>
 
 
 
@@ -767,7 +767,7 @@
         
       
       <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="高玩梁" src="/img/avatar_hu6864959369967912551.webp" />
+      alt="高玩梁" src="/img/avatar_hu_f46a7ba50ae3eb5d.webp" />
     
   
   <div class="place-self-center">
@@ -869,12 +869,10 @@
           <p>我所知的某个游戏分享站喜欢用 OneDrive 来分享游戏，用 OneDrive 很好，抵制百度网盘我强烈支持，但是 OneDrive 国内有时候抽风比较厉害，而在国外 OneDrive 下载几乎能跑满带宽，我 G 口的服务器可以跑到 110M/s，所以用国外服务器下载，然后再下载自己服务器里的东西会比较好。</p>
 <p>但是因为 OneDrive 有些坑，无法从分享界面获取真实下载链接，比如下面这个链接</p>
 <blockquote>
-<p><a href="https://gitaccuacnz2-my.sharepoint.com/:f:/g/personal/mail_finderacg_com/EheQwACFhe9JuGUn4hlg9esBsKyk5jp9-Iz69kqzLLF5Xw?e=FG7SHh" target="_blank">https://gitaccuacnz2-my.sharepoint.com/:f:/g/personal/mail_finderacg_com/EheQwACFhe9JuGUn4hlg9esBsKyk5jp9-Iz69kqzLLF5Xw?e=FG7SHh</a></p>
-</blockquote>
+<p><a href="https://gitaccuacnz2-my.sharepoint.com/:f:/g/personal/mail_finderacg_com/EheQwACFhe9JuGUn4hlg9esBsKyk5jp9-Iz69kqzLLF5Xw?e=FG7SHh" target="_blank">https://gitaccuacnz2-my.sharepoint.com/:f:/g/personal/mail_finderacg_com/EheQwACFhe9JuGUn4hlg9esBsKyk5jp9-Iz69kqzLLF5Xw?e=FG7SHh</a></p></blockquote>
 <p>点开之后，找个文件点击下载，会得到这样的下载链接：</p>
 <blockquote>
-<p><a href="https://gitaccuacnz2-my.sharepoint.com/personal/mail_finderacg_com/_layouts/15/download.aspx?UniqueId=cb44677f%2Dc4af%2D44ad%2D88d4%2Dceb07d9625da" target="_blank">https://gitaccuacnz2-my.sharepoint.com/personal/mail_finderacg_com/_layouts/15/download.aspx?UniqueId=cb44677f%2Dc4af%2D44ad%2D88d4%2Dceb07d9625da</a></p>
-</blockquote>
+<p><a href="https://gitaccuacnz2-my.sharepoint.com/personal/mail_finderacg_com/_layouts/15/download.aspx?UniqueId=cb44677f%2Dc4af%2D44ad%2D88d4%2Dceb07d9625da" target="_blank">https://gitaccuacnz2-my.sharepoint.com/personal/mail_finderacg_com/_layouts/15/download.aspx?UniqueId=cb44677f%2Dc4af%2D44ad%2D88d4%2Dceb07d9625da</a></p></blockquote>
 <p>但是如果直接在服务器里 wget 这个下载链接，100%会 403: Forbidden</p>
 <p>
   <figure>
@@ -1149,29 +1147,18 @@
     <div class="pt-3">
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="pt-3">
-        
-<div id="lv-container" data-id="city" data-uid="MTAyMC80Njc4NC8yMzI4NQ==">
-    <script type="text/javascript">
-        (function (d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
+        <span class="waline-pageview-count" />
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline"></div>
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-            if (typeof LivereTower === 'function') { return; }
-
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<style>
-    #taboola-livere {
-        display: none;
-    }
-</style>
-
+    init({
+        el: '#waline',
+        serverURL: 'https://comment.gwliang.com',
+        pageview: true,
+    });
+</script>
       </div>
     </div>
     

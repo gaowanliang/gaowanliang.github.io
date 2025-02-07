@@ -562,7 +562,7 @@
   
 
 
-<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/bitwarden-install/cover_hu13307510449760599385.webp);"></div>
+<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/bitwarden-install/cover_hu_173a633f8c18c2cb.webp);"></div>
 
 
 
@@ -758,7 +758,7 @@
         
       
       <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="高玩梁" src="/img/avatar_hu6864959369967912551.webp" />
+      alt="高玩梁" src="/img/avatar_hu_f46a7ba50ae3eb5d.webp" />
     
   
   <div class="place-self-center">
@@ -1009,8 +1009,7 @@
         <div class="article-content max-w-prose mb-20">
           <blockquote>
 <p>[!WARNING]
-此教程已过时，不再适用，仅供参考</p>
-</blockquote>
+此教程已过时，不再适用，仅供参考</p></blockquote>
 
 
 <h1 class="relative group">前言 
@@ -1037,13 +1036,11 @@
     
 </h1>
 <blockquote>
-<p>详细安装视频：https://www.bilibili.com/video/BV15t4y117UU</p>
-</blockquote>
+<p>详细安装视频：https://www.bilibili.com/video/BV15t4y117UU</p></blockquote>
 <blockquote>
 <p>网站：<br>
 官网：https://bitwarden.com/ <br>
-第三方项目：https://github.com/dani-garcia/bitwarden_rs</p>
-</blockquote>
+第三方项目：https://github.com/dani-garcia/bitwarden_rs</p></blockquote>
 <p>Bitwarden 官方推荐使用 Docker 镜像安装，但是 Bitwarden 服务器使用 .Net 开发，如果使用 Docker 来部署，镜像体积过大；此外它使用 MSSQL 数据库，部署这个数据库对服务器配置要求比较高。</p>
 <p>而 bitwarden_rs 是第三方开发的 Bitwarden 安装镜像。bitwarden_rs 采用 Rust 实现了 Bitwarden 服务器，这个实现更进一步降低了对机器配置的要求，并且 Docker 镜像体积很小，部署非常方便。此外，官方服务器中需要付费订阅的一些功能，在这个实现中是免费的。测试在 512MB 内存上机子完美运行 bitwarden_rs。</p>
 
@@ -1077,8 +1074,7 @@
 <p>你需要先安装 Docker CE (社区版)和 Docker Compose，以下命令是基于 Debian 系统的演示，如果你是 CentOS、Ubuntu，请参考官网：</p>
 <blockquote>
 <p>安装 Docker CE (社区版)：https://docs.docker.com/install/linux/docker-ce/ubuntu/<br>
-安装 Docker Compose：https://docs.docker.com/compose/install/#install-compose</p>
-</blockquote>
+安装 Docker Compose：https://docs.docker.com/compose/install/#install-compose</p></blockquote>
 <p>如果你已经安装过，就不需要看这一步了</p>
 <p>Debian 系统安装 Docker CE 和 Docker Compose 如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#卸载()</span>
@@ -1908,29 +1904,18 @@ docker run -d --name bitwarden \
     <div class="pt-3">
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="pt-3">
-        
-<div id="lv-container" data-id="city" data-uid="MTAyMC80Njc4NC8yMzI4NQ==">
-    <script type="text/javascript">
-        (function (d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
+        <span class="waline-pageview-count" />
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<div id="waline"></div>
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-            if (typeof LivereTower === 'function') { return; }
-
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<style>
-    #taboola-livere {
-        display: none;
-    }
-</style>
-
+    init({
+        el: '#waline',
+        serverURL: 'https://comment.gwliang.com',
+        pageview: true,
+    });
+</script>
       </div>
     </div>
     
