@@ -12,13 +12,15 @@ categories:
 
 <video src="../../../posts/esp32-touchpad/video.webm" controls="controls" height="20%"></video>
 
+{{< github repo="gaowanliang/ESP32-BLE-Touchpad" >}}
+
 ## Introduction
 
 I personally enjoy compact devices, including small keyboards, mice, handheld consoles, and so on. Recently, I found the smallest scissor-switch keyboard available, which is only 7 inches in size and even has backlighting:
 
 ![](image2.webp)
 
-I really like this keyboard, but it has one drawback: it's still too large. Although its thickness is less than 5mm, as shown in the picture, there is still quite a bit of unused space at the front and back. It would be great if it had a touchpad as well. So, I started planning how to add one. Since the keyboard is still functional, I decided not to ruin it and instead bought a touchpad to work on first. I found the cheapest touchpad available, the TM2334, which cost only 16 yuan including shipping. This touchpad was used in Lenovo S41 laptops from 2012-2013, supports multi-touch, and has a great feel:
+I really like this keyboard, but it has one drawback: it's still too large. Although its thickness is less than 5mm, as shown in the picture, there is still quite a bit of unused space at the front and back. It would be great if it had a touchpad as well. So, I started planning how to add one. Since the keyboard is still functional, I decided not to ruin it and instead bought a touchpad to work on first. I found the cheapest touchpad available, the TM2334, which cost only 16 yuan (Approx. 2.5 USD) including shipping. This touchpad was used in Lenovo S41 laptops from 2012-2013, supports multi-touch, and has a great feel:
 
 ![](image3.webp)
 
@@ -139,20 +141,20 @@ Next, we need to obtain a series of information from the Synaptics touchpad to f
 
 After gathering this information, we can configure the touchpad's mode. It seems the author also spent considerable time figuring out how to set the touchpad's mode and ultimately chose to reference the initialization command sequences from other projects:
 
-> // Reference: 4.3. Mode Byte 
-> 
-> // For some reason, I couldn't get the touchpad to report extended W mode packets. 
-> 
-> // After some research, I found the solution in the VoodooPS2 driver (a touchpad driver for Hackintosh). 
-> 
-> // This sequence sets absolute mode, high speed, W mode, and EW mode. 
-> 
-> // F5 
-> 
-> // E6, E6, E8, 03, E8, 00, E8, 01, E8, 01, F3, 14 
-> 
-> // E6, E6, E8, 00, E8, 00, E8, 00, E8, 03, F3, C8 
-> 
+> // Reference: 4.3. Mode Byte
+>
+> // For some reason, I couldn't get the touchpad to report extended W mode packets.
+>
+> // After some research, I found the solution in the VoodooPS2 driver (a touchpad driver for Hackintosh).
+>
+> // This sequence sets absolute mode, high speed, W mode, and EW mode.
+>
+> // F5
+>
+> // E6, E6, E8, 03, E8, 00, E8, 01, E8, 01, F3, 14
+>
+> // E6, E6, E8, 00, E8, 00, E8, 00, E8, 03, F3, C8
+>
 > // F4
 
 In the program, this is reflected as follows:
@@ -269,8 +271,6 @@ For light taps as clicks, the logic is as follows: when a finger is detected as 
 
 The functionality of dragging by moving after a light tap is also straightforward: it simply involves sliding within a threshold after a single-finger click. It is important to note that this should be implemented by pressing the left button first, then moving the cursor, and finally releasing the left button.
 
-**Currently, it is basically functional for normal daily use. This means that with just 16 yuan for the touchpad and 20 yuan for the ESP32, plus peripheral circuits not exceeding 50 yuan, you can achieve a low-cost Bluetooth touchpad.**
+**Currently, it is basically functional for normal daily use. This means that with just 16 yuan (Approx. 2.5 USD) for the touchpad and 20 yuan (Approx. 3 USD) for the ESP32, plus peripheral circuits not exceeding 50 yuan (Approx. 7.5 USD), you can achieve a low-cost Bluetooth touchpad.**
 
 ![](image20.webp)
-
-{{< github repo="gaowanliang/ESP32-BLE-Touchpad" >}}
