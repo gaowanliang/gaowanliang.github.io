@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Gaowan Liang</copyright>
-    <lastBuildDate>Fri, 22 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Temporarily Using GUI-Dependent Software on a Headless Server</title>
+      <link>https://gwliang.com/en/posts/using-gui-dependent-software-temporarily-on-a-headless-server/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/posts/using-gui-dependent-software-temporarily-on-a-headless-server/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m running a Minecraft server that was recently updated to the latest version. To prepare for generating new biomes, I need to clear some unused chunks, which requires MCA Selector - a software that needs a GUI environment. The map files are quite large (over 1GB), so downloading them, editing locally, and re-uploading would be too cumbersome. I needed to find a way to use this software directly on the server.&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/using-gui-dependent-software-temporarily-on-a-headless-server/cover.webp" />
+    </item>
     
     <item>
       <title>Implementing a Low-Cost Bluetooth Touchpad</title>

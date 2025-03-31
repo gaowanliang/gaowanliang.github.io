@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://gwliang.com/posts/</loc>
-    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://gwliang.com/categories/</loc>
-    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -32,6 +32,146 @@
       rel="alternate"
       hreflang="zh-cn"
       href="https://gwliang.com/categories/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/linux/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/linux/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/linux/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/mca-selector/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/mca-selector/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/mca-selector/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/vnc/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/vnc/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/vnc/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/x11/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/x11/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/x11/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/tags/x11vnc/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/x11vnc/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/x11vnc/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/categories/%E8%BD%AF%E4%BB%B6/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/posts/using-gui-dependent-software-temporarily-on-a-headless-server/</loc>
+    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/posts/using-gui-dependent-software-temporarily-on-a-headless-server/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/posts/using-gui-dependent-software-temporarily-on-a-headless-server/"
     />
   </url>
   <url>
@@ -67,22 +207,6 @@
     />
   </url>
   <url>
-    <loc>https://gwliang.com/tags/</loc>
-    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://gwliang.com/en/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://gwliang.com/tags/"
-    />
-  </url>
-  <url>
     <loc>https://gwliang.com/tags/%E8%A7%A6%E6%91%B8%E6%9D%BF/</loc>
     <lastmod>2024-11-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -103,28 +227,6 @@
       hreflang="zh-cn"
       href="https://gwliang.com/posts/esp32-touchpad/"
     />
-  </url>
-  <url>
-    <loc>https://gwliang.com/</loc>
-    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://gwliang.com/en/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://gwliang.com/"
-    />
-  </url>
-  <url>
-    <loc>https://gwliang.com/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2024-11-22T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://gwliang.com/tags/%E8%93%9D%E7%89%99/</loc>
@@ -293,13 +395,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gwliang.com/tags/%E9%9D%A2%E8%AF%95/</loc>
+    <loc>https://gwliang.com/categories/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2021-06-30T10:30:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gwliang.com/categories/%E9%9D%A2%E8%AF%95/</loc>
+    <loc>https://gwliang.com/tags/%E9%9D%A2%E8%AF%95/</loc>
     <lastmod>2021-06-30T10:30:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -372,12 +474,6 @@
   </url>
   <url>
     <loc>https://gwliang.com/posts/lightuploader-use/</loc>
-    <lastmod>2021-04-29T16:40:07+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://gwliang.com/categories/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2021-04-29T16:40:07+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -522,12 +618,6 @@
   </url>
   <url>
     <loc>https://gwliang.com/tags/google-drive/</loc>
-    <lastmod>2020-12-02T10:56:07+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://gwliang.com/tags/linux/</loc>
     <lastmod>2020-12-02T10:56:07+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -767,13 +857,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gwliang.com/tags/%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://gwliang.com/categories/%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2020-01-24T17:49:59+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gwliang.com/categories/%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://gwliang.com/tags/%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2020-01-24T17:49:59+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>X11vnc on Gaowan Liang&#39;s Blog</title>
+    <link>https://gwliang.com/en/tags/x11vnc/</link>
+    <description>Recent content in X11vnc on Gaowan Liang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Gaowan Liang</copyright>
+    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/tags/x11vnc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Temporarily Using GUI-Dependent Software on a Headless Server</title>
+      <link>https://gwliang.com/en/posts/using-gui-dependent-software-temporarily-on-a-headless-server/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/posts/using-gui-dependent-software-temporarily-on-a-headless-server/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m running a Minecraft server that was recently updated to the latest version. To prepare for generating new biomes, I need to clear some unused chunks, which requires MCA Selector - a software that needs a GUI environment. The map files are quite large (over 1GB), so downloading them, editing locally, and re-uploading would be too cumbersome. I needed to find a way to use this software directly on the server.&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/using-gui-dependent-software-temporarily-on-a-headless-server/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>

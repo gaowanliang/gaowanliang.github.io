@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>X11vnc on 高玩梁的博客</title>
+    <link>https://gwliang.com/tags/x11vnc/</link>
+    <description>Recent content in X11vnc on 高玩梁的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2025 高玩梁</copyright>
+    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/tags/x11vnc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>在没有 GUI 的服务器上临时使用必须要 GUI 的软件</title>
+      <link>https://gwliang.com/posts/using-gui-dependent-software-temporarily-on-a-headless-server/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/posts/using-gui-dependent-software-temporarily-on-a-headless-server/</guid>
+      <description>&lt;p&gt;服务器上跑了个 MC 服务器，更新了最新的版本，准备把没用的区块清理一下方便生成新群系，但是删除区块需要使用 MCA Selector，这个软件必须要 GUI 环境。地图文件有点大，1 个多 G，下载下来删完了再传上去有点太麻烦了，所以需要想办法直接用这个软件。&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/using-gui-dependent-software-temporarily-on-a-headless-server/cover.webp" />
+    </item>
+    
+  </channel>
+</rss>
