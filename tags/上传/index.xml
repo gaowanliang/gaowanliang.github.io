@@ -39,7 +39,13 @@
 支持根据文件大小动态调整重试次数，对抗不好的网络环境。
 可以使用Telegram Bot实时监控上传进度
 Github地址：https://github.com/gaowanliang/LightUploader
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;萌咖大佬写了一个 &lt;a href=&#34;https://github.com/MoeClub/OneList/tree/master/OneDriveUploader&#34; target=&#34;_blank&#34;&gt;非常好的版本&lt;/a&gt; ，可惜并没有开源，而且已经好久都没有更新了。这个项目作为从 &lt;a href=&#34;https://github.com/gaowanliang/DownloadBot&#34; target=&#34;_blank&#34;&gt;DownloadBot&lt;/a&gt; 中独立出来的一个简易上传工具，旨在用更轻量化的方式让在各种平台都能快速的向各个网络硬盘上传数据。&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;萌咖大佬写了一个 &lt;a
+  href=&#34;https://github.com/MoeClub/OneList/tree/master/OneDriveUploader&#34;
+    target=&#34;_blank&#34;
+  &gt;非常好的版本&lt;/a&gt; ，可惜并没有开源，而且已经好久都没有更新了。这个项目作为从 &lt;a
+  href=&#34;https://github.com/gaowanliang/DownloadBot&#34;
+    target=&#34;_blank&#34;
+  &gt;DownloadBot&lt;/a&gt; 中独立出来的一个简易上传工具，旨在用更轻量化的方式让在各种平台都能快速的向各个网络硬盘上传数据。&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/lightuploader-use/cover.webp" />
     </item>
     

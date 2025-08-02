@@ -15,7 +15,10 @@
       <pubDate>Sat, 08 May 2021 09:13:31 +0000</pubDate>
       
       <guid>https://gwliang.com/posts/onedrive-download/</guid>
-      <description>&lt;p&gt;前一段时间我发了一篇文章，是关于&lt;a href=&#34;https://gwliang.com/2020/05/26/linux-control-download-onedrive-files/&#34; target=&#34;_blank&#34;&gt;Linux 命令行下载 OneDrive 分享链接中的文件&lt;/a&gt;的，这篇文章其实解决了一些痛点，在没有图形化界面的 Linux 上终于可以无痛下载 OneDrive 分享的文件而不是只能在有图形化界面的系统上用浏览器下载。但是虽然解决了一些痛点，但是还没彻底解决，还有一些痛点如下&lt;/p&gt;</description>
+      <description>&lt;p&gt;前一段时间我发了一篇文章，是关于&lt;a
+  href=&#34;https://gwliang.com/2020/05/26/linux-control-download-onedrive-files/&#34;
+    target=&#34;_blank&#34;
+  &gt;Linux 命令行下载 OneDrive 分享链接中的文件&lt;/a&gt;的，这篇文章其实解决了一些痛点，在没有图形化界面的 Linux 上终于可以无痛下载 OneDrive 分享的文件而不是只能在有图形化界面的系统上用浏览器下载。但是虽然解决了一些痛点，但是还没彻底解决，还有一些痛点如下&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/onedrive-download/cover.webp" />
     </item>
     
@@ -49,7 +52,13 @@
 支持根据文件大小动态调整重试次数，对抗不好的网络环境。
 可以使用Telegram Bot实时监控上传进度
 Github地址：https://github.com/gaowanliang/LightUploader
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;萌咖大佬写了一个 &lt;a href=&#34;https://github.com/MoeClub/OneList/tree/master/OneDriveUploader&#34; target=&#34;_blank&#34;&gt;非常好的版本&lt;/a&gt; ，可惜并没有开源，而且已经好久都没有更新了。这个项目作为从 &lt;a href=&#34;https://github.com/gaowanliang/DownloadBot&#34; target=&#34;_blank&#34;&gt;DownloadBot&lt;/a&gt; 中独立出来的一个简易上传工具，旨在用更轻量化的方式让在各种平台都能快速的向各个网络硬盘上传数据。&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;萌咖大佬写了一个 &lt;a
+  href=&#34;https://github.com/MoeClub/OneList/tree/master/OneDriveUploader&#34;
+    target=&#34;_blank&#34;
+  &gt;非常好的版本&lt;/a&gt; ，可惜并没有开源，而且已经好久都没有更新了。这个项目作为从 &lt;a
+  href=&#34;https://github.com/gaowanliang/DownloadBot&#34;
+    target=&#34;_blank&#34;
+  &gt;DownloadBot&lt;/a&gt; 中独立出来的一个简易上传工具，旨在用更轻量化的方式让在各种平台都能快速的向各个网络硬盘上传数据。&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://gwliang.com/posts/lightuploader-use/cover.webp" />
     </item>
     

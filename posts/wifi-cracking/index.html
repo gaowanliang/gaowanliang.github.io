@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
   data-auto-appearance="true"><head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   
-  <meta http-equiv="content-language" content="zh-cn" />
+    <meta http-equiv="content-language" content="zh-cn">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
   
   <title>Wi-Fi 等无线网络安全审计方法 &middot; 高玩梁的博客</title>
-  <meta name="title" content="Wi-Fi 等无线网络安全审计方法 &middot; 高玩梁的博客" />
+    <meta name="title" content="Wi-Fi 等无线网络安全审计方法 &middot; 高玩梁的博客">
+
   
-  <meta name="description" content="一个记录灵感的地方" />
-  <meta name="keywords" content="Wi-Fi, 安全, 破解, " />
-  
-  
-  <link rel="canonical" href="https://gwliang.com/posts/wifi-cracking/" />
+  <meta name="description" content="一个记录灵感的地方">
+  <meta name="keywords" content="Wi-Fi,安全,破解,">
   
   
-  
+  <link rel="canonical" href="https://gwliang.com/posts/wifi-cracking/">
   
   
   
@@ -26,13 +30,33 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.edc19b8451f7473aa20792d10d3f13d9ba7fd8d4fdde6e032fa36b5968c0e14b5adcb428767991622f5ae4544b5fec9f866e25fc85bafc251863104046a8345b.css"
-    integrity="sha512-7cGbhFH3RzqiB5LRDT8T2bp/2NT93m4DL6NrWWjA4Uta3LQodnmRYi9a5FRLX&#43;yfhm4l/IW6/CUYYxBARqg0Ww==" />
   
   
-  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.4588da4c78f260a6766fb45d83eab577cae3daf5eb6db6607b132781906285f7b99603ffdc3266667c5ee1bfdeb0941bbfb37ba29533b96c9022f56ede40d295.css"
+    integrity="sha512-RYjaTHjyYKZ2b7Rdg&#43;q1d8rj2vXrbbZgexMngZBihfe5lgP/3DJmZnxe4b/esJQbv7N7opUzuWyQIvVu3kDSlQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
     integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
   
+    
+    
+    
+  
+  
+    
+    
   
   
   
@@ -42,30 +66,36 @@
   
   
   
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="复制"
+      data-copied="已复制"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
   
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
-    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
   
   
-  
-  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
-  
-  
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  
-  
-  
-  
-  
-  
-  
+
   
   <meta property="og:url" content="https://gwliang.com/posts/wifi-cracking/">
   <meta property="og:site_name" content="高玩梁的博客">
@@ -87,7 +117,6 @@
   <meta name="twitter:title" content="Wi-Fi 等无线网络安全审计方法">
   <meta name="twitter:description" content="Wi-Fi 破解 # 利用 Airodump-ng 以及 Aircrack-ng / Hashcat 破解 WPA/WPA2 WI-FI 路由器。">
 
-  
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
@@ -96,7 +125,7 @@
     "name": "Wi-Fi 等无线网络安全审计方法",
     "headline": "Wi-Fi 等无线网络安全审计方法",
     
-    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eWi-Fi 破解 \n    \u003cdiv id=\u0022wi-fi-%E7%A0%B4%E8%A7%A3\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#wi-fi-%E7%A0%B4%E8%A7%A3\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cp\u003e利用 Airodump-ng 以及 \u003ca href=\u0022http:\/\/aircrack-ng.org\/\u0022 target=\u0022_blank\u0022\u003eAircrack-ng\u003c\/a\u003e \/ \u003ca href=\u0022http:\/\/hashcat.net\/\u0022 target=\u0022_blank\u0022\u003eHashcat\u003c\/a\u003e 破解 WPA\/WPA2 WI-FI 路由器。\u003c\/p\u003e",
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eWi-Fi 破解 \n    \u003cdiv id=\u0022wi-fi-破解\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline\u0022 href=\u0022#wi-fi-%e7%a0%b4%e8%a7%a3\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\u003cp\u003e利用 Airodump-ng 以及 \u003ca\n  href=\u0022http:\/\/aircrack-ng.org\/\u0022\n    target=\u0022_blank\u0022\n  \u003eAircrack-ng\u003c\/a\u003e \/ \u003ca\n  href=\u0022http:\/\/hashcat.net\/\u0022\n    target=\u0022_blank\u0022\n  \u003eHashcat\u003c\/a\u003e 破解 WPA\/WPA2 WI-FI 路由器。\u003c\/p\u003e",
     "inLanguage": "zh-cn",
     "url" : "https:\/\/gwliang.com\/posts\/wifi-cracking\/",
     "author" : {
@@ -117,21 +146,33 @@
   </script>
 
 
+
   
   
-  <meta name="author" content="高玩梁" />
+    <meta name="author" content="高玩梁">
   
   
+    
+      
+        
+          <link href="https://gwliang.com" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/gaowanliang" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://twitter.com/gaowanliang" rel="me">
+        
+      
+    
   
-  <link href="https://gwliang.com" rel="me" />
-  
-  
-  <link href="https://github.com/gaowanliang" rel="me" />
-  
-  
-  <link href="https://twitter.com/gaowanliang" rel="me" />
-  
-  
+
   
   
 
@@ -158,10 +199,13 @@
 
 
 
+
   
   
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5D3PPS9ZM"></script>
+  <script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-E5D3PPS9ZM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -172,67 +216,103 @@
 
 
 
+
+
+
   
   
-  <meta name="theme-color"/>
+
+  
+  
+
+  
+  
+
   
   
 </head>
 <body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
-  <div id="the-top" class="absolute flex self-center">
-    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
-      href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>跳过正文</a>
-  </div>
-  
-  
-  <div class="min-h-[148px]"></div>
-<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
-  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>跳过正文</a
+      >
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px] z-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
   <div class="relative max-w-[64rem] ml-auto mr-auto">
-    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
-    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
     
-    <div class="flex flex-1 items-center justify-between">
-        <nav class="flex space-x-3">
 
-            
-            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">高玩梁的博客</a>
-            
 
-        </nav>
-        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
 
-            
-            
-            
-  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          高玩梁的博客
+        </a>
+      
+    </nav>
     
-    <p class="text-base font-medium" title="">
-        文章
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
     
-    <p class="text-base font-medium" title="Tags">
-        标签
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="https://gwliang.com"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <span >
+      
         
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    文章
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Tags">
+    标签
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="https://gwliang.com"
+  target="_blank"
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+    <span >
+      
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
@@ -241,20 +321,23 @@
 
 
     </span>
+  
+  <p class="text-base font-medium" title="">
     
-    <p class="text-base font-medium" title="">
-        
-    </p>
+  </p>
 </a>
 
 
 
-            
-            
-  <a href="https://github.com/gaowanliang"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <span >
+      
         
+  <a
+  href="https://github.com/gaowanliang"
+  target="_blank"
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+    <span >
+      
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
@@ -263,20 +346,23 @@
 
 
     </span>
+  
+  <p class="text-base font-medium" title="">
     
-    <p class="text-base font-medium" title="">
-        
-    </p>
+  </p>
 </a>
 
 
 
-            
-            
-  <a href="https://twitter.com/gaowanliang"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <span >
+      
         
+  <a
+  href="https://twitter.com/gaowanliang"
+  target="_blank"
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+    <span >
+      
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
@@ -285,76 +371,27 @@
 
 
     </span>
+  
+  <p class="text-base font-medium" title="">
     
-    <p class="text-base font-medium" title="">
-        
-    </p>
+  </p>
 </a>
 
 
 
-            
-            
+      
+    
 
-            
-
-
-            
-            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-                title="">
-                
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
+    
 
 
-            </button>
-            
-
-
-            
-            
-            <div
-                class=" flex items-center">
-                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
-                    <div class="flex items-center justify-center dark:hidden">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-
-                    </div>
-                    <div class="items-center justify-center hidden dark:flex">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-
-                    </div>
-                </button>
-            </div>
-            
-
-        </nav>
-        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
-
-            <span></span>
-
-            
-
-
-            
-            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-                title="">
-                
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        
 
   <span class="relative block icon">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
@@ -362,14 +399,18 @@
   </span>
 
 
-            </button>
-            
+      </button>
+    
 
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
             
-            
-            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
-                <div class="flex items-center justify-center dark:hidden">
-                    
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
@@ -377,9 +418,9 @@
   </span>
 
 
-                </div>
-                <div class="items-center justify-center hidden dark:flex">
-                    
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
@@ -387,18 +428,72 @@
   </span>
 
 
-                </div>
-            </button>
-            
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="搜索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+        <div class="flex items-center justify-center dark:hidden">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
 
         </div>
-    </div>
-    <div class="-my-2 md:hidden">
+        <div class="items-center justify-center hidden dark:flex">
+          
 
-        <label id="menu-button" class="block">
-            
-            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
-                
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
@@ -406,62 +501,70 @@
   </span>
 
 
-            </div>
-            <div id="menu-wrapper" style="padding-top:5px;"
-                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
-                <ul
-                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
-
-                    <li id="menu-close-button">
-                        <span
-                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
 
   </span>
 
-</span>
-                    </li>
 
-                    
+              </span>
+            </li>
 
-                    
-  <li class="mt-1">
-    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            文章
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="Tags">
-            标签
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="https://gwliang.com"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <div >
             
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      文章
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Tags">
+      标签
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="https://gwliang.com"
+    
+      target="_blank"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+      <div >
+        
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
@@ -469,25 +572,28 @@
   </span>
 
 
-        </div>
-        
-        <p class="text-bg font-bg" title="">
-            
-        </p>
-    </a>
+      </div>
+    
+    <p class="text-bg font-bg" title="">
+      
+    </p>
+  </a>
 </li>
 
 
 
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="https://github.com/gaowanliang"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <div >
             
+              
+  <li class="mt-1">
+  <a
+    href="https://github.com/gaowanliang"
+    
+      target="_blank"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+      <div >
+        
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
@@ -495,25 +601,28 @@
   </span>
 
 
-        </div>
-        
-        <p class="text-bg font-bg" title="">
-            
-        </p>
-    </a>
+      </div>
+    
+    <p class="text-bg font-bg" title="">
+      
+    </p>
+  </a>
 </li>
 
 
 
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="https://twitter.com/gaowanliang"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <div >
             
+              
+  <li class="mt-1">
+  <a
+    href="https://twitter.com/gaowanliang"
+    
+      target="_blank"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+      <div >
+        
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
@@ -521,26 +630,25 @@
   </span>
 
 
-        </div>
-        
-        <p class="text-bg font-bg" title="">
-            
-        </p>
-    </a>
+      </div>
+    
+    <p class="text-bg font-bg" title="">
+      
+    </p>
+  </a>
 </li>
 
 
 
+            
 
-                    
-
-                </ul>
-                
-                
-
-            </div>
-        </label>
+          </ul>
+          
+        </div>
+      
     </div>
+  </div>
+
 </div>
 
 
@@ -549,59 +657,71 @@
 
   </div>
 </div>
-<script>
-  window.addEventListener('scroll', function (e) {
-    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    var background_blur = document.getElementById('menu-blur');
-    background_blur.style.opacity = (scroll / 300);
-  });
-</script>
-
-  
-  <div class="relative flex flex-col grow">
-    <main id="main-content" class="grow">
-      
 
 
-<article>
-  
-  
-  
-  
-  
-  
+<script
+  type="text/javascript"
+  src="/js/background-blur.min.78ad5090e7c0c2533bac9dd23bdb1f723f834e5c3626627bd31017cc139ce0651b529877862129cee49e380ab2fdcd8baef28ae3e086bc54957fdaa7758775b2.js"
+  integrity="sha512-eK1QkOfAwlM7rJ3SO9sfcj&#43;DTlw2JmJ70xAXzBOc4GUbUph3hiEpzuSeOAqy/c2LrvKK4&#43;CGvFSVf9qndYd1sg=="
+  data-target-id="menu-blur"></script>
 
-
-<div class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/wifi-cracking/cover_hu_c2ea49ecacf46b94.webp);"></div>
-
-
-
-<div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/img/background.svg);">
-    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
-    </div>
-    <div
-        class="absolute inset-0 opacity-30 dark:opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral dark:to-neutral-800 mix-blend-normal">
-    </div>
-</div>
-
-<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
-<script>
-    window.addEventListener('scroll', function (e) {
-        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var background_blur = document.getElementById('background-blur');
-        background_blur.style.opacity = (scroll / 300)
-    });
-</script>
-
-
-
-  
-  
-
-  <header id="single_header" class="mt-5 max-w-prose">
     
-    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+  
+    
+      
+    
+  
+
+
+    
+      <div
+        class="w-full rounded-md h-36 md:h-56 lg:h-72 single_hero_basic nozoom"
+        style="background-image:url(/posts/wifi-cracking/cover_hu_c2ea49ecacf46b94.webp);"></div>
+    
+  
+    
+      <div
+        class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+        style="background-image:url(/img/background.svg);">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal"></div>
+        <div
+          class="absolute inset-0 opacity-30 dark:opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral dark:to-neutral-800 mix-blend-normal"></div>
+      </div>
+    
+  
+  <div
+    id="background-blur"
+    class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/background-blur.min.78ad5090e7c0c2533bac9dd23bdb1f723f834e5c3626627bd31017cc139ce0651b529877862129cee49e380ab2fdcd8baef28ae3e086bc54957fdaa7758775b2.js"
+    integrity="sha512-eK1QkOfAwlM7rJ3SO9sfcj&#43;DTlw2JmJ70xAXzBOc4GUbUph3hiEpzuSeOAqy/c2LrvKK4&#43;CGvFSVf9qndYd1sg=="
+    data-target-id="background-blur"></script>
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
   
     
@@ -609,27 +729,21 @@
     
   
   <li class="hidden">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/"
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/"
       >高玩梁的博客</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
   
   <li class="inline">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/posts/"
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/posts/"
       >posts</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
   
   <li class="hidden">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/posts/wifi-cracking/"
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/posts/wifi-cracking/"
       >Wi-Fi 等无线网络安全审计方法</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
@@ -637,12 +751,12 @@
 </ol>
 
 
-    
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Wi-Fi 等无线网络安全审计方法
-    </h1>
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Wi-Fi 等无线网络安全审计方法
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
 
 
 
@@ -653,118 +767,145 @@
 
 
 
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2020-01-24T17:49:59&#43;00:00">2020年1月24日</time><span class="px-2 text-primary-500">&middot;</span><span>5297 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">11 分钟</span>
   
 
   
   
-</div>
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2020-01-24T17:49:59&#43;00:00">2020年1月24日</time><span class="px-2 text-primary-500">&middot;</span><span>5297 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">11 分钟</span>
+    
 
+    
+    
+  </div>
 
+  
 
-<div class="flex flex-row flex-wrap items-center">
   
   
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AE%89%E5%85%A8/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+          
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/categories/%E5%AE%89%E5%85%A8/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     安全
   </span>
 </span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/wi-fi/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+
+              </span>
+            
+          
+        
+      
+        
+      
+        
+          
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/wi-fi/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Wi-Fi
   </span>
 </span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/%E5%AE%89%E5%85%A8/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E5%AE%89%E5%85%A8/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     安全
   </span>
 </span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/%E7%A0%B4%E8%A7%A3/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E7%A0%B4%E8%A7%A3/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     破解
   </span>
 </span>
-  </span>
-  
-  
-  
-  
-</div>
 
-
-
-
+              </span>
+            
+          
+        
+      
     </div>
+  
 
-    
-    
-    
-    
-    
+  
+  
 
-    
 
-    
+
+      </div>
+
       
       
+      
+      
+      
+
+      
+
+      
+
         
-        
+          
+          
 <div class="flex author">
   
     
@@ -775,21 +916,25 @@
       
         
       
-      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="高玩梁" src="/img/avatar_hu_f46a7ba50ae3eb5d.webp" />
+      <img
+        class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+        width="96"
+        height="96"
+        alt="高玩梁"
+        src="/img/avatar_hu_f46a7ba50ae3eb5d.webp">
     
   
   <div class="place-self-center">
     
-    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
-      作者
-    </div>
-    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
-      高玩梁
-    </div>
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        作者
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        高玩梁
+      </div>
     
     
-    <div class="text-sm text-neutral-700 dark:text-neutral-400">一个对所有事物保持好奇心的人</div>
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">一个对所有事物保持好奇心的人</div>
     
     <div class="text-2xl sm:text-lg">
   <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
@@ -853,26 +998,30 @@
   </div>
 </div>
 
-      
+        
+
+        
+
+        
+          <div class="mb-5"></div>
+        
 
       
 
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
       
-      <div class="mb-5"></div>
-      
-
-    
-
-  </header>
-  
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-    
-     <div
-      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
-      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
-
-         <details open id="TOCView"
-  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
     目录
@@ -963,104 +1112,94 @@
   </div>
 </details>
 
-<script>
-
-  var margin = 200;
-  var marginError = 50;
-
-  (function () {
-    var $window = $(window);
-    var $toc = $('#TOCView');
-    var tocHeight = $toc.height();
-
-    function onResize() {
-      var windowAndMarginHeight = $window.height() - margin;
-      if(tocHeight >= windowAndMarginHeight) {
-        $toc.css("overflow-y", "scroll")
-        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
-      } else {
-        $toc.css("overflow-y", "hidden")
-        $toc.css("max-height", "9999999px")
-      }
-    }
-
-    $window.on('resize', onResize);
-    $(document).ready(onResize);
-  })();
 
 
-
-</script>
-   </div>
-      </div>
+            
+            
+          </div>
+        </div>
       
+
 
       <div class="min-w-0 min-h-0 max-w-fit">
         
-        
+
 
 
         <div class="article-content max-w-prose mb-20">
           
-
 <h1 class="relative group">Wi-Fi 破解 
-    <div id="wi-fi-%E7%A0%B4%E8%A7%A3" class="anchor"></div>
+    <div id="wi-fi-破解" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#wi-fi-%E7%A0%B4%E8%A7%A3" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#wi-fi-%e7%a0%b4%e8%a7%a3" aria-label="锚点">#</a>
     </span>        
     
 </h1>
-<p>利用 Airodump-ng 以及 <a href="http://aircrack-ng.org/" target="_blank">Aircrack-ng</a> / <a href="http://hashcat.net/" target="_blank">Hashcat</a> 破解 WPA/WPA2 WI-FI 路由器。</p>
-<p>这是个简洁的教程，一步一步的描述了如何破解使用弱密码保护的 WI-FI 网络。它不会极尽其详，但是足够你用来测试自己的网络安全或者入侵附近网络。下面列出的攻击完全是被动式的（仅仅监听，不会广播你电脑上的任何东西），并且对于你破解的但是却未真正使用的密码是无法监测到的。不过一个可选的 deauthentication 攻击可以用于加速侦查过程，在<a href="#deauth-attack">文档末尾</a>有描述。</p>
-<p>如果你熟悉这个过程，你可以跳过这段描述直接跳到<a href="#%e5%91%bd%e4%bb%a4%e5%88%97%e8%a1%a8">底部</a>使用的命令列表。更多种建议以及可行的方法，参考<a href="#%e9%99%84%e5%bd%95A">附录 A</a>。</p>
+<p>利用 Airodump-ng 以及 <a
+  href="http://aircrack-ng.org/"
+    target="_blank"
+  >Aircrack-ng</a> / <a
+  href="http://hashcat.net/"
+    target="_blank"
+  >Hashcat</a> 破解 WPA/WPA2 WI-FI 路由器。</p>
+<p>这是个简洁的教程，一步一步的描述了如何破解使用弱密码保护的 WI-FI 网络。它不会极尽其详，但是足够你用来测试自己的网络安全或者入侵附近网络。下面列出的攻击完全是被动式的（仅仅监听，不会广播你电脑上的任何东西），并且对于你破解的但是却未真正使用的密码是无法监测到的。不过一个可选的 deauthentication 攻击可以用于加速侦查过程，在<a
+  href="#deauth-attack">文档末尾</a>有描述。</p>
+<p>如果你熟悉这个过程，你可以跳过这段描述直接跳到<a
+  href="#%e5%91%bd%e4%bb%a4%e5%88%97%e8%a1%a8">底部</a>使用的命令列表。更多种建议以及可行的方法，参考<a
+  href="#%e9%99%84%e5%bd%95A">附录 A</a>。</p>
 <p><strong>声明：这个软件/教程仅仅用于教学。不应该使用它从事任何非法活动。作者不会对它的使用负责。不要犯傻。</strong></p>
 
-
 <h2 class="relative group">入门 
-    <div id="%E5%85%A5%E9%97%A8" class="anchor"></div>
+    <div id="入门" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%85%A5%E9%97%A8" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%a5%e9%97%a8" aria-label="锚点">#</a>
     </span>        
     
 </h2>
 <p>这个教程假定你：</p>
 <ul>
 <li>可以流畅使用命令行</li>
-<li>使用一个基于 debian 的 linux 发行版本，最好是 <a href="https://www.kali.org/" target="_blank">Kali linux</a></li>
-<li>安装 <a href="http://aircrack-ng.org/" target="_blank">Aircrack-ng</a>
+<li>使用一个基于 debian 的 linux 发行版本，最好是 <a
+  href="https://www.kali.org/"
+    target="_blank"
+  >Kali linux</a></li>
+<li>安装 <a
+  href="http://aircrack-ng.org/"
+    target="_blank"
+  >Aircrack-ng</a>
 <ul>
 <li><code>sudo apt-get install aircrack-ng</code></li>
 </ul>
 </li>
-<li>拥有一块支持<a href="https://en.wikipedia.org/wiki/Monitor_mode" target="_blank">监测模式</a>的无线网卡（对于支持的设备列表，参考<a href="http://www.wirelesshack.org/best-kali-linux-compatible-usb-adapter-dongles-2016.html" target="_blank">这里</a>)</li>
+<li>拥有一块支持<a
+  href="https://en.wikipedia.org/wiki/Monitor_mode"
+    target="_blank"
+  >监测模式</a>的无线网卡（对于支持的设备列表，参考<a
+  href="http://www.wirelesshack.org/best-kali-linux-compatible-usb-adapter-dongles-2016.html"
+    target="_blank"
+  >这里</a>)</li>
 </ul>
 
-
 <h2 class="relative group">破解一个 WI-FI 网络 
-    <div id="%E7%A0%B4%E8%A7%A3%E4%B8%80%E4%B8%AA-wi-fi-%E7%BD%91%E7%BB%9C" class="anchor"></div>
+    <div id="破解一个-wi-fi-网络" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%A0%B4%E8%A7%A3%E4%B8%80%E4%B8%AA-wi-fi-%E7%BD%91%E7%BB%9C" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%a0%b4%e8%a7%a3%e4%b8%80%e4%b8%aa-wi-fi-%e7%bd%91%e7%bb%9c" aria-label="锚点">#</a>
     </span>        
     
 </h2>
 
-
 <h3 class="relative group">监测模式 (Monitor Mode) 
-    <div id="%E7%9B%91%E6%B5%8B%E6%A8%A1%E5%BC%8F-monitor-mode" class="anchor"></div>
+    <div id="监测模式-monitor-mode" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9B%91%E6%B5%8B%E6%A8%A1%E5%BC%8F-monitor-mode" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%9b%91%e6%b5%8b%e6%a8%a1%e5%bc%8f-monitor-mode" aria-label="锚点">#</a>
     </span>        
     
 </h3>
@@ -1071,18 +1210,19 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">airmon-ng start wlan0
 </span></span></code></pre></div><p>运行 <code>iwconfig</code>。你现在应该能够看到列出一个新的监测模式接口（比如 <code>mon0</code> 或者 <code>wlan0mon</code>）。</p>
 
-
 <h3 class="relative group">找到你的目标 
-    <div id="%E6%89%BE%E5%88%B0%E4%BD%A0%E7%9A%84%E7%9B%AE%E6%A0%87" class="anchor"></div>
+    <div id="找到你的目标" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%89%BE%E5%88%B0%E4%BD%A0%E7%9A%84%E7%9B%AE%E6%A0%87" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%89%be%e5%88%b0%e4%bd%a0%e7%9a%84%e7%9b%ae%e6%a0%87" aria-label="锚点">#</a>
     </span>        
     
 </h3>
-<p>使用你的监测接口开始监听附近的 <a href="https://en.wikipedia.org/wiki/Beacon_frame" target="_blank">802.11 Beacon 帧</a>广播：</p>
+<p>使用你的监测接口开始监听附近的 <a
+  href="https://en.wikipedia.org/wiki/Beacon_frame"
+    target="_blank"
+  >802.11 Beacon 帧</a>广播：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">airodump-ng mon0
 </span></span></code></pre></div><p>你应该可以看到类似于下面的输出。</p>
 <pre tabindex="0"><code>CH 13 ][ Elapsed: 52 s ][ 2017-07-23 15:49
@@ -1102,18 +1242,19 @@
  EC:1A:59:36:AD:CA  -86      210       28    0   1  54e  WPA2 CCMP   PSK  belkin.dca
 </code></pre><p>出于这个演示的目的，我们将会破解我自己的网络，&ldquo;hackme&rdquo;。记住利用 <code>airodump-ng</code> 展示的 BSSID， MAC 地址以及信道（<code>CH</code>）号，在下一个步骤中我们将会需要它们。</p>
 
-
 <h3 class="relative group">捕获 4-way Handshake 
-    <div id="%E6%8D%95%E8%8E%B7-4-way-handshake" class="anchor"></div>
+    <div id="捕获-4-way-handshake" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%8D%95%E8%8E%B7-4-way-handshake" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8d%95%e8%8e%b7-4-way-handshake" aria-label="锚点">#</a>
     </span>        
     
 </h3>
-<p>WPA/WPA2 使用 <a href="https://security.stackexchange.com/questions/17767/four-way-handshake-in-wpa-personal-wpa-psk" target="_blank">4-way Handshake</a> 来认证设备连接网络。你不需要明白这些的含意，但是你必须抓取 handshake 才能破解网络密码。这些握手发生在设备连接网络的时候，比如，当你的邻居工作回家的时候。我们通过之前命令发现的信道以及 bssid 值来使用 <code>airmon-ng</code> 来监视目标网络。</p>
+<p>WPA/WPA2 使用 <a
+  href="https://security.stackexchange.com/questions/17767/four-way-handshake-in-wpa-personal-wpa-psk"
+    target="_blank"
+  >4-way Handshake</a> 来认证设备连接网络。你不需要明白这些的含意，但是你必须抓取 handshake 才能破解网络密码。这些握手发生在设备连接网络的时候，比如，当你的邻居工作回家的时候。我们通过之前命令发现的信道以及 bssid 值来使用 <code>airmon-ng</code> 来监视目标网络。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 将 -c 以及 --bssid 值替换为你的目标网络值</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># -w 用来指定我们保存捕获到数据包的文件夹</span>
 </span></span><span class="line"><span class="cl">airodump-ng -c <span class="m">3</span> --bssid 9C:5C:8E:C9:AB:C0 -w . mon0
@@ -1123,36 +1264,51 @@
 
  9C:5C:8E:C9:AB:C0  -47   0      140        0    0   6  54e  WPA2 CCMP   PSK  ASUS
 </code></pre><p>现在让我们等一会儿&hellip; 当我们捕捉到一个握手时，你应该能够马上在屏幕的右上角看到类似于<code>[ WPA handshake: bc:d3:c9:ef:d2:67</code>的一些东西。</p>
-<p>如果你不想等，也不反感进行一次主动攻击，你可以强制设备连接到目标网络来重新连接，并且在目标网络中发送恶意 deauthentication 数据包。通常这样就可以抓到 4-way handshake 了。参考下面的 <a href="#deauth-attack">deauth 攻击章节</a> 来获取关于此的信息。</p>
+<p>如果你不想等，也不反感进行一次主动攻击，你可以强制设备连接到目标网络来重新连接，并且在目标网络中发送恶意 deauthentication 数据包。通常这样就可以抓到 4-way handshake 了。参考下面的 <a
+  href="#deauth-attack">deauth 攻击章节</a> 来获取关于此的信息。</p>
 <p>一旦你捕获了一个握手，按下 <code>ctrl-c</code> 来终止 <code>airodump-ng</code>。这是在你指定的 <code>airodump-ng</code> 输出目录下，应该看到一个用来保存捕获信息的<code>.cap</code>文件（比如叫做<code>-01.cap</code>）。我们将会使用这个捕获文件来破解网络密码。个人喜欢将这个文件重命名为当前正在尝试破解的网络名称：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv ./-01.cap hackme.cap
 </span></span></code></pre></div>
-
 <h3 class="relative group">破解网络密码 
-    <div id="%E7%A0%B4%E8%A7%A3%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81" class="anchor"></div>
+    <div id="破解网络密码" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%A0%B4%E8%A7%A3%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%a0%b4%e8%a7%a3%e7%bd%91%e7%bb%9c%e5%af%86%e7%a0%81" aria-label="锚点">#</a>
     </span>        
     
 </h3>
-<p>最后一个步骤是使用捕获的 handshake 数据来破解密码。如果你能够访问 GPU，我<strong>强烈</strong>建议你使用 <code>hashcat</code> 来破解密码。我已经创建了一个叫做 <a href="https://github.com/brannondorsey/naive-hashcat" target="_blank"><code>naive-hashcat</code></a> 的简单工具可以让使用 hashcat 变得非常方便。如果你不能够访问 GPU，还有很多在线的 GPU 破解服务可以使用，比如 <a href="https://gpuhash.me/" target="_blank">GPUHASH.me</a> 或者 <a href="https://www.onlinehashcrack.com/wifi-wpa-rsna-psk-crack.php" target="_blank">OnlineHashCrack</a> 。你也可以常使用 Aircrack-ng 来进行 CPU 破解。</p>
-<p>注意下面的攻击方法都假设用户正在使用弱密码。现如今很多 WPA/WPA2 路由自带 12 位强随机密码，大部分用户都不会去更改。如果你去尝试破解这些密码，我建议你使用 <a href="https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/WPA-Length" target="_blank">Probable-Wordlists WPA-length</a> 字典文件。</p>
-
+<p>最后一个步骤是使用捕获的 handshake 数据来破解密码。如果你能够访问 GPU，我<strong>强烈</strong>建议你使用 <code>hashcat</code> 来破解密码。我已经创建了一个叫做 <a
+  href="https://github.com/brannondorsey/naive-hashcat"
+    target="_blank"
+  ><code>naive-hashcat</code></a> 的简单工具可以让使用 hashcat 变得非常方便。如果你不能够访问 GPU，还有很多在线的 GPU 破解服务可以使用，比如 <a
+  href="https://gpuhash.me/"
+    target="_blank"
+  >GPUHASH.me</a> 或者 <a
+  href="https://www.onlinehashcrack.com/wifi-wpa-rsna-psk-crack.php"
+    target="_blank"
+  >OnlineHashCrack</a> 。你也可以常使用 Aircrack-ng 来进行 CPU 破解。</p>
+<p>注意下面的攻击方法都假设用户正在使用弱密码。现如今很多 WPA/WPA2 路由自带 12 位强随机密码，大部分用户都不会去更改。如果你去尝试破解这些密码，我建议你使用 <a
+  href="https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/WPA-Length"
+    target="_blank"
+  >Probable-Wordlists WPA-length</a> 字典文件。</p>
 
 <h4 class="relative group">使用 <code>naive-hashcat</code> 破解（推荐） 
-    <div id="%E4%BD%BF%E7%94%A8-naive-hashcat-%E7%A0%B4%E8%A7%A3%E6%8E%A8%E8%8D%90" class="anchor"></div>
+    <div id="使用-naive-hashcat-破解推荐" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8-naive-hashcat-%E7%A0%B4%E8%A7%A3%E6%8E%A8%E8%8D%90" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%bf%e7%94%a8-naive-hashcat-%e7%a0%b4%e8%a7%a3%e6%8e%a8%e8%8d%90" aria-label="锚点">#</a>
     </span>        
     
 </h4>
-<p>在我们使用 naive-hashcat 破解密码之前，我们需要将我们的 <code>.cap</code> 文件转换成同等 hashcat 文件格式 <code>.hccapx</code>。你可以通过上传 <code>.cap</code> 文件到 <a href="https://hashcat.net/cap2hccapx/" target="_blank">https://hashcat.net/cap2hccapx/</a> 或者直接使用 <a href="https://github.com/hashcat/hashcat-utils" target="_blank"><code>cap2hccapx</code></a> 工具。</p>
+<p>在我们使用 naive-hashcat 破解密码之前，我们需要将我们的 <code>.cap</code> 文件转换成同等 hashcat 文件格式 <code>.hccapx</code>。你可以通过上传 <code>.cap</code> 文件到 <a
+  href="https://hashcat.net/cap2hccapx/"
+    target="_blank"
+  >https://hashcat.net/cap2hccapx/</a> 或者直接使用 <a
+  href="https://github.com/hashcat/hashcat-utils"
+    target="_blank"
+  ><code>cap2hccapx</code></a> 工具。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cap2hccapx.bin hackme.cap hackme.hccapx
 </span></span></code></pre></div><p>接着，下载并运行 <code>naive-hashcat</code>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 下载</span>
@@ -1165,19 +1321,32 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 破解！宝贝！破解！</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 2500 是 hashcat 对于 WPA/WPA2 的哈希模式</span>
 </span></span><span class="line"><span class="cl"><span class="nv">HASH_FILE</span><span class="o">=</span>hackme.hccapx <span class="nv">POT_FILE</span><span class="o">=</span>hackme.pot <span class="nv">HASH_TYPE</span><span class="o">=</span><span class="m">2500</span> ./naive-hashcat.sh
-</span></span></code></pre></div><p>Naive-hashcat 使用多种<a href="https://hashcat.net/wiki/doku.php?id=dictionary_attack" target="_blank">字典</a>，<a href="https://hashcat.net/wiki/doku.php?id=rule_based_attack" target="_blank">规则</a>，<a href="https://hashcat.net/wiki/doku.php?id=combinator_attack" target="_blank">组合</a>以及<a href="https://hashcat.net/wiki/doku.php?id=mask_attack" target="_blank">伪装</a>（聪明的暴力）攻击，并且它需要花费数天甚至数月来破解中等长度的密码。破解的密码将会保存到 hackme.pot，因此不时要检查这个文件。一旦你破解这个密码，你将会在你的 <code>POI_FILE</code> 看到类似于下面的内容：</p>
+</span></span></code></pre></div><p>Naive-hashcat 使用多种<a
+  href="https://hashcat.net/wiki/doku.php?id=dictionary_attack"
+    target="_blank"
+  >字典</a>，<a
+  href="https://hashcat.net/wiki/doku.php?id=rule_based_attack"
+    target="_blank"
+  >规则</a>，<a
+  href="https://hashcat.net/wiki/doku.php?id=combinator_attack"
+    target="_blank"
+  >组合</a>以及<a
+  href="https://hashcat.net/wiki/doku.php?id=mask_attack"
+    target="_blank"
+  >伪装</a>（聪明的暴力）攻击，并且它需要花费数天甚至数月来破解中等长度的密码。破解的密码将会保存到 hackme.pot，因此不时要检查这个文件。一旦你破解这个密码，你将会在你的 <code>POI_FILE</code> 看到类似于下面的内容：</p>
 <pre tabindex="0"><code>e30a5a57fc00211fc9f57a4491508cc3:9c5c8ec9abc0:acd1b8dfd971:ASUS:hacktheplanet
 </code></pre><p>最后两块被 <code>:</code> 分隔开来，分别是网络名称和密码。</p>
-<p>如果你想直接使用 <code>hashcat</code> 而不是 <code>naive-hashcat</code> 的话请参考<a href="https://hashcat.net/wiki/doku.php?id=cracking_wpawpa2" target="_blank">这个页面</a>。</p>
-
+<p>如果你想直接使用 <code>hashcat</code> 而不是 <code>naive-hashcat</code> 的话请参考<a
+  href="https://hashcat.net/wiki/doku.php?id=cracking_wpawpa2"
+    target="_blank"
+  >这个页面</a>。</p>
 
 <h4 class="relative group">利用 Aircrack-ng 破解 
-    <div id="%E5%88%A9%E7%94%A8-aircrack-ng-%E7%A0%B4%E8%A7%A3" class="anchor"></div>
+    <div id="利用-aircrack-ng-破解" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%88%A9%E7%94%A8-aircrack-ng-%E7%A0%B4%E8%A7%A3" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%a9%e7%94%a8-aircrack-ng-%e7%a0%b4%e8%a7%a3" aria-label="锚点">#</a>
     </span>        
     
 </h4>
@@ -1207,14 +1376,12 @@
 
       EAPOL HMAC     : 9F C6 51 57 D3 FA 99 11 9D 17 12 BA B6 DB 06 B4
 </code></pre>
-
 <h2 class="relative group">Deauth Attack 
     <div id="deauth-attack" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#deauth-attack" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#deauth-attack" aria-label="锚点">#</a>
     </span>        
     
 </h2>
@@ -1238,16 +1405,15 @@
 </span></span></code></pre></div><p>你也可以选择得通过广播解除认证数据包到所有连接的客户端：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 尽管不是所有的客户端都会响应广播解除认证</span>
 </span></span><span class="line"><span class="cl">aireplay-ng -0 <span class="m">2</span> -a 9C:5C:8E:C9:AB:C0 mon0
-</span></span></code></pre></div><p>发送了解除认证数据包后，回到你的 <code>airodump-ng</code> 进程，运气好的话你现在应该看到右上角：<code>[WPA握手：9C：5C：8E：C9：AB：C0</code>。 现在你已经捕获了握手，你应该准备好<a href="#crack-the-network-password">破解网络密码</a>。</p>
-
+</span></span></code></pre></div><p>发送了解除认证数据包后，回到你的 <code>airodump-ng</code> 进程，运气好的话你现在应该看到右上角：<code>[WPA握手：9C：5C：8E：C9：AB：C0</code>。 现在你已经捕获了握手，你应该准备好<a
+  href="#crack-the-network-password">破解网络密码</a>。</p>
 
 <h2 class="relative group">命令列表 
-    <div id="%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8" class="anchor"></div>
+    <div id="命令列表" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%91%bd%e4%bb%a4%e5%88%97%e8%a1%a8" aria-label="锚点">#</a>
     </span>        
     
 </h2>
@@ -1280,48 +1446,99 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 利用 naive-hashcat 破解</span>
 </span></span><span class="line"><span class="cl"><span class="nv">HASH_FILE</span><span class="o">=</span>hackme.hccapx <span class="nv">POT_FILE</span><span class="o">=</span>hackme.pot <span class="nv">HASH_TYPE</span><span class="o">=</span><span class="m">2500</span> ./naive-hashcat.sh
 </span></span></code></pre></div>
-
 <h2 class="relative group">附录 
-    <div id="%E9%99%84%E5%BD%95" class="anchor"></div>
+    <div id="附录" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%99%84%E5%BD%95" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%99%84%e5%bd%95" aria-label="锚点">#</a>
     </span>        
     
 </h2>
-<p>非常欢迎对这篇教程进行回复，我已经添加了社区成员的建议和附加资料作为<a href="#appendix.zh.md">附录</a>。它包括：</p>
+<p>非常欢迎对这篇教程进行回复，我已经添加了社区成员的建议和附加资料作为<a
+  href="#appendix.zh.md">附录</a>。它包括：</p>
 <ul>
 <li>在 MacOS/OSX 上捕获握手并且破解 WPA 密码</li>
 <li>利用 <code>wlandump-ng</code> 捕获从你周围每个网络捕获握手</li>
 <li>使用 <code>crunch</code> 即时生成 100+GB 的单词列表</li>
 <li>利用 <code>macchanger</code> 伪造你的 MAC 地址</li>
 </ul>
-<p>现在也提供<a href="appendix.zh.md">中文版本</a>附录。</p>
-
+<p>现在也提供<a
+  href="appendix.zh.md">中文版本</a>附录。</p>
 
 <h2 class="relative group">致谢 
-    <div id="%E8%87%B4%E8%B0%A2" class="anchor"></div>
+    <div id="致谢" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%87%B4%E8%B0%A2" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%87%b4%e8%b0%a2" aria-label="锚点">#</a>
     </span>        
     
 </h2>
-<p>这里提供的大部分信息都是从 <a href="https://lewiscomputerhowto.blogspot.com/2014/06/how-to-hack-wpawpa2-wi-fi-with-kali.html" target="_blank">Lewis Encarnacion 的绝妙的教程</a> 中收集的。 感谢在 Aircrack-ng 和 Hashcat 上工作的优秀作者和维护者。</p>
-<p>非常感谢 <a href="https://github.com/neal1991" target="_blank">neal1991</a> 将本教程翻译成<a href="README.zh.md">中文</a>。另外也感谢 <a href="https://github.com/hiteshnayak305" target="_blank">hiteshnayak305</a>，<a href="https://github.com/enilfodne" target="_blank">enilfodne</a>， <a href="https://www.reddit.com/user/DrinkMoreCodeMore" target="_blank">DrinkMoreCodeMore</a>，<a href="https://www.reddit.com/user/hivie7510" target="_blank">hivie7510</a>，<a href="https://github.com/cprogrammer1994" target="_blank">cprogrammer1994</a>，<a href="https://github.com/0XE4" target="_blank">0XE4</a>，<a href="https://github.com/hartzell" target="_blank">hartzell</a>，<a href="https://github.com/zeeshanu" target="_blank">zeeshanu</a>，<a href="https://github.com/flennic" target="_blank">flennic</a>，<a href="https://github.com/bhusang" target="_blank">bhusang</a>，<a href="https://github.com/tversteeg" target="_blank">tversteeg</a>，<a href="https://github.com/gpetrousov" target="_blank">gpetrousov</a>，<a href="https://github.com/crowchirp" target="_blank">crowchirp</a> 和 <a href="https://github.com/shark0der" target="_blank">Shark0der</a>，他们也在 <a href="https://www.reddit.com/r/hacking/comments/6p50is/crack_wpawpa2_wifi_routers_with_aircrackng_and/" target="_blank">Reddit</a> 和 GitHub 上提供建议或帮助完善这篇文章。如果您有兴趣听取 WPA2 的一些建议替代方案，请参考 <a href="https://news.ycombinator.com/item?id=14840539" target="_blank">Hacker News</a> 的一些重要讨论。</p>
-
+<p>这里提供的大部分信息都是从 <a
+  href="https://lewiscomputerhowto.blogspot.com/2014/06/how-to-hack-wpawpa2-wi-fi-with-kali.html"
+    target="_blank"
+  >Lewis Encarnacion 的绝妙的教程</a> 中收集的。 感谢在 Aircrack-ng 和 Hashcat 上工作的优秀作者和维护者。</p>
+<p>非常感谢 <a
+  href="https://github.com/neal1991"
+    target="_blank"
+  >neal1991</a> 将本教程翻译成<a
+  href="README.zh.md">中文</a>。另外也感谢 <a
+  href="https://github.com/hiteshnayak305"
+    target="_blank"
+  >hiteshnayak305</a>，<a
+  href="https://github.com/enilfodne"
+    target="_blank"
+  >enilfodne</a>， <a
+  href="https://www.reddit.com/user/DrinkMoreCodeMore"
+    target="_blank"
+  >DrinkMoreCodeMore</a>，<a
+  href="https://www.reddit.com/user/hivie7510"
+    target="_blank"
+  >hivie7510</a>，<a
+  href="https://github.com/cprogrammer1994"
+    target="_blank"
+  >cprogrammer1994</a>，<a
+  href="https://github.com/0XE4"
+    target="_blank"
+  >0XE4</a>，<a
+  href="https://github.com/hartzell"
+    target="_blank"
+  >hartzell</a>，<a
+  href="https://github.com/zeeshanu"
+    target="_blank"
+  >zeeshanu</a>，<a
+  href="https://github.com/flennic"
+    target="_blank"
+  >flennic</a>，<a
+  href="https://github.com/bhusang"
+    target="_blank"
+  >bhusang</a>，<a
+  href="https://github.com/tversteeg"
+    target="_blank"
+  >tversteeg</a>，<a
+  href="https://github.com/gpetrousov"
+    target="_blank"
+  >gpetrousov</a>，<a
+  href="https://github.com/crowchirp"
+    target="_blank"
+  >crowchirp</a> 和 <a
+  href="https://github.com/shark0der"
+    target="_blank"
+  >Shark0der</a>，他们也在 <a
+  href="https://www.reddit.com/r/hacking/comments/6p50is/crack_wpawpa2_wifi_routers_with_aircrackng_and/"
+    target="_blank"
+  >Reddit</a> 和 GitHub 上提供建议或帮助完善这篇文章。如果您有兴趣听取 WPA2 的一些建议替代方案，请参考 <a
+  href="https://news.ycombinator.com/item?id=14840539"
+    target="_blank"
+  >Hacker News</a> 的一些重要讨论。</p>
 
 <h1 class="relative group">附录 A 
-    <div id="%E9%99%84%E5%BD%95-a" class="anchor"></div>
+    <div id="附录-a" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%99%84%E5%BD%95-a" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%99%84%e5%bd%95-a" aria-label="锚点">#</a>
     </span>        
     
 </h1>
@@ -1333,53 +1550,54 @@
 <li>利用 <code>macchanger</code> 保护你的身份</li>
 </ul>
 
-
 <h2 class="relative group">在 MacOS/OSX 上破解 WI-FI 
-    <div id="%E5%9C%A8-macososx-%E4%B8%8A%E7%A0%B4%E8%A7%A3-wi-fi" class="anchor"></div>
+    <div id="在-macososx-上破解-wi-fi" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%9C%A8-macososx-%E4%B8%8A%E7%A0%B4%E8%A7%A3-wi-fi" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9c%a8-macososx-%e4%b8%8a%e7%a0%b4%e8%a7%a3-wi-fi" aria-label="锚点">#</a>
     </span>        
     
 </h2>
-<p>非常感谢 <a href="https://github.com/harshpatel991" target="_blank">@harshpatel991</a> 提供本指南。下面会介绍如何使用 MacOS/OSX 自带的工具抓取 4-way handshake，然后再通过 naive-hashcat 来找出一个 WPA/WPA2 无线网络的密码。 此方法已在 OSX 10.10 和 10.12 上进行测试，不过也可能适用于其他版本。 像主教程一样，我们假设你有一个支持 <a href="https://en.wikipedia.org/wiki/Monitor_mode" target="_blank">监测模式</a> 的<a href="http://www.wirelesshack.org/best-kali-linux-compatible-usb-adapter-dongles-2016.html" target="_blank">无线网卡</a>。我们在 2012 年上半年和 2015 年中期这两款 MacBook Pro 上进行了测试，并取得了巨大的成功。</p>
-
+<p>非常感谢 <a
+  href="https://github.com/harshpatel991"
+    target="_blank"
+  >@harshpatel991</a> 提供本指南。下面会介绍如何使用 MacOS/OSX 自带的工具抓取 4-way handshake，然后再通过 naive-hashcat 来找出一个 WPA/WPA2 无线网络的密码。 此方法已在 OSX 10.10 和 10.12 上进行测试，不过也可能适用于其他版本。 像主教程一样，我们假设你有一个支持 <a
+  href="https://en.wikipedia.org/wiki/Monitor_mode"
+    target="_blank"
+  >监测模式</a> 的<a
+  href="http://www.wirelesshack.org/best-kali-linux-compatible-usb-adapter-dongles-2016.html"
+    target="_blank"
+  >无线网卡</a>。我们在 2012 年上半年和 2015 年中期这两款 MacBook Pro 上进行了测试，并取得了巨大的成功。</p>
 
 <h3 class="relative group">无线诊断工具 
-    <div id="%E6%97%A0%E7%BA%BF%E8%AF%8A%E6%96%AD%E5%B7%A5%E5%85%B7" class="anchor"></div>
+    <div id="无线诊断工具" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%97%A0%E7%BA%BF%E8%AF%8A%E6%96%AD%E5%B7%A5%E5%85%B7" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%97%a0%e7%ba%bf%e8%af%8a%e6%96%ad%e5%b7%a5%e5%85%b7" aria-label="锚点">#</a>
     </span>        
     
 </h3>
 <p>幸运的是，OSX 配备了一套无线诊断工具。 要打开它们，请在按住键盘上 option 键的同时，点击菜单栏中的 Wi-Fi 图标。 然后选择“打开无线诊断&hellip;”</p>
 
-
 <h3 class="relative group">测定目标网络信道 
-    <div id="%E6%B5%8B%E5%AE%9A%E7%9B%AE%E6%A0%87%E7%BD%91%E7%BB%9C%E4%BF%A1%E9%81%93" class="anchor"></div>
+    <div id="测定目标网络信道" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%B5%8B%E5%AE%9A%E7%9B%AE%E6%A0%87%E7%BD%91%E7%BB%9C%E4%BF%A1%E9%81%93" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%b5%8b%e5%ae%9a%e7%9b%ae%e6%a0%87%e7%bd%91%e7%bb%9c%e4%bf%a1%e9%81%93" aria-label="锚点">#</a>
     </span>        
     
 </h3>
 <p>打开无线诊断程序，单击<strong>窗口</strong> &gt; <strong>扫描</strong>。 找到目标网络，记录下其信道和宽度。</p>
 
-
 <h3 class="relative group">抓取一个 4-way handshake 
-    <div id="%E6%8A%93%E5%8F%96%E4%B8%80%E4%B8%AA-4-way-handshake" class="anchor"></div>
+    <div id="抓取一个-4-way-handshake" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%8A%93%E5%8F%96%E4%B8%80%E4%B8%AA-4-way-handshake" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8a%93%e5%8f%96%e4%b8%80%e4%b8%aa-4-way-handshake" aria-label="锚点">#</a>
     </span>        
     
 </h3>
@@ -1388,17 +1606,18 @@
 <li>现在，你需要等待有设备连接到目标网络。如果你正在自己的网络上测试（使用者应当只在自己的网络上进行测试），将任意一个无线设备重新连接就可以抓取 handshake。</li>
 <li>当你感觉已经成功抓取 handshake 时，点击停止。</li>
 <li>根据你的操作系统版本，抓取的 <code>.wcap</code> 文件将被保存到桌面或<code>/var/tmp/</code>。</li>
-<li>将抓取的文件上传到 <a href="https://hashcat.net/cap2hccapx/" target="_blank">https://hashcat.net/cap2hccapx/</a> 就可以将其转换为 <code>.hccapx</code> 文件。 如果你成功的抓到了 handshake ，站点将开始下载一个<code>.hccapx</code>文件。 否则将不会提示下载。</li>
+<li>将抓取的文件上传到 <a
+  href="https://hashcat.net/cap2hccapx/"
+    target="_blank"
+  >https://hashcat.net/cap2hccapx/</a> 就可以将其转换为 <code>.hccapx</code> 文件。 如果你成功的抓到了 handshake ，站点将开始下载一个<code>.hccapx</code>文件。 否则将不会提示下载。</li>
 </ol>
 
-
 <h3 class="relative group">利用 <code>naive-hashcat</code> 破解密码 
-    <div id="%E5%88%A9%E7%94%A8-naive-hashcat-%E7%A0%B4%E8%A7%A3%E5%AF%86%E7%A0%81" class="anchor"></div>
+    <div id="利用-naive-hashcat-破解密码" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%88%A9%E7%94%A8-naive-hashcat-%E7%A0%B4%E8%A7%A3%E5%AF%86%E7%A0%81" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%a9%e7%94%a8-naive-hashcat-%e7%a0%b4%e8%a7%a3%e5%af%86%e7%a0%81" aria-label="锚点">#</a>
     </span>        
     
 </h3>
@@ -1411,22 +1630,44 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 下载 134MB rockyou字典文件</span>
 </span></span><span class="line"><span class="cl">curl -L -o dicts/rockyou.txt https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
-</span></span></code></pre></div><p>最后，运行 <code>naive-hashcat.sh</code>。将 <code>handshake.hccapx</code> 名称改成你从 <a href="https://hashcat.net/cap2hccapx/" target="_blank">hashcat.net</a> 下载的文件名称。<code>cracked.pot</code>是输出文件名称。</p>
+</span></span></code></pre></div><p>最后，运行 <code>naive-hashcat.sh</code>。将 <code>handshake.hccapx</code> 名称改成你从 <a
+  href="https://hashcat.net/cap2hccapx/"
+    target="_blank"
+  >hashcat.net</a> 下载的文件名称。<code>cracked.pot</code>是输出文件名称。</p>
 <pre tabindex="0"><code>HASH_FILE=handshake.hccapx POT_FILE=cracked.pot HASH_TYPE=2500 ./naive-hashcat.sh
-</code></pre><p>再次感谢 <a href="https://github.com/harshpatel991" target="_blank">@harshpatel991</a>，以及 <a href="http://www.phillips321.co.uk/" target="_blank">phillips321</a> 关于如何在 OSX 上构建 hashcat 的<a href="https://www.phillips321.co.uk/2016/07/09/hashcat-on-os-x-getting-it-going/" target="_blank">帖子</a>。</p>
-
+</code></pre><p>再次感谢 <a
+  href="https://github.com/harshpatel991"
+    target="_blank"
+  >@harshpatel991</a>，以及 <a
+  href="http://www.phillips321.co.uk/"
+    target="_blank"
+  >phillips321</a> 关于如何在 OSX 上构建 hashcat 的<a
+  href="https://www.phillips321.co.uk/2016/07/09/hashcat-on-os-x-getting-it-going/"
+    target="_blank"
+  >帖子</a>。</p>
 
 <h2 class="relative group">使用 <code>wlandump-ng</code> 抓取 handshake 
-    <div id="%E4%BD%BF%E7%94%A8-wlandump-ng-%E6%8A%93%E5%8F%96-handshake" class="anchor"></div>
+    <div id="使用-wlandump-ng-抓取-handshake" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8-wlandump-ng-%E6%8A%93%E5%8F%96-handshake" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%bf%e7%94%a8-wlandump-ng-%e6%8a%93%e5%8f%96-handshake" aria-label="锚点">#</a>
     </span>        
     
 </h2>
-<p><a href="https://github.com/enilfodne" target="_blank">@enilfodne</a> 提到 hachcat 社区有一个<a href="https://github.com/brannondorsey/wifi-cracking/issues/15" target="_blank">更棒的工具</a>可以抓取 WPA 的 4-way handshakes。它是 hashcat 工具包的一部分，叫 <a href="https://github.com/ZerBea/hcxtools" target="_blank">hcxtools</a> ，由 <a href="https://github.com/ZerBea" target="_blank">ZerBea</a> 开发，名声已经超过了 <code>airdump-ng</code>。<code>wlandump-ng</code> 允许你一次性从每个附近的网络上全面抓取 handshake 信息，跳过 Wi-Fi 信道，以增加收集。</p>
+<p><a
+  href="https://github.com/enilfodne"
+    target="_blank"
+  >@enilfodne</a> 提到 hachcat 社区有一个<a
+  href="https://github.com/brannondorsey/wifi-cracking/issues/15"
+    target="_blank"
+  >更棒的工具</a>可以抓取 WPA 的 4-way handshakes。它是 hashcat 工具包的一部分，叫 <a
+  href="https://github.com/ZerBea/hcxtools"
+    target="_blank"
+  >hcxtools</a> ，由 <a
+  href="https://github.com/ZerBea"
+    target="_blank"
+  >ZerBea</a> 开发，名声已经超过了 <code>airdump-ng</code>。<code>wlandump-ng</code> 允许你一次性从每个附近的网络上全面抓取 handshake 信息，跳过 Wi-Fi 信道，以增加收集。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 克隆 hcxtools</span>
 </span></span><span class="line"><span class="cl">git clone https://github.com/ZerBea/hcxtools
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> hcxtools
@@ -1454,19 +1695,20 @@
 <li><code>-r</code>：如果循环在通道 1 上，则重置 deauthentication / detachosciation 计数器</li>
 <li><code>-s 20</code>：显示 20 条状态行</li>
 </ul>
-<p><strong>警告：</strong> 在大多数地方使用这个是不合法的。更多信息请参考<a href="https://github.com/ZerBea/hcxtools#warning" target="_blank">这里</a>。</p>
+<p><strong>警告：</strong> 在大多数地方使用这个是不合法的。更多信息请参考<a
+  href="https://github.com/ZerBea/hcxtools#warning"
+    target="_blank"
+  >这里</a>。</p>
 <p><code>wlandump-ng</code> 也提供了在被动模式下运行的选项，这时不会发送任何 deauth/disassociation 数据帧。 如果担心会影响到周围人使用网络（你应该是）时建议你使用这种模式。代价是你获得的 handshake 会少得多，不过用这种方法抓取不会被人察觉。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 在被动模式下使用默认设置运行</span>
 </span></span><span class="line"><span class="cl">wlandump-ng -i wlan0 -o capture.cap -p -s <span class="m">20</span>
 </span></span></code></pre></div>
-
 <h2 class="relative group">使用 <code>crunch</code> 生成单词列表 
-    <div id="%E4%BD%BF%E7%94%A8-crunch-%E7%94%9F%E6%88%90%E5%8D%95%E8%AF%8D%E5%88%97%E8%A1%A8" class="anchor"></div>
+    <div id="使用-crunch-生成单词列表" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8-crunch-%E7%94%9F%E6%88%90%E5%8D%95%E8%AF%8D%E5%88%97%E8%A1%A8" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%bf%e7%94%a8-crunch-%e7%94%9f%e6%88%90%e5%8d%95%e8%af%8d%e5%88%97%e8%a1%a8" aria-label="锚点">#</a>
     </span>        
     
 </h2>
@@ -1501,14 +1743,12 @@ Crunch 现在将生成以下行数：100000000
 </span></span><span class="line"><span class="cl"><span class="c1"># *************** 不要忘记最后的 &#39;-&#39;</span>
 </span></span><span class="line"><span class="cl">crunch <span class="m">10</span> <span class="m">10</span> -t <span class="s2">&#34;%%%%%%%%%%&#34;</span> <span class="p">|</span> aircrack-ng -a2 capture.cap -b 58:98:35:CB:A2:77 -w -
 </span></span></code></pre></div>
-
 <h2 class="relative group">利用 <code>macchanger</code> 保护你的个人信息 
-    <div id="%E5%88%A9%E7%94%A8-macchanger-%E4%BF%9D%E6%8A%A4%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF" class="anchor"></div>
+    <div id="利用-macchanger-保护你的个人信息" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%88%A9%E7%94%A8-macchanger-%E4%BF%9D%E6%8A%A4%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF" aria-label="锚点">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%a9%e7%94%a8-macchanger-%e4%bf%9d%e6%8a%a4%e4%bd%a0%e7%9a%84%e4%b8%aa%e4%ba%ba%e4%bf%a1%e6%81%af" aria-label="锚点">#</a>
     </span>        
     
 </h2>
@@ -1534,23 +1774,23 @@ Crunch 现在将生成以下行数：100000000
           
           
         </div>
-        
+
         
 
         
+
         
   
   <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
     
       
-      <a
-      target="_blank"
-      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://gwliang.com/posts/wifi-cracking/&amp;title=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
-      title="分享到 LinkedIn"
-      aria-label="分享到 LinkedIn"
-      >
-      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://gwliang.com/posts/wifi-cracking/&amp;title=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
+          title="分享到 LinkedIn"
+          aria-label="分享到 LinkedIn">
+          
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
@@ -1558,36 +1798,34 @@ Crunch 现在将生成以下行数：100000000
   </span>
 
 
-    </a>
+        </a>
       
     
       
-      <a
-      target="_blank"
-      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=https://gwliang.com/posts/wifi-cracking/&amp;text=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
-      title="分享到 Twitter"
-      aria-label="分享到 Twitter"
-      >
-      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://twitter.com/intent/tweet/?url=https://gwliang.com/posts/wifi-cracking/&amp;text=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
+          title="分享到 Twitter"
+          aria-label="分享到 Twitter">
+          
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
   </span>
 
 
-    </a>
+        </a>
       
     
       
-      <a
-      target="_blank"
-      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=https://gwliang.com/posts/wifi-cracking/&amp;resubmit=true&amp;title=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
-      title=""
-      aria-label=""
-      >
-      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://api.whatsapp.com/send?text=https://gwliang.com/posts/wifi-cracking/&amp;resubmit=true&amp;title=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
+          title=""
+          aria-label="">
+          
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
@@ -1595,18 +1833,17 @@ Crunch 现在将生成以下行数：100000000
   </span>
 
 
-    </a>
+        </a>
       
     
       
-      <a
-      target="_blank"
-      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=https://gwliang.com/posts/wifi-cracking/&amp;description=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
-      title="钉到 Pinterest"
-      aria-label="钉到 Pinterest"
-      >
-      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://pinterest.com/pin/create/bookmarklet/?url=https://gwliang.com/posts/wifi-cracking/&amp;description=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
+          title="钉到 Pinterest"
+          aria-label="钉到 Pinterest">
+          
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
@@ -1614,18 +1851,17 @@ Crunch 现在将生成以下行数：100000000
   </span>
 
 
-    </a>
+        </a>
       
     
       
-      <a
-      target="_blank"
-      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=https://gwliang.com/posts/wifi-cracking/&amp;resubmit=true&amp;title=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
-      title="提交到 Reddit"
-      aria-label="提交到 Reddit"
-      >
-      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://reddit.com/submit/?url=https://gwliang.com/posts/wifi-cracking/&amp;resubmit=true&amp;title=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
+          title="提交到 Reddit"
+          aria-label="提交到 Reddit">
+          
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
@@ -1633,18 +1869,17 @@ Crunch 现在将生成以下行数：100000000
   </span>
 
 
-    </a>
+        </a>
       
     
       
-      <a
-      target="_blank"
-      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=https://gwliang.com/posts/wifi-cracking/&amp;quote=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
-      title="分享到 Facebook"
-      aria-label="分享到 Facebook"
-      >
-      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.facebook.com/sharer/sharer.php?u=https://gwliang.com/posts/wifi-cracking/&amp;quote=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
+          title="分享到 Facebook"
+          aria-label="分享到 Facebook">
+          
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
@@ -1652,18 +1887,17 @@ Crunch 现在将生成以下行数：100000000
   </span>
 
 
-    </a>
+        </a>
       
     
       
-      <a
-      target="_blank"
-      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=https://gwliang.com/posts/wifi-cracking/&amp;subject=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
-      title="通过电子邮件发送"
-      aria-label="通过电子邮件发送"
-      >
-      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="mailto:?body=https://gwliang.com/posts/wifi-cracking/&amp;subject=Wi-Fi%20%e7%ad%89%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1%e6%96%b9%e6%b3%95"
+          title="通过电子邮件发送"
+          aria-label="通过电子邮件发送">
+          
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
@@ -1671,41 +1905,42 @@ Crunch 现在将生成以下行数：100000000
   </span>
 
 
-    </a>
+        </a>
       
     
   </section>
 
 
-          
-      </div>
-     
-      
-      
         
-        
-          
-          
-        
-      <script>
-        var oid = "views_posts\/wifi-cracking\/index.md"
-        var oid_likes = "likes_posts\/wifi-cracking\/index.md"
-      </script>
-      
-      
-      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
-      
-  
-    </section>
-  <footer class="pt-8 max-w-prose print:hidden">
 
-    
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/wifi-cracking/index.md"
+          data-oid-likes="likes_posts/wifi-cracking/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
   
     
     
     
     <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
       <div class="flex justify-between pt-3">
         <span>
           
@@ -1719,8 +1954,7 @@ Crunch 现在将生成以下行数：100000000
                 >&rarr;</span
               >
               <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
                   >[已过时] 从零开始实现hexo博客的在线编辑</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
@@ -1736,8 +1970,7 @@ Crunch 现在将生成以下行数：100000000
           
             <a class="flex text-right group ml-3" href="/posts/caddy-install/">
               <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
                   >【已过时】 一个极简的HTTP Server： Caddy一键安装脚本，带网站配置教程</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
@@ -1762,12 +1995,12 @@ Crunch 现在将生成以下行数：100000000
   
 
 
-    
-    
-    <div class="pt-3">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-      <div class="pt-3">
-        <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+      
+        
+          <div class="pt-3">
+            <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+            <div class="pt-3">
+              <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
 <div id="waline"></div>
 <script type="module">
     import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
@@ -1780,59 +2013,64 @@ Crunch 现在将生成以下行数：100000000
 </script>
 
 <span class="waline-pageview-count" />
-      </div>
-    </div>
-    
-    
-  </footer>
-</article>
+            </div>
+          </div>
+        
+      
+    </footer>
+  </article>
 
-      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
-  <a href="#the-top"
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-    aria-label="返回顶部" title="返回顶部">
+    aria-label="返回顶部"
+    title="返回顶部">
     &uarr;
   </a>
 </div>
-    </main><footer id="site-footer" class="py-10 print:hidden">
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
   
   
     
-    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
-      <ul class="flex flex-col list-none sm:flex-row">
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="Tags">
-            
-            标签
-          </a>
-        </li>
-        
-      </ul>
-    </nav>
+      <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+        <ul class="flex flex-col list-none sm:flex-row">
+          
+            <li
+              class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                href="/tags/"
+                title="Tags">
+                
+                标签
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
     
   
   <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          高玩梁
+      </p>
+    
 
     
     
-    <p class="text-sm text-neutral-500 dark:text-neutral-400">
-      &copy;
-      2025
-      高玩梁
-    </p>
-    
-
-    
-    
-    <p class="text-xs text-neutral-500 dark:text-neutral-400">
-      
-      
-      由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
-    </p>
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
     
 
   </div>
@@ -1844,23 +2082,22 @@ Crunch 现在将生成以下行数：100000000
       scrollOffset: 0,
     })
     
-  </script>
+  </script> 
   
-  
-  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
 </footer>
 <div
   id="search-wrapper"
-  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://gwliang.com/"
-  style="z-index:500"
->
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://gwliang.com/">
   <div
     id="search-modal"
-    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
-  >
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
     <header class="relative z-10 flex items-center justify-between flex-none px-2">
       <form class="flex items-center flex-auto min-w-0">
         <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
@@ -1878,14 +2115,12 @@ Crunch 现在将生成以下行数：100000000
           id="search-query"
           class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
           placeholder="搜索"
-          tabindex="0"
-        />
+          tabindex="0">
       </form>
       <button
         id="close-search-button"
         class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="关闭 (Esc)"
-      >
+        title="关闭 (Esc)">
         
 
   <span class="relative block icon">
@@ -1904,7 +2139,7 @@ Crunch 现在将生成以下行数：100000000
   </div>
 </div>
 
-  </div>
-</body>
-
+    </div>
+  </body>
+  
 </html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI Literacy on Gaowan Liang&#39;s Blog</title>
+    <link>https://gwliang.com/en/tags/ai-literacy/</link>
+    <description>Recent content in AI Literacy on Gaowan Liang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Gaowan Liang</copyright>
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gwliang.com/en/tags/ai-literacy/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How Large Language Models Are Redefining the Nature of Library Search</title>
+      <link>https://gwliang.com/en/posts/how-large-language-models-are-redefining-the-nature-of-library-search/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://gwliang.com/en/posts/how-large-language-models-are-redefining-the-nature-of-library-search/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;&lt;strong&gt;Introduction&lt;/strong&gt; 
+    &lt;div id=&#34;introduction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#introduction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Historically, it has been difficult for users to search for the data they want in libraries. In the era of traditional search, people could only find the information they wanted through physical directories and indexes. Users still need skills like knowing how to select the right terms and using Boolean logic (such as AND, OR, and NOT) to make their searches more exact. The system works in basic ways, but there is a big difference between the way people search and the way the system works. However, there is a new technology that can change this. This is the Large Language Model, also known as LLM. ChatGPT is a well-known example of an LLM. It has quickly become popular with students and researchers for different tasks (Chigwada and Pasipamire, 2024). LLMs can understand and create text that sounds a lot like the language we use. This will change how we access and use information.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

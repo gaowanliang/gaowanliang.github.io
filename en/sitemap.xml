@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://gwliang.com/en/posts/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -19,8 +19,20 @@
     />
   </url>
   <url>
+    <loc>https://gwliang.com/en/tags/ai-literacy/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/categories/artificial-intelligence/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://gwliang.com/en/categories/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -36,7 +48,7 @@
   </url>
   <url>
     <loc>https://gwliang.com/en/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -49,6 +61,52 @@
       hreflang="en"
       href="https://gwliang.com/en/"
     />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/posts/how-large-language-models-are-redefining-the-nature-of-library-search/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/large-language-models/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/categories/library-science/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/library-search/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/tags/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://gwliang.com/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://gwliang.com/en/tags/"
+    />
+  </url>
+  <url>
+    <loc>https://gwliang.com/en/categories/technology/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://gwliang.com/en/tags/linux/</loc>
@@ -84,28 +142,6 @@
   </url>
   <url>
     <loc>https://gwliang.com/en/categories/software/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://gwliang.com/en/tags/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://gwliang.com/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://gwliang.com/en/tags/"
-    />
-  </url>
-  <url>
-    <loc>https://gwliang.com/en/categories/technology/</loc>
     <lastmod>2025-03-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
